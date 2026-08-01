@@ -7,7 +7,7 @@ export default function MyopiaControlPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-40 px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
+      <section className="relative py-20 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
@@ -22,7 +22,7 @@ export default function MyopiaControlPage() {
             <span>BACK TO SERVICES</span>
           </Link>
           <div className="text-[#C85A3E] text-sm font-bold mb-6 tracking-widest">PEDIATRIC VISION</div>
-          <h1 className="font-display text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
+          <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
             MYOPIA<br/>CONTROL
           </h1>
           <p className="text-xl text-[#B8C4CE] max-w-2xl">
@@ -32,7 +32,7 @@ export default function MyopiaControlPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
           <div className="text-center p-10 bg-[#0A1828] text-white">
             <div className="font-display text-7xl mb-4">45 min</div>
@@ -50,7 +50,7 @@ export default function MyopiaControlPage() {
 
         {/* Why Myopia Control Matters */}
         <div className="mb-20">
-          <h2 className="font-display text-5xl lg:text-7xl mb-6">WHY IT MATTERS</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-6">WHY IT MATTERS</h2>
           <div className="h-2 w-32 bg-[#C85A3E]"></div>
         </div>
 
@@ -70,9 +70,9 @@ export default function MyopiaControlPage() {
       </section>
 
       {/* Treatment Options */}
-      <section className="py-32 px-8 lg:px-16 bg-[#0A1828] text-white">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20 text-center">TREATMENT OPTIONS</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20 text-center">TREATMENT OPTIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               { title: 'ORTHOKERATOLOGY (ORTHO-K)', desc: 'Specially shaped overnight contact lenses that gently reshape the cornea while sleeping — no lenses needed during the day.' },
@@ -93,9 +93,9 @@ export default function MyopiaControlPage() {
       </section>
 
       {/* Process */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
           <div className="space-y-12">
             {[
               { num: '1', title: 'MYOPIA ASSESSMENT', desc: 'Complete evaluation of current prescription and eye growth measurements' },
@@ -105,7 +105,7 @@ export default function MyopiaControlPage() {
               { num: '5', title: 'ADJUSTMENT', desc: 'Treatment plan updated as your child grows to maintain optimal control' }
             ].map((step) => (
               <div key={step.num} className="flex items-start space-x-8 border-b-2 border-[#0A1828]/10 pb-8">
-                <div className="w-24 h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-5xl">{step.num}</span>
                 </div>
                 <div className="pt-4">
@@ -126,10 +126,10 @@ export default function MyopiaControlPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
-        <h2 className="font-display text-6xl lg:text-8xl mb-8">PROTECT THEIR FUTURE</h2>
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
+        <h2 className="font-display text-3xl sm:text-6xl lg:text-8xl mb-8">PROTECT THEIR FUTURE</h2>
         <p className="text-xl mb-12 opacity-90">Early intervention can make a lifetime of difference for your child's vision</p>
-        <a href="#book" className="inline-block px-12 py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
+        <a href="#book" className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
           BOOK MYOPIA EVALUATION
         </a>
       </section>

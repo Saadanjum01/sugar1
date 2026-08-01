@@ -7,7 +7,7 @@ export default function EmergencyMedicalExamPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-40 px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
+      <section className="relative py-20 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
@@ -22,7 +22,7 @@ export default function EmergencyMedicalExamPage() {
             <span>BACK TO SERVICES</span>
           </Link>
           <div className="text-[#C85A3E] text-sm font-bold mb-6 tracking-widest">URGENT EYE CARE</div>
-          <h1 className="font-display text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
+          <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
             EMERGENCY<br/>EYE<br/>CARE
           </h1>
           <p className="text-xl text-[#B8C4CE] max-w-2xl">
@@ -49,9 +49,9 @@ export default function EmergencyMedicalExamPage() {
       </section>
 
       {/* Conditions We Treat */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="mb-20">
-          <h2 className="font-display text-5xl lg:text-7xl mb-6">CONDITIONS WE TREAT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-6">CONDITIONS WE TREAT</h2>
           <div className="h-2 w-32 bg-[#C85A3E]"></div>
         </div>
 
@@ -73,9 +73,9 @@ export default function EmergencyMedicalExamPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 px-8 lg:px-16 bg-[#0A1828] text-white">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20 text-center">WHY COME TO US</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20 text-center">WHY COME TO US</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               { title: 'FASTER THAN THE ER', desc: 'Eye emergencies seen faster at our office than a general emergency room. We specialize in eye care — no waiting behind unrelated cases.' },
@@ -96,9 +96,9 @@ export default function EmergencyMedicalExamPage() {
       </section>
 
       {/* First Aid While You Wait */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20">WHILE YOU WAIT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20">WHILE YOU WAIT</h2>
           <div className="space-y-12">
             {[
               { num: '1', title: 'DO NOT RUB YOUR EYE', desc: 'Rubbing can worsen injuries and drive foreign objects deeper into the tissue' },
@@ -107,7 +107,7 @@ export default function EmergencyMedicalExamPage() {
               { num: '4', title: 'CALL US IMMEDIATELY', desc: 'Call 281-916-2020 so we can prepare for your arrival and provide guidance' }
             ].map((step) => (
               <div key={step.num} className="flex items-start space-x-8 border-b-2 border-[#0A1828]/10 pb-8">
-                <div className="w-24 h-24 bg-[#C85A3E] text-white flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-[#C85A3E] text-white flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-5xl">{step.num}</span>
                 </div>
                 <div className="pt-4">
@@ -128,11 +128,11 @@ export default function EmergencyMedicalExamPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
-        <h2 className="font-display text-6xl lg:text-8xl mb-8">DON'T WAIT</h2>
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
+        <h2 className="font-display text-3xl sm:text-6xl lg:text-8xl mb-8">DON'T WAIT</h2>
         <p className="text-xl mb-4 opacity-90">Eye emergencies require immediate attention</p>
         <p className="text-2xl font-bold mb-12">Call us now: <a href="tel:281-916-2020" className="underline">281-916-2020</a></p>
-        <a href="#book" className="inline-block px-12 py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
+        <a href="#book" className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
           SCHEDULE URGENT VISIT
         </a>
       </section>

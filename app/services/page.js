@@ -77,24 +77,24 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="py-32 lg:py-40 px-8 lg:px-16 bg-[#0A1828] text-white">
-        <Link href="/" className="inline-flex items-center space-x-2 text-sm font-medium mb-12 hover:text-[#C85A3E] transition-colors">
+      <section className="py-20 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
+        <Link href="/" className="inline-flex items-center space-x-2 text-sm font-medium mb-8 sm:mb-12 hover:text-[#C85A3E] transition-colors">
           <span>←</span>
           <span>BACK</span>
         </Link>
         <div className="max-w-6xl">
-          <div className="text-[#D67C5F] text-xs font-bold mb-6 tracking-widest">INDEX OF SERVICES</div>
-          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6">
+          <div className="text-[#C85A3E] text-xs font-bold mb-4 sm:mb-6 tracking-widest">INDEX OF SERVICES</div>
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6">
             COMPLETE<br/>EYE CARE
           </h1>
-          <p className="text-xl text-[#B8C4CE] max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-xl text-[#B8C4CE] max-w-2xl leading-relaxed">
             Eight specialized services designed for your vision, health, and lifestyle.
           </p>
         </div>
       </section>
 
       {/* Services Index */}
-      <section className="py-20 lg:py-32 px-8 lg:px-16">
+      <section className="py-12 sm:py-20 lg:py-32 px-4 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div key={service.slug}>
@@ -102,15 +102,15 @@ export default function ServicesPage() {
                 onClick={() => setExpandedService(expandedService === index ? null : index)}
                 className="w-full group"
               >
-                <div className="grid grid-cols-[80px_1fr_auto] lg:grid-cols-[120px_2fr_3fr_auto] gap-6 lg:gap-12 items-center py-8 hover:bg-[#0A1828]/5 transition-colors px-6 lg:px-8">
+                <div className="grid grid-cols-[40px_1fr_auto] sm:grid-cols-[80px_1fr_auto] lg:grid-cols-[120px_2fr_3fr_auto] gap-3 sm:gap-6 lg:gap-12 items-center py-6 sm:py-8 hover:bg-[#0A1828]/5 transition-colors px-3 sm:px-6 lg:px-8">
                   {/* Number */}
-                  <div className="font-display text-5xl lg:text-7xl font-black text-[#0A1828]/20 group-hover:text-[#C85A3E] transition-colors">
+                  <div className="font-display text-2xl sm:text-5xl lg:text-7xl font-black text-[#0A1828]/20 group-hover:text-[#C85A3E] transition-colors">
                     {service.number}
                   </div>
 
                   {/* Service Name */}
                   <div className="text-left">
-                    <h3 className="font-display text-2xl lg:text-4xl font-black leading-tight group-hover:text-[#C85A3E] transition-colors">
+                    <h3 className="font-display text-lg sm:text-2xl lg:text-4xl font-black leading-tight group-hover:text-[#C85A3E] transition-colors">
                       {service.title}
                     </h3>
                   </div>
@@ -126,9 +126,9 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-end space-x-4">
                     <span className="hidden lg:inline text-xs text-[#8B9A9F] font-medium">{service.duration}</span>
                     {expandedService === index ? (
-                      <Minus size={24} className="text-[#C85A3E]" />
+                      <Minus size={20} className="text-[#C85A3E]" />
                     ) : (
-                      <Plus size={24} className="text-[#8B9A9F] group-hover:text-[#C85A3E] transition-colors" />
+                      <Plus size={20} className="text-[#8B9A9F] group-hover:text-[#C85A3E] transition-colors" />
                     )}
                   </div>
                 </div>
@@ -138,16 +138,16 @@ export default function ServicesPage() {
               <div className={`overflow-hidden transition-all duration-500 ${
                 expandedService === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}>
-                <div className="px-6 lg:px-8 pb-8 pt-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-6 lg:gap-12">
-                    <div></div>
-                    <div className="space-y-6">
+                <div className="px-4 sm:px-6 lg:px-8 pb-8 pt-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-[120px_1fr] gap-4 sm:gap-6 lg:gap-12">
+                    <div className="hidden lg:block"></div>
+                    <div className="space-y-4 sm:space-y-6">
                       {/* Mobile tagline */}
-                      <p className="lg:hidden text-[#C85A3E] text-sm font-medium">
+                      <p className="lg:hidden text-[#C85A3E] text-xs sm:text-sm font-medium">
                         {service.tagline}
                       </p>
                       
-                      <p className="text-[#0A1828] text-lg leading-relaxed">
+                      <p className="text-[#0A1828] text-base sm:text-lg leading-relaxed">
                         {service.description}
                       </p>
                       
@@ -173,15 +173,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#D67C5F] text-white">
+      <section className="py-20 sm:py-32 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display text-5xl lg:text-7xl font-black mb-8">SCHEDULE YOUR VISIT</h2>
-          <p className="text-xl mb-12 opacity-90">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl font-black mb-6 sm:mb-8">SCHEDULE YOUR VISIT</h2>
+          <p className="text-lg sm:text-xl mb-8 sm:mb-12 opacity-90">
             Experience comprehensive eye care tailored to your needs.
           </p>
           <a 
             href="#book" 
-            className="inline-block px-12 py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all rounded-xl"
+            className="inline-block px-10 sm:px-12 py-4 sm:py-5 bg-white text-[#0A1828] font-bold text-base sm:text-lg hover:bg-[#0A1828] hover:text-white transition-all rounded-xl"
           >
             BOOK APPOINTMENT
           </a>

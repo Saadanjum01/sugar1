@@ -7,7 +7,7 @@ export default function SportsVisionPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-40 px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
+      <section className="relative py-20 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-16 overflow-hidden bg-[#0A1828] text-white">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
@@ -22,7 +22,7 @@ export default function SportsVisionPage() {
             <span>BACK TO SERVICES</span>
           </Link>
           <div className="text-[#C85A3E] text-sm font-bold mb-6 tracking-widest">ATHLETIC PERFORMANCE</div>
-          <h1 className="font-display text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
+          <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
             SPORTS<br/>VISION
           </h1>
           <p className="text-xl text-[#B8C4CE] max-w-2xl">
@@ -32,7 +32,7 @@ export default function SportsVisionPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
           <div className="text-center p-10 bg-[#0A1828] text-white">
             <div className="font-display text-7xl mb-4">60</div>
@@ -50,7 +50,7 @@ export default function SportsVisionPage() {
 
         {/* Visual Skills We Train */}
         <div className="mb-20">
-          <h2 className="font-display text-5xl lg:text-7xl mb-6">VISUAL SKILLS WE ASSESS</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-6">VISUAL SKILLS WE ASSESS</h2>
           <div className="h-2 w-32 bg-[#C85A3E]"></div>
         </div>
 
@@ -72,9 +72,9 @@ export default function SportsVisionPage() {
       </section>
 
       {/* Sports We Support */}
-      <section className="py-32 px-8 lg:px-16 bg-[#0A1828] text-white">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20 text-center">SPORTS WE SUPPORT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20 text-center">SPORTS WE SUPPORT</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['BASEBALL', 'TENNIS', 'BASKETBALL', 'SOCCER', 'GOLF', 'SWIMMING', 'CYCLING', 'FOOTBALL'].map((sport) => (
               <div key={sport} className="aspect-square border-2 border-white/20 flex items-center justify-center hover:bg-[#C85A3E] hover:border-[#C85A3E] transition-all group">
@@ -86,9 +86,9 @@ export default function SportsVisionPage() {
       </section>
 
       {/* Process */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
           <div className="space-y-12">
             {[
               { num: '1', title: 'BASELINE EXAM', desc: 'Complete vision testing to establish your current visual capabilities' },
@@ -98,7 +98,7 @@ export default function SportsVisionPage() {
               { num: '5', title: 'PROGRESS TRACKING', desc: 'Follow-up evaluations to measure improvement and adjust the plan' }
             ].map((step) => (
               <div key={step.num} className="flex items-start space-x-8 border-b-2 border-[#0A1828]/10 pb-8">
-                <div className="w-24 h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-5xl">{step.num}</span>
                 </div>
                 <div className="pt-4">
@@ -119,10 +119,10 @@ export default function SportsVisionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
-        <h2 className="font-display text-6xl lg:text-8xl mb-8">GAIN THE EDGE</h2>
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#0A1828] text-white text-center">
+        <h2 className="font-display text-3xl sm:text-6xl lg:text-8xl mb-8">GAIN THE EDGE</h2>
         <p className="text-xl mb-12 opacity-90">Your vision is your most powerful athletic tool — optimize it</p>
-        <a href="#book" className="inline-block px-12 py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
+        <a href="#book" className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all">
           BOOK SPORTS VISION EXAM
         </a>
       </section>

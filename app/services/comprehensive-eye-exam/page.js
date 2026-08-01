@@ -7,13 +7,13 @@ export default function ComprehensiveEyeExamPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-40 px-8 lg:px-16 bg-gradient-to-br from-[#1a2332] via-[#0f1a28] to-[#0A1828] text-white">
+      <section className="relative py-20 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#1a2332] via-[#0f1a28] to-[#0A1828] text-white">
         <Link href="/services" className="inline-flex items-center space-x-2 text-sm font-bold mb-12 hover:text-[#C85A3E] transition-colors">
           <span>←</span>
           <span>BACK TO SERVICES</span>
         </Link>
         <div className="text-[#C85A3E] text-sm font-bold mb-6 tracking-widest">COMPREHENSIVE CARE</div>
-        <h1 className="font-display text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
+        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-8">
           COMPLETE<br/>EYE EXAM
         </h1>
         <p className="text-xl text-[#B8C4CE] max-w-2xl">
@@ -22,7 +22,7 @@ export default function ComprehensiveEyeExamPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
           <div className="text-center p-10 bg-[#0A1828] text-white rounded-2xl">
             <div className="font-display text-7xl mb-4">45-60</div>
@@ -40,7 +40,7 @@ export default function ComprehensiveEyeExamPage() {
 
         {/* What We Check */}
         <div className="mb-20">
-          <h2 className="font-display text-5xl lg:text-7xl mb-6">WHAT WE EVALUATE</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-6">WHAT WE EVALUATE</h2>
           <div className="h-2 w-32 bg-[#C85A3E]"></div>
         </div>
 
@@ -62,9 +62,9 @@ export default function ComprehensiveEyeExamPage() {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-32 px-8 lg:px-16 bg-[#0A1828] text-white">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20 text-center">WHY IT MATTERS</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20 text-center">WHY IT MATTERS</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="border-l-4 border-[#C85A3E] pl-8">
@@ -111,9 +111,9 @@ export default function ComprehensiveEyeExamPage() {
       </section>
 
       {/* Process */}
-      <section className="py-32 px-8 lg:px-16">
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-20">WHAT TO EXPECT</h2>
           
           <div className="space-y-12">
             {[
@@ -124,7 +124,7 @@ export default function ComprehensiveEyeExamPage() {
               { num: '5', title: 'RESULTS & PLAN', desc: 'Review findings and discuss personalized recommendations' }
             ].map((step) => (
               <div key={step.num} className="flex items-start space-x-8 border-b-2 border-[#0A1828]/10 pb-8">
-                <div className="w-24 h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0 rounded-2xl">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-[#0A1828] text-white flex items-center justify-center flex-shrink-0 rounded-2xl">
                   <span className="font-display text-5xl">{step.num}</span>
                 </div>
                 <div className="pt-4">
@@ -146,10 +146,10 @@ export default function ComprehensiveEyeExamPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#D67C5F] text-white text-center">
-        <h2 className="font-display text-6xl lg:text-8xl mb-8">SCHEDULE YOUR EXAM</h2>
+      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-gradient-to-br from-[#C85A3E] to-[#D67C5F] text-white text-center">
+        <h2 className="font-display text-3xl sm:text-6xl lg:text-8xl mb-8">SCHEDULE YOUR EXAM</h2>
         <p className="text-xl mb-12 opacity-90">Protect your vision with expert care</p>
-        <a href="#book" className="inline-block px-12 py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all rounded-xl">
+        <a href="#book" className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-white text-[#0A1828] font-bold text-lg hover:bg-[#0A1828] hover:text-white transition-all rounded-xl">
           BOOK APPOINTMENT
         </a>
       </section>
