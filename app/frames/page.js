@@ -1,202 +1,160 @@
 'use client'
 
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { useState, useMemo } from 'react'
+
+const BRANDS = ['Tom Ford', 'Wiley X', 'Ray-Ban', 'Oakley', 'Warby Parker']
+const STYLES = ['Optical', 'Sunglasses', 'Sport']
+
+const PRODUCTS = [
+  { id: 1, name: 'Havana Round', brand: 'Tom Ford', style: 'Optical', price: 285, img: '/images/frames/frame-01.jpg' },
+  { id: 2, name: 'Aviator Classic', brand: 'Ray-Ban', style: 'Sunglasses', price: 165, img: '/images/frames/frame-02.jpg' },
+  { id: 3, name: 'Tortoise Rim', brand: 'Warby Parker', style: 'Optical', price: 145, img: '/images/frames/frame-03.jpg' },
+  { id: 4, name: 'Field Runner', brand: 'Wiley X', style: 'Sport', price: 195, img: '/images/frames/frame-04.jpg' },
+  { id: 5, name: 'Minimal Steel', brand: 'Warby Parker', style: 'Optical', price: 135, img: '/images/frames/frame-05.jpg' },
+  { id: 6, name: 'Gold Round', brand: 'Tom Ford', style: 'Optical', price: 310, img: '/images/frames/frame-06.jpg' },
+  { id: 7, name: 'Slim Acetate', brand: 'Ray-Ban', style: 'Optical', price: 175, img: '/images/frames/frame-07.jpg' },
+  { id: 8, name: 'Everyday Black', brand: 'Warby Parker', style: 'Optical', price: 125, img: '/images/frames/frame-08.jpg' },
+  { id: 9, name: 'Clear Crystal', brand: 'Ray-Ban', style: 'Optical', price: 155, img: '/images/frames/frame-09.jpg' },
+  { id: 10, name: 'Signature Gold', brand: 'Tom Ford', style: 'Sunglasses', price: 340, img: '/images/frames/frame-10.jpg' },
+  { id: 11, name: 'Tablet Thin', brand: 'Warby Parker', style: 'Optical', price: 140, img: '/images/frames/frame-11.jpg' },
+  { id: 12, name: 'Matte Black Wrap', brand: 'Oakley', style: 'Sport', price: 210, img: '/images/frames/frame-12.jpg' },
+  { id: 13, name: 'Studio Frame', brand: 'Ray-Ban', style: 'Sunglasses', price: 180, img: '/images/frames/frame-13.jpg' },
+  { id: 14, name: 'Everyday Sport', brand: 'Wiley X', style: 'Sport', price: 220, img: '/images/frames/frame-14.jpg' },
+  { id: 15, name: 'Leather Case Set', brand: 'Oakley', style: 'Sunglasses', price: 250, img: '/images/frames/frame-15.jpg' },
+  { id: 16, name: 'Bold Rectangle', brand: 'Oakley', style: 'Sunglasses', price: 190, img: '/images/frames/frame-16.jpg' },
+  { id: 17, name: 'Mirror Red', brand: 'Wiley X', style: 'Sport', price: 205, img: '/images/frames/frame-17.jpg' },
+  { id: 18, name: 'Pouch Classic', brand: 'Oakley', style: 'Sunglasses', price: 225, img: '/images/frames/frame-18.jpg' },
+  { id: 19, name: 'Color Pop Set', brand: 'Warby Parker', style: 'Sunglasses', price: 150, img: '/images/frames/frame-19.jpg' },
+  { id: 20, name: 'Red Accent', brand: 'Ray-Ban', style: 'Sunglasses', price: 170, img: '/images/frames/frame-20.jpg' },
+  { id: 21, name: 'Sunset Wrap', brand: 'Wiley X', style: 'Sport', price: 215, img: '/images/frames/frame-21.jpg' },
+  { id: 22, name: 'Everyday Classic', brand: 'Warby Parker', style: 'Optical', price: 130, img: '/images/frames/frame-22.jpg' },
+]
 
 export default function FramesPage() {
+  const [brandFilter, setBrandFilter] = useState('All')
+  const [styleFilter, setStyleFilter] = useState('All')
+  const [sort, setSort] = useState('featured')
+
+  const filtered = useMemo(() => {
+    let list = PRODUCTS.filter((p) => {
+      if (brandFilter !== 'All' && p.brand !== brandFilter) return false
+      if (styleFilter !== 'All' && p.style !== styleFilter) return false
+      return true
+    })
+    if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price)
+    if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price)
+    return list
+  }, [brandFilter, styleFilter, sort])
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.pexels.com/photos/30271002/pexels-photo-30271002.jpeg"
-            alt="Designer eyewear"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1828] via-[#0A1828]/80 to-transparent"></div>
-        </div>
-        
-        <div className="relative z-10 w-full px-5 sm:px-8 lg:px-16 py-20 sm:py-32">
-          <Link href="/" className="inline-flex items-center space-x-2 text-sm font-bold mb-8 sm:mb-12 text-white hover:text-[#C85A3E] transition-colors">
-            <span>←</span>
-            <span>BACK</span>
-          </Link>
-          <div className="max-w-4xl">
-            <div className="text-[#C85A3E] text-xs sm:text-sm font-bold mb-4 sm:mb-6 tracking-widest">PREMIUM EYEWEAR</div>
-            <h1 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-[0.95] sm:leading-[0.9] mb-6 sm:mb-8">
-              DESIGNER<br/>FRAMES
-            </h1>
-            <p className="text-base sm:text-xl text-[#B8C4CE] max-w-xl mb-8 sm:mb-12 leading-relaxed">
-              Curated collection of luxury eyewear from world-renowned designers. Style meets function.
-            </p>
-          </div>
-        </div>
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white text-center">
+        <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">EYEWEAR</div>
+        <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">Frame brands we carry</h1>
+        <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
+          A curated selection of quality eyewear, with more brands added regularly. Browse our catalogue below.
+        </p>
       </section>
 
-      {/* Brands Grid */}
-      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16">
-        <div className="mb-12 sm:mb-20">
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-4 sm:mb-6">FEATURED BRANDS</h2>
-          <div className="h-1.5 sm:h-2 w-24 sm:w-32 bg-[#C85A3E]"></div>
-        </div>
-
-        {/* Tom Ford */}
-        <div className="mb-20 sm:mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12">
-            <div>
-              <div className="text-[#C85A3E] text-xs sm:text-sm font-bold mb-4 tracking-widest">LUXURY FASHION</div>
-              <h3 className="font-display text-4xl sm:text-6xl lg:text-8xl mb-6 sm:mb-8">TOM FORD</h3>
-              <p className="text-base sm:text-xl text-[#8B9A9F] mb-6 sm:mb-8 leading-relaxed">
-                Italian craftsmanship meets modern elegance. Bold designs that command attention and exude confidence.
-              </p>
-              <div className="space-y-3 sm:space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">Handcrafted in Italy</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">Premium acetate & metal</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">Iconic T-logo detail</span>
-                </div>
-              </div>
-              <button className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 sm:px-10 py-4 bg-[#0A1828] text-white font-bold hover:bg-[#C85A3E] transition-all rounded-xl">
-                <span>VIEW COLLECTION</span>
-                <ArrowRight size={20} />
-              </button>
+      {/* Brand cards */}
+      <section className="py-14 sm:py-16 px-5 sm:px-8 lg:px-16">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="bg-[#F6F6F8] rounded-2xl p-7 text-center">
+            <div className="rounded-xl overflow-hidden h-24 mb-4">
+              <img src="/images/frames/frame-06.jpg" alt="Tom Ford eyewear" className="w-full h-full object-cover" />
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?crop=entropy&cs=srgb&fm=jpg&q=85&w=600"
-                  alt="Tom Ford eyewear collection"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/30271002/pexels-photo-30271002.jpeg"
-                  alt="Tom Ford eyewear"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1643110279326-6ff17149856a"
-                  alt="Tom Ford frames"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1508296695146-257a814070b4?crop=entropy&cs=srgb&fm=jpg&q=85&w=600"
-                  alt="Luxury eyewear"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="font-bold text-[#1E2749]">Tom Ford</div>
+          </div>
+          <div className="bg-[#F6F6F8] rounded-2xl p-7 text-center">
+            <div className="rounded-xl overflow-hidden h-24 mb-4">
+              <img src="/images/frames/frame-04.jpg" alt="Wiley X eyewear" className="w-full h-full object-cover" />
             </div>
+            <div className="font-bold text-[#1E2749]">Wiley X</div>
+          </div>
+          <div className="bg-[#F6F6F8] rounded-2xl p-7 text-center flex flex-col items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-4">
+              <span className="text-[#B33951] font-black text-lg">+</span>
+            </div>
+            <div className="font-bold text-[#1E2749]">More Brands Soon</div>
           </div>
         </div>
-
-        {/* Wiley X */}
-        <div className="mb-20 sm:mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/5201894/pexels-photo-5201894.jpeg"
-                    alt="Wiley X sports eyewear"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/5201894/pexels-photo-5201894.jpeg"
-                    alt="Wiley X eyewear"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1769414123505-d53607809609?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxkZXNpZ25lciUyMGdsYXNzZXN8ZW58MHx8fHwxNzg1NDM2Mzg4fDA&ixlib=rb-4.1.0&q=85"
-                    alt="Wiley X frames"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?crop=entropy&cs=srgb&fm=jpg&q=85&w=600"
-                    alt="Wiley X protective frames"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="text-[#C85A3E] text-xs sm:text-sm font-bold mb-4 tracking-widest">PERFORMANCE & PROTECTION</div>
-              <h3 className="font-display text-4xl sm:text-6xl lg:text-8xl mb-6 sm:mb-8">WILEY X</h3>
-              <p className="text-base sm:text-xl text-[#8B9A9F] mb-6 sm:mb-8 leading-relaxed">
-                High-performance eyewear engineered for protection. Perfect for active lifestyles, sports, and tactical applications.
-              </p>
-              <div className="space-y-3 sm:space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">ANSI Z87.1 certified</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">Shatterproof lenses</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[#C85A3E] rounded-full"></div>
-                  <span className="text-base sm:text-lg">UV400 protection</span>
-                </div>
-              </div>
-              <button className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 sm:px-10 py-4 bg-[#0A1828] text-white font-bold hover:bg-[#C85A3E] transition-all rounded-xl">
-                <span>VIEW COLLECTION</span>
-                <ArrowRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
+        <p className="text-center text-xs text-[#59607A] mt-6 max-w-2xl mx-auto">
+          Product photography shown is representative stock photography for demo purposes, not official brand imagery or real inventory. Prices are illustrative placeholders.
+        </p>
       </section>
 
-      {/* Lens Options */}
-      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 bg-[#0A1828] text-white">
+      {/* Catalogue */}
+      <section className="py-8 sm:py-12 px-5 sm:px-8 lg:px-16 bg-[#F6F6F8]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-12 sm:mb-20 text-center">PREMIUM LENS OPTIONS</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { title: 'ANTI-REFLECTIVE', desc: 'Eliminates glare for clearer vision' },
-              { title: 'BLUE LIGHT', desc: 'Filters harmful digital screen light' },
-              { title: 'PROGRESSIVE', desc: 'Seamless multi-distance correction' },
-              { title: 'PHOTOCHROMIC', desc: 'Auto-adjusting to light conditions' },
-              { title: 'POLARIZED', desc: 'Superior glare reduction outdoors' },
-              { title: 'HIGH-INDEX', desc: 'Thinner, lighter for strong Rx' }
-            ].map((lens) => (
-              <div key={lens.title} className="border-2 border-white/20 p-6 sm:p-8 hover:bg-[#C85A3E] hover:border-[#C85A3E] transition-all group rounded-2xl">
-                <h3 className="font-display text-xl sm:text-2xl mb-3 group-hover:text-white">{lens.title}</h3>
-                <p className="text-[#B8C4CE] text-sm sm:text-base group-hover:text-white/90">{lens.desc}</p>
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            <select
+              value={brandFilter}
+              onChange={(e) => setBrandFilter(e.target.value)}
+              className="px-4 py-2.5 rounded-full border border-[#1E2749]/15 bg-white text-sm font-semibold text-[#1E2749] focus:outline-none focus:border-[#B33951]"
+            >
+              <option value="All">All Brands</option>
+              {BRANDS.map((b) => <option key={b} value={b}>{b}</option>)}
+            </select>
+            <select
+              value={styleFilter}
+              onChange={(e) => setStyleFilter(e.target.value)}
+              className="px-4 py-2.5 rounded-full border border-[#1E2749]/15 bg-white text-sm font-semibold text-[#1E2749] focus:outline-none focus:border-[#B33951]"
+            >
+              <option value="All">All Styles</option>
+              {STYLES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="px-4 py-2.5 rounded-full border border-[#1E2749]/15 bg-white text-sm font-semibold text-[#1E2749] focus:outline-none focus:border-[#B33951]"
+            >
+              <option value="featured">Sort: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+            <div className="ml-auto text-sm text-[#59607A] font-semibold">{filtered.length} frames</div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            {filtered.map((p) => (
+              <div key={p.id} className="bg-white rounded-2xl overflow-hidden group">
+                <div className="aspect-square overflow-hidden bg-[#F6F6F8]">
+                  <img
+                    src={p.img}
+                    alt={`${p.brand} ${p.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <div className="text-[11px] font-bold text-[#B33951] tracking-wide mb-1">{p.brand.toUpperCase()}</div>
+                  <h4 className="font-bold text-[#1E2749] text-sm mb-1">{p.name}</h4>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#59607A] text-xs">{p.style}</span>
+                    <span className="font-bold text-[#1E2749] text-sm">${p.price}</span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+
+          {filtered.length === 0 && (
+            <div className="text-center py-16 text-[#59607A]">No frames match those filters.</div>
+          )}
         </div>
       </section>
 
-      {/* Coming Soon */}
-      <section className="py-16 sm:py-24 lg:py-32 px-5 sm:px-8 lg:px-16 text-center">
-        <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl mb-6 sm:mb-8">MORE COMING SOON</h2>
-        <p className="text-base sm:text-xl text-[#8B9A9F] max-w-2xl mx-auto mb-8 sm:mb-12">
-          We're constantly expanding our collection. Visit our office to see our full selection and find your perfect frames.
+      {/* CTA */}
+      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16 text-center">
+        <h2 className="font-display text-2xl sm:text-4xl font-black text-[#1E2749] mb-4">Find your next pair</h2>
+        <p className="text-[#59607A] text-base sm:text-lg max-w-xl mx-auto mb-8">
+          Visit us in Sugar Land to browse our full frame collection in person.
         </p>
-        <a href="#book" className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-[#C85A3E] text-white font-bold text-base sm:text-lg hover:bg-[#0A1828] transition-all rounded-xl">
-          SCHEDULE FITTING
+        <a
+          href="#book"
+          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
+        >
+          BOOK AN APPOINTMENT
         </a>
       </section>
     </div>

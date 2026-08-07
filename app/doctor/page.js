@@ -1,101 +1,68 @@
-'use client'
-
-import Link from 'next/link'
-
 export default function DoctorPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Stacked Editorial Layout - Full Width Image Top */}
-      <section className="relative">
-        {/* Full-Width Portrait Hero */}
-        <div className="relative h-[40vh] sm:h-[60vh] overflow-hidden border-b-2 border-[#0A1828]">
-          <img 
-            src="https://images.unsplash.com/photo-1758656321505-95bf802f9a4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY6OTF8MHwxfHNlYXJjaHwxfHxleWUlMjBjYXJlJTIwcHJvZmVzc2lvbmFsfGVufDB8fHx8MTc4MjgxODc4Mnww&ixlib=rb-4.1.0&q=85"
-            alt="Dr. Shiroz Virani"
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white"></div>
-        </div>
+      {/* Hero */}
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white text-center">
+        <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">OUR DOCTOR</div>
+        <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">Meet the team behind your care</h1>
+        <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
+          A patient-first approach to every visit, combining advanced technology with genuine, unhurried care.
+        </p>
+      </section>
 
-        {/* Centered Name Block Overlapping Image */}
-        <div className="relative -mt-12 sm:-mt-20 px-4 sm:px-8 lg:px-16">
-          <div className="max-w-4xl mx-auto bg-[#0A1828] text-white p-6 sm:p-12 lg:p-16 rounded-2xl">
-            <div className="text-[#C85A3E] text-xs tracking-[0.3em] mb-4 sm:mb-6">OPTOMETRIST</div>
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-8xl font-black leading-none mb-6 sm:mb-8">
-              SHIROZ<br/>VIRANI,<br/>O.D.
-            </h1>
-            <div className="h-px w-24 sm:w-32 bg-[#C85A3E]"></div>
+      {/* Bio */}
+      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 lg:gap-14 items-start">
+          <div className="rounded-2xl overflow-hidden h-[420px]">
+            <img src="/images/doctor-portrait.jpg" alt="Dr. Shiroz Virani, O.D." className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div className="text-[#B33951] text-xs font-bold mb-3 tracking-widest">OPTOMETRIST</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-black text-[#1E2749] mb-2">Shiroz Virani, O.D.</h2>
+            <div className="text-[#59607A] text-sm font-semibold mb-6">Doctor of Optometry &middot; Sugar Land Vision</div>
+
+            <div className="bg-[#F6F6F8] rounded-2xl p-6 mb-4">
+              <h4 className="font-bold text-[#1E2749] mb-2">Our Philosophy of Care</h4>
+              <p className="text-[#33415C] text-[15.5px] leading-relaxed">
+                Dr. Virani and the Sugar Land Vision team take a patient-first approach to every visit — combining advanced technology with genuine, unhurried care for patients of every age. Every question gets answered, and every visit is tailored to the person in the chair, not just the prescription on file.
+              </p>
+            </div>
+
+            <div className="border border-dashed border-[#1E2749]/20 rounded-2xl p-6 mb-6">
+              <h4 className="font-bold text-[#1E2749] mb-2">Full Biography &mdash; Coming Soon</h4>
+              <p className="text-[#59607A] text-[15px] italic">
+                This space is reserved for Dr. Virani&apos;s complete background, education, and philosophy of care, alongside a professional headshot supplied by the practice.
+              </p>
+            </div>
+
+            <a
+              href="#book"
+              className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
+            >
+              BOOK AN APPOINTMENT
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Bio Section - Centered Narrow Column */}
-      <section className="py-12 sm:py-20 lg:py-32 px-5 sm:px-8 lg:px-16">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-6 sm:space-y-8 text-[#0A1828] text-base sm:text-lg leading-relaxed">
-            <p className="text-xl sm:text-2xl font-light leading-relaxed">
-              Dr. Shiroz Virani brings expertise, compassion, and a commitment to excellence in every patient interaction.
-            </p>
-            
-            <div className="py-6 sm:py-8 my-8 sm:my-12 border-y border-[#C85A3E]/30">
-              <p className="text-[#C85A3E] italic text-sm sm:text-base">
-                [Official biography will be featured here. This section will include Dr. Virani's educational background, professional experience, areas of specialization, and approach to patient care.]
-              </p>
-            </div>
-
-            <p>
-              With advanced training and years of clinical experience, Dr. Virani is dedicated to providing personalized eye care that addresses each patient's unique vision needs and lifestyle.
-            </p>
-
-            <p>
-              Dr. Virani stays current with the latest advances in optometry to provide patients with the most effective diagnostic tools and treatment options available.
-            </p>
+      {/* Why Choose Us */}
+      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#F6F6F8]">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="text-[#B33951] text-xs font-bold mb-3 tracking-widest">WHY CHOOSE US</div>
+          <h2 className="font-display text-2xl sm:text-4xl font-black text-[#1E2749]">Care that grows with your family</h2>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="bg-white rounded-2xl p-7">
+            <h4 className="font-bold text-[#1E2749] mb-2">Patient-First</h4>
+            <p className="text-[#59607A] text-sm leading-relaxed">Unhurried visits where every question gets answered — for every age.</p>
           </div>
-
-          {/* Large Pull Quote - Dramatic Treatment */}
-          <div className="my-12 sm:my-20 py-8 sm:py-16 border-l-4 sm:border-l-8 border-[#C85A3E] pl-6 sm:pl-12 bg-[#0A1828]/5 rounded-r-2xl">
-            <p className="font-display text-2xl sm:text-4xl lg:text-5xl font-black leading-tight text-[#0A1828] mb-6 sm:mb-8">
-              "QUALITY EYE CARE MEANS TAKING THE TIME TO TRULY UNDERSTAND EACH PATIENT'S UNIQUE NEEDS AND GOALS."
-            </p>
-            <cite className="text-xs sm:text-sm tracking-[0.2em] text-[#8B9A9F] not-italic">— DR. SHIROZ VIRANI</cite>
+          <div className="bg-white rounded-2xl p-7">
+            <h4 className="font-bold text-[#1E2749] mb-2">Advanced Tech</h4>
+            <p className="text-[#59607A] text-sm leading-relaxed">State-of-the-art diagnostics to catch issues early and treat them precisely.</p>
           </div>
-
-          {/* Credentials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pt-12 sm:pt-16 border-t-2 border-[#0A1828]">
-            <div>
-              <div className="text-xs tracking-[0.3em] text-[#C85A3E] mb-3 sm:mb-4">EDUCATION</div>
-              <div className="text-[#0A1828] text-base sm:text-lg font-medium">
-                Doctor of Optometry
-              </div>
-              <div className="text-sm text-[#8B9A9F] mt-1 sm:mt-2">
-                University of Houston, College of Optometry
-              </div>
-            </div>
-            <div>
-              <div className="text-xs tracking-[0.3em] text-[#C85A3E] mb-3 sm:mb-4">EXPERIENCE</div>
-              <div className="text-[#0A1828] text-base sm:text-lg font-medium">
-                Years in Practice
-              </div>
-              <div className="text-sm text-[#8B9A9F] mt-1 sm:mt-2">
-                Dedicated to lifelong patient relationships
-              </div>
-            </div>
-            <div>
-              <div className="text-xs tracking-[0.3em] text-[#C85A3E] mb-3 sm:mb-4">SPECIALTIES</div>
-              <div className="text-[#0A1828] text-base sm:text-lg font-medium leading-snug">
-                Comprehensive &<br/>Specialty Care
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-12 sm:mt-16 text-center">
-            <a 
-              href="#book" 
-              className="inline-block w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-[#C85A3E] text-white text-xs sm:text-sm font-bold tracking-wider hover:bg-[#0A1828] transition-all rounded-xl"
-            >
-              SCHEDULE A VISIT WITH DR. VIRANI
-            </a>
+          <div className="bg-white rounded-2xl p-7">
+            <h4 className="font-bold text-[#1E2749] mb-2">Family-Friendly</h4>
+            <p className="text-[#59607A] text-sm leading-relaxed">From child eye exams to sports vision, care that grows with your family.</p>
           </div>
         </div>
       </section>
