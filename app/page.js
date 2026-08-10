@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowRight, Eye, Droplet, AlertTriangle, Glasses, Waves, ScanEye, Smile, Target, Banknote, CreditCard, ShieldCheck } from 'lucide-react'
+import NewsletterForm from '@/components/NewsletterForm'
 
 const highlights = [
   { icon: Eye, title: 'Comprehensive Eye Exams', blurb: 'A thorough assessment of vision and eye health, not just your prescription.' },
@@ -244,16 +245,27 @@ export default function App() {
               <img src="/images/office-exterior.jpg" alt="Sugar Land Vision office" className="w-full h-full object-cover" />
             </div>
           </div>
-          <div id="book" className="bg-white rounded-2xl p-7">
-            <h3 className="font-bold text-lg text-[#1E2749] mb-5">Request an appointment</h3>
-            <form className="space-y-3.5">
-              <input placeholder="Full name" required className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-[#F6F6F8] text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <input placeholder="Phone or email" required className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-[#F6F6F8] text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <input placeholder="Preferred day/time" className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-[#F6F6F8] text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <button type="submit" className="w-full py-4 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all">
-                SEND REQUEST
-              </button>
-            </form>
+          <div className="bg-white rounded-2xl p-7 sm:p-8 flex flex-col justify-center">
+            <h3 className="font-display text-xl font-black text-[#1E2749] mb-2">Ready to see clearly?</h3>
+            <p className="text-[#59607A] text-[15px] leading-relaxed mb-5">
+              Request an appointment online in under a minute — we&apos;ll confirm by phone or email.
+            </p>
+            <Link
+              href="/book"
+              className="block w-full text-center py-4 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all"
+            >
+              BOOK AN APPOINTMENT
+            </Link>
+            <p className="text-xs text-[#59607A] text-center mt-3">
+              Or call{' '}
+              <a href="tel:281-916-2020" className="font-bold text-[#B33951] hover:text-[#1E2749] transition-colors">281-916-2020</a>
+            </p>
+
+            <div className="border-t border-[#1E2749]/10 mt-7 pt-7">
+              <h4 className="font-bold text-[#1E2749] mb-1">Join our newsletter</h4>
+              <p className="text-[#59607A] text-sm mb-4">Eye health tips and news, straight to your inbox.</p>
+              <NewsletterForm variant="light" />
+            </div>
           </div>
         </div>
       </section>

@@ -77,7 +77,7 @@ export default function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group bg-[#F6F6F8] hover:bg-white border border-transparent hover:border-[#1E2749]/10 hover:shadow-xl rounded-2xl p-6 sm:p-7 flex flex-col gap-4 transition-all"
+                className="group bg-[#F6F6F8] hover:bg-white border border-transparent hover:border-[#1E2749]/10 hover:shadow-xl rounded-2xl p-6 sm:p-7 flex flex-col gap-4 press-sm focus-ring"
               >
                 <div className="w-11 h-11 rounded-xl bg-[#1E2749]/10 group-hover:bg-[#B33951] flex items-center justify-center transition-colors">
                   <Icon size={20} className="text-[#1E2749] group-hover:text-white transition-colors" />
@@ -102,7 +102,7 @@ export default function ServicesPage() {
         </p>
         <a
           href="/book"
-          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
+          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] press focus-ring rounded-xl"
         >
           BOOK AN APPOINTMENT
         </a>

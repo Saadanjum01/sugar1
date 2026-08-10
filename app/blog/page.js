@@ -46,7 +46,7 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#1E2749]/10 hover:shadow-xl transition-all"
+              className="group bg-white rounded-2xl overflow-hidden border border-[#1E2749]/10 hover:shadow-xl press-sm focus-ring"
             >
               <div className="h-44 overflow-hidden">
                 <img

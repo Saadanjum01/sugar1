@@ -152,7 +152,7 @@ export default function FramesPage() {
         </p>
         <a
           href="/book"
-          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
+          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] press focus-ring rounded-xl"
         >
           BOOK AN APPOINTMENT
         </a>
