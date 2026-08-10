@@ -28,7 +28,9 @@ export default function Page() {
             { text: 'Flashes of light in your vision' },
             { text: 'A dark shadow or curtain appearing in your peripheral vision' },
             { text: 'Any sudden change in vision' }
-          ],
+          ]
+        },
+        {
           paragraphs: [
             'These can be signs of a retinal tear or detachment, which requires prompt evaluation. If you notice any of the changes above, contact our office right away.'
           ]

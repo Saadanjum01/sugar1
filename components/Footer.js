@@ -16,7 +16,7 @@ export default function Footer() {
             <h4 className="font-bold text-sm mb-4 tracking-widest">EXPLORE</h4>
             <div className="space-y-2.5">
               <Link href="/services" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Services</Link>
-              <Link href="/doctor" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Our Doctor</Link>
+              <Link href="/doctor" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Our Team</Link>
               <Link href="/insurance" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Insurance</Link>
               <Link href="/frames" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Frames</Link>
               <Link href="/blog" className="block text-[#59607A] text-sm hover:text-[#B33951] transition-colors">Blog</Link>

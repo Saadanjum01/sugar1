@@ -1,6 +1,18 @@
 'use client'
 
+import { useState } from 'react'
+
 export default function ContactPage() {
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false)
+
+  function handleNewsletterSubmit(e) {
+    e.preventDefault()
+    if (!newsletterEmail.trim()) return
+    // TODO: wire up to a real email service once one is set up -- currently UI only.
+    setNewsletterSubmitted(true)
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -8,8 +20,11 @@ export default function ContactPage() {
         <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">CONTACT US</div>
         <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">Book your visit at Sugar Land Vision</h1>
         <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
-          We&apos;d love to see you. Reach out by phone, or request an appointment below.
+          We&apos;d love to see you. Reach out by phone, or request an appointment online.
         </p>
+        <a href="/book" className="inline-block mt-6 px-7 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-white hover:text-[#1E2749] transition-all">
+          BOOK AN APPOINTMENT
+        </a>
       </section>
 
       {/* Info + Form */}
@@ -39,20 +54,38 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div id="book" className="bg-[#F6F6F8] rounded-2xl p-7 sm:p-8">
-            <h3 className="font-bold text-lg text-[#1E2749] mb-5">Request an appointment</h3>
-            <form className="space-y-4">
-              <input placeholder="Full name" required className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-white text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <input placeholder="Phone or email" required className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-white text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <input placeholder="Preferred day/time" className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-white text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors" />
-              <textarea placeholder="Reason for visit (optional)" rows={3} className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-white text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors resize-none" />
-              <button type="submit" className="w-full py-4 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all">
-                SEND REQUEST
-              </button>
-            </form>
-            <p className="text-xs text-[#59607A] text-center mt-4">
-              Or call 281-916-2020 &middot; forwards to our online scheduling system
-            </p>
+          <div className="bg-[#F6F6F8] rounded-2xl p-7 sm:p-8 flex flex-col justify-center">
+            {newsletterSubmitted ? (
+              <p className="text-sm text-[#1E2749] font-bold text-center">You&apos;re subscribed! Thanks for joining the list.</p>
+            ) : (
+              <>
+                <h3 className="font-bold text-lg text-[#1E2749] mb-1">Join our newsletter</h3>
+                <p className="text-[#59607A] text-sm mb-4">Eye health tips and news, straight to your inbox.</p>
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    className="w-full px-4 py-3.5 rounded-xl border border-[#1E2749]/15 bg-white text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="shrink-0 px-6 py-3.5 bg-[#1E2749] text-white font-bold text-sm rounded-xl hover:bg-[#B33951] transition-all"
+                  >
+                    SUBSCRIBE
+                  </button>
+                </form>
+              </>
+            )}
+
+            <div className="border-t border-[#1E2749]/10 mt-7 pt-7 text-center">
+              <p className="text-[#59607A] text-sm mb-3">Ready to schedule your visit?</p>
+              <a href="/book" className="inline-block px-7 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all">
+                BOOK AN APPOINTMENT
+              </a>
+            </div>
           </div>
         </div>
       </section>

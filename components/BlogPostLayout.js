@@ -72,7 +72,7 @@ export default function BlogPostLayout({
               <h5 className="text-xs font-bold tracking-widest text-[#1E2749] mb-3">BOOK AN APPOINTMENT</h5>
               <p className="text-sm text-[#59607A] mb-4">Have a question about your vision? We&apos;re here to help.</p>
               <a
-                href="#book"
+                href="/book"
                 className="block w-full text-center px-6 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all"
               >
                 Book an Appointment

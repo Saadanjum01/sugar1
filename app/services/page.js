@@ -101,7 +101,7 @@ export default function ServicesPage() {
           Give us a call and our team will help point you in the right direction.
         </p>
         <a
-          href="#book"
+          href="/book"
           className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
         >
           BOOK AN APPOINTMENT

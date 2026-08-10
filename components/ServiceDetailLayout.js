@@ -72,7 +72,7 @@ export default function ServiceDetailLayout({
               <h5 className="text-xs font-bold tracking-widest text-[#1E2749] mb-3">BOOK THIS SERVICE</h5>
               <p className="text-sm text-[#59607A] mb-4">Call us or request an appointment online.</p>
               <a
-                href="#book"
+                href="/book"
                 className="block w-full text-center px-6 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all"
               >
                 {bookLabel || 'Book an Appointment'}
@@ -106,7 +106,7 @@ export default function ServiceDetailLayout({
           Our team is here to answer your questions and get you on the calendar.
         </p>
         <a
-          href="#book"
+          href="/book"
           className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
         >
           BOOK AN APPOINTMENT

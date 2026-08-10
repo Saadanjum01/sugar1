@@ -151,7 +151,7 @@ export default function FramesPage() {
           Visit us in Sugar Land to browse our full frame collection in person.
         </p>
         <a
-          href="#book"
+          href="/book"
           className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] transition-all rounded-xl"
         >
           BOOK AN APPOINTMENT

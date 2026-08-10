@@ -24,14 +24,14 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
             <Link href="/" className="text-sm font-medium hover:text-[#B33951] transition-colors">HOME</Link>
             <Link href="/services" className="text-sm font-medium hover:text-[#B33951] transition-colors">SERVICES</Link>
-            <Link href="/doctor" className="text-sm font-medium hover:text-[#B33951] transition-colors">DOCTOR</Link>
+            <Link href="/doctor" className="text-sm font-medium hover:text-[#B33951] transition-colors">TEAM</Link>
             <Link href="/insurance" className="text-sm font-medium hover:text-[#B33951] transition-colors">INSURANCE</Link>
             <Link href="/frames" className="text-sm font-medium hover:text-[#B33951] transition-colors">FRAMES</Link>
             <Link href="/blog" className="text-sm font-medium hover:text-[#B33951] transition-colors">BLOG</Link>
             <Link href="/contact" className="text-sm font-medium hover:text-[#B33951] transition-colors">CONTACT</Link>
           </div>
 
-          <a href="#book" className="hidden lg:block px-8 py-3 bg-[#B33951] text-white text-sm font-bold hover:bg-[#1E2749] transition-all rounded-xl">
+          <a href="/book" className="hidden lg:block px-8 py-3 bg-[#B33951] text-white text-sm font-bold hover:bg-[#1E2749] transition-all rounded-xl">
             BOOK NOW
           </a>
 
@@ -62,12 +62,12 @@ export default function Header() {
           <div className="px-6 py-6 space-y-4">
             <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">HOME</Link>
             <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">SERVICES</Link>
-            <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">DOCTOR</Link>
+            <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">TEAM</Link>
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">INSURANCE</Link>
             <Link href="/frames" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">FRAMES</Link>
             <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">BLOG</Link>
             <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium hover:text-[#B33951] transition-colors">CONTACT</Link>
-            <a href="#book" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center px-8 py-3 bg-[#B33951] text-white text-sm font-bold mt-4 rounded-xl">
+            <a href="/book" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center px-8 py-3 bg-[#B33951] text-white text-sm font-bold mt-4 rounded-xl">
               BOOK NOW
             </a>
           </div>

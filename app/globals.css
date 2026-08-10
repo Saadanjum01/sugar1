@@ -28,9 +28,11 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "kern";
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
