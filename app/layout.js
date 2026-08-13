@@ -13,8 +13,18 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  title: 'Sugar Land Vision — Premium Eye Care',
+  title: 'Sugar Land Vision Center — Caring for the Eyes You Love',
   description: 'Advanced eye care for the modern patient. Expert optometry in Sugar Land, Texas.',
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
+  openGraph: {
+    title: 'Sugar Land Vision Center — Caring for the Eyes You Love',
+    description: 'Advanced eye care for the modern patient. Expert optometry in Sugar Land, Texas.',
+    images: ['/images/logo.png'],
+    type: 'website',
+  },
 }
 
 export const viewport = {

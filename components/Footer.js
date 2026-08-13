@@ -7,7 +7,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div>
-            <h3 className="font-display text-2xl lg:text-3xl mb-6">SUGAR LAND VISION</h3>
+            <Link href="/" className="inline-flex bg-white rounded-xl px-4 py-3 mb-6" aria-label="Sugar Land Vision Center — home">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo.png"
+                alt="Sugar Land Vision Center"
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="text-[#59607A] text-sm leading-relaxed">
               Premium eye care in Sugar Land, Texas
             </p>
