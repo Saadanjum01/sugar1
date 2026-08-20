@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-const STORAGE_KEY = 'slv-newsletter-dismissed'
+const STORAGE_KEY = 'fcv-newsletter-dismissed'
 const DELAY_MS = 6000
 
 export default function NewsletterPopup() {
@@ -26,7 +26,6 @@ export default function NewsletterPopup() {
   function handleSubmit(e) {
     e.preventDefault()
     if (!email.trim()) return
-    // TODO: wire up to real storage once confirmed -- currently UI only.
     setSubmitted(true)
     localStorage.setItem(STORAGE_KEY, '1')
     setTimeout(dismiss, 1800)
@@ -41,25 +40,25 @@ export default function NewsletterPopup() {
         <button
           onClick={dismiss}
           aria-label="Close"
-          className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-[#59607A] hover:bg-[#F6F6F8] transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-[#6E7C77] hover:bg-[#FBF7F1] transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
         </button>
 
         {submitted ? (
           <div className="py-6">
-            <div className="w-14 h-14 rounded-full bg-[#1E2749]/10 flex items-center justify-center mx-auto mb-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1E2749" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <div className="w-14 h-14 rounded-full bg-[#E2F3F0] flex items-center justify-center mx-auto mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#0D5D62" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </div>
-            <h3 className="font-display text-xl font-black text-[#1E2749] mb-1">You&apos;re subscribed!</h3>
-            <p className="text-[#59607A] text-sm">Thanks for joining the Sugar Land Vision list.</p>
+            <h3 className="font-display text-xl font-semibold text-[#16201E] mb-1" style={{ letterSpacing: '-0.02em' }}>You&apos;re subscribed!</h3>
+            <p className="text-[#6E7C77] text-sm">Thanks for joining the First Colony Vision list.</p>
           </div>
         ) : (
           <>
-            <div className="text-[#B33951] text-xs font-bold mb-3 tracking-widest">STAY IN TOUCH</div>
-            <h3 className="font-display text-2xl font-black text-[#1E2749] mb-3">Join our newsletter</h3>
-            <p className="text-[#59607A] text-sm leading-relaxed mb-6">
-              Eye health tips, seasonal reminders, and news from Sugar Land Vision — straight to your inbox.
+            <div className="text-[#B85E31] text-xs font-bold mb-3 tracking-widest">STAY IN TOUCH</div>
+            <h3 className="font-display text-2xl font-semibold text-[#16201E] mb-3" style={{ letterSpacing: '-0.02em' }}>Join our newsletter</h3>
+            <p className="text-[#6E7C77] text-sm leading-relaxed mb-6">
+              Eye health tips, seasonal reminders, and news from First Colony Vision — straight to your inbox.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <input
@@ -68,16 +67,16 @@ export default function NewsletterPopup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full px-4 py-3 rounded-xl border border-[#1E2749]/15 text-sm text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors"
+                className="w-full px-4 py-3 rounded-xl border border-[#16201E]/15 text-sm text-[#16201E] focus:outline-none focus:border-[#0D5D62] transition-colors"
               />
               <button
                 type="submit"
-                className="w-full py-3 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all"
+                className="w-full py-3 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-colors"
               >
-                SUBSCRIBE
+                Subscribe
               </button>
             </form>
-            <button onClick={dismiss} className="text-[#59607A] text-xs mt-4 hover:text-[#1E2749] transition-colors">
+            <button onClick={dismiss} className="text-[#6E7C77] text-xs mt-4 hover:text-[#16201E] transition-colors">
               No thanks
             </button>
           </>
