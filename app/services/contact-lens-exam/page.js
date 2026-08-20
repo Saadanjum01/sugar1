@@ -11,7 +11,7 @@ export default function Page() {
         {
           heading: 'Discover the World of Contact Lenses',
           paragraphs: [
-            "At Sugar Land Vision, we offer a wide range of contact lenses to suit every lifestyle and vision need. Whether you're looking for the convenience of daily disposables, the extended wear of multifocals, or the crisp vision of rigid gas permeable lenses, we'll help you find the perfect fit for your eyes.",
+            "At First Colony Vision, we offer a wide range of contact lenses to suit every lifestyle and vision need. Whether you're looking for the convenience of daily disposables, the extended wear of multifocals, or the crisp vision of rigid gas permeable lenses, we'll help you find the perfect fit for your eyes.",
             "Our comprehensive contact lens exams go beyond a standard eye exam to ensure your lenses provide optimal vision, comfort, and eye health."
           ]
         },
@@ -37,7 +37,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Experience the freedom and clarity of contact lenses. Contact Sugar Land Vision today to schedule a contact lens exam."
+      ctaBody="Experience the freedom and clarity of contact lenses. Contact First Colony Vision today to schedule a contact lens exam."
       relatedServices={[
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Sports Vision', slug: 'sports-vision' },

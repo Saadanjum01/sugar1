@@ -31,7 +31,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Protect your vision from diabetes with our specialized diabetic eye exams. Contact Sugar Land Vision today to schedule an appointment."
+      ctaBody="Protect your vision from diabetes with our specialized diabetic eye exams. Contact First Colony Vision today to schedule an appointment."
       relatedReading={[
         { title: 'Diabetic Eye Exam Service', href: '/services/diabetic-eye-exam' },
         { title: 'What Are Floaters?', href: '/blog/what-are-floaters' },

@@ -11,7 +11,7 @@ export default function Page() {
         {
           heading: 'Recognizing and Responding to Eye Emergencies',
           paragraphs: [
-            "Eye emergencies can range from minor irritations to severe injuries that threaten your vision. Because the eye is so delicate, even seemingly small injuries can lead to serious complications if left untreated. At Sugar Land Vision, we're equipped to handle a wide range of eye emergencies, providing prompt and expert care to protect your sight. We understand that eye emergencies can be frightening, and we're here to provide compassionate and effective treatment when you need it most."
+            "Eye emergencies can range from minor irritations to severe injuries that threaten your vision. Because the eye is so delicate, even seemingly small injuries can lead to serious complications if left untreated. At First Colony Vision, we're equipped to handle a wide range of eye emergencies, providing prompt and expert care to protect your sight. We understand that eye emergencies can be frightening, and we're here to provide compassionate and effective treatment when you need it most."
           ]
         },
         {
@@ -47,13 +47,13 @@ export default function Page() {
           ]
         },
         {
-          heading: 'Why Choose Sugar Land Vision for Your Eye Emergency?',
+          heading: 'Why Choose First Colony Vision for Your Eye Emergency?',
           paragraphs: [
-            'While urgent care centers can be helpful, they often lack the specialized equipment and expertise needed to accurately diagnose and treat complex eye conditions. At Sugar Land Vision, our optometrists have the advanced training and technology to handle a wide range of eye emergencies, ensuring you receive the best possible care. We can quickly assess your situation, provide appropriate treatment, and minimize the risk of long-term vision problems. We also understand the importance of timely intervention and strive to see emergency patients as quickly as possible.'
+            'While urgent care centers can be helpful, they often lack the specialized equipment and expertise needed to accurately diagnose and treat complex eye conditions. At First Colony Vision, our optometrists have the advanced training and technology to handle a wide range of eye emergencies, ensuring you receive the best possible care. We can quickly assess your situation, provide appropriate treatment, and minimize the risk of long-term vision problems. We also understand the importance of timely intervention and strive to see emergency patients as quickly as possible.'
           ]
         }
       ]}
-      ctaBody="Experiencing an eye emergency? Contact Sugar Land Vision right away for prompt, expert care."
+      ctaBody="Experiencing an eye emergency? Contact First Colony Vision right away for prompt, expert care."
       relatedServices={[
         { title: 'Red Eye Care', slug: 'red-eye-care' },
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },

@@ -21,7 +21,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="See the world with clarity and confidence. Contact Sugar Land Vision today to schedule your comprehensive eye exam."
+      ctaBody="See the world with clarity and confidence. Contact First Colony Vision today to schedule your comprehensive eye exam."
       relatedServices={[
         { title: 'Contact Lens Exam', slug: 'contact-lens-exam' },
         { title: 'Diabetic Eye Exam', slug: 'diabetic-eye-exam' },

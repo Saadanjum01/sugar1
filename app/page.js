@@ -14,9 +14,9 @@ import {
 
 const services = [
   { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'A complete evaluation of how you see and how your eyes are doing underneath.',               slug: 'comprehensive-eye-exam' },
-  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Precise fittings for daily, multifocal, and specialty lenses that stay comfortable.',         slug: 'contact-lens-exam' },
+  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'We fit lenses that feel right all day — not just in the exam room — including hard-to-fit prescriptions.',  slug: 'contact-lens-exam' },
   { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Watchful, consistent monitoring to catch diabetic retinopathy early.',                        slug: 'diabetic-eye-exam' },
-  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Prompt care for injuries, foreign objects, and sudden changes in vision.',                    slug: 'emergency-medical-exam' },
+  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something worrying you — sudden pain, blurry vision, or an object in your eye? Call us first.',       slug: 'emergency-medical-exam' },
   { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Identifying the visual triggers behind your headaches, and how to ease them.',                slug: 'migraine-management' },
   { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing the progression of nearsightedness in children and young adults.',                   slug: 'myopia-control' },
   { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Patient, playful exams designed to keep young eyes comfortable and curious.',                 slug: 'child-eye-exam' },

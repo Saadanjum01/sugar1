@@ -11,7 +11,7 @@ export default function Page() {
         {
           heading: 'Enhancing Athletic Performance Through Vision',
           paragraphs: [
-            'At Sugar Land Vision, we understand that peak athletic performance requires more than just physical prowess. Vision plays a crucial role in every sport, from tracking a fast-moving ball to judging distances and reacting quickly to changing situations. Our specialized sports vision services are designed to optimize your visual skills and give you a competitive advantage.'
+            'At First Colony Vision, we understand that peak athletic performance requires more than just physical prowess. Vision plays a crucial role in every sport, from tracking a fast-moving ball to judging distances and reacting quickly to changing situations. Our specialized sports vision services are designed to optimize your visual skills and give you a competitive advantage.'
           ]
         },
         {
@@ -28,13 +28,13 @@ export default function Page() {
           ]
         },
         {
-          heading: 'Why Choose Sugar Land Vision for Sports Vision?',
+          heading: 'Why Choose First Colony Vision for Sports Vision?',
           paragraphs: [
             "Our experienced optometrists have advanced training in sports vision and utilize the latest technologies to assess and enhance your visual skills. We understand the unique demands of different sports and tailor our programs to your specific needs and goals. Whether you're a seasoned professional or a budding athlete, we can help you unlock your full potential through optimized vision."
           ]
         }
       ]}
-      ctaBody="Gain a competitive edge with our specialized sports vision services. Contact Sugar Land Vision today to schedule a consultation."
+      ctaBody="Gain a competitive edge with our specialized sports vision services. Contact First Colony Vision today to schedule a consultation."
       relatedServices={[
         { title: 'Contact Lens Exam', slug: 'contact-lens-exam' },
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },

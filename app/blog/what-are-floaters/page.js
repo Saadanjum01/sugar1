@@ -36,7 +36,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Concerned about floaters or a sudden change in your vision? Contact Sugar Land Vision to schedule an evaluation."
+      ctaBody="Concerned about floaters or a sudden change in your vision? Contact First Colony Vision to schedule an evaluation."
       relatedReading={[
         { title: 'Diabetic Eye Health 101', href: '/blog/diabetic-eye-health-101' },
         { title: 'Choosing the Right Contacts', href: '/blog/choosing-the-right-contacts' },

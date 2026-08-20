@@ -10,7 +10,7 @@ export default function AccessibilityPage() {
       <div>
         <h3 className="font-bold text-xl text-[#1E2749] mb-3">Our Commitment</h3>
         <p className="text-[#33415C] text-base leading-relaxed">
-          Sugar Land Vision is committed to ensuring digital accessibility for people of all abilities. We aim for this website to meet applicable accessibility laws and standards, including the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA and the Americans with Disabilities Act (ADA).
+          First Colony Vision is committed to ensuring digital accessibility for people of all abilities. We aim for this website to meet applicable accessibility laws and standards, including the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA and the Americans with Disabilities Act (ADA).
         </p>
       </div>
       <div>

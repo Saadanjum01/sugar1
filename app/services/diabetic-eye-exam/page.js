@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceDetailLayout
       title="Diabetic Eye Exam"
-      intro="At Sugar Land Vision, we're committed to providing comprehensive diabetic eye care to protect your sight."
+      intro="At First Colony Vision, we're committed to providing comprehensive diabetic eye care to protect your sight."
       image="/images/diabetic-equipment.jpg"
       imageAlt="Diabetic eye exam equipment"
       sections={[
@@ -12,7 +12,7 @@ export default function Page() {
           heading: 'Understanding Diabetic Retinopathy',
           paragraphs: [
             "Diabetes is a prevalent health concern, affecting millions of Americans. While many are aware of its impact on overall health, it's crucial to understand its potential effects on vision. Diabetic retinopathy is a serious complication of diabetes that can lead to vision loss if left unmanaged.",
-            "At Sugar Land Vision, we're committed to providing comprehensive diabetic eye care to protect your sight. Our experienced optometrists utilize advanced technology and a patient-centered approach to detect and manage diabetic retinopathy, preserving your vision and overall well-being."
+            "At First Colony Vision, we're committed to providing comprehensive diabetic eye care to protect your sight. Our experienced optometrists utilize advanced technology and a patient-centered approach to detect and manage diabetic retinopathy, preserving your vision and overall well-being."
           ]
         },
         {
@@ -36,7 +36,7 @@ export default function Page() {
           ]
         },
         {
-          heading: 'Why Choose Sugar Land Vision for Diabetic Eye Care?',
+          heading: 'Why Choose First Colony Vision for Diabetic Eye Care?',
           list: [
             { term: 'Early Detection', text: 'We use advanced technology to detect even subtle signs of diabetic retinopathy, allowing for early intervention and management.' },
             { term: 'Comprehensive Care', text: 'We work closely with your primary care physician and other specialists to provide coordinated care for your overall health and vision.' },
@@ -45,7 +45,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Protect your vision from diabetes with our specialized diabetic eye exams. Contact Sugar Land Vision today to schedule an appointment."
+      ctaBody="Protect your vision from diabetes with our specialized diabetic eye exams. Contact First Colony Vision today to schedule an appointment."
       relatedServices={[
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Emergency Eye Exam', slug: 'emergency-medical-exam' },

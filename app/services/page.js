@@ -8,14 +8,14 @@ import {
 } from '@/components/BrandIcons'
 
 const services = [
-  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'A full evaluation of vision and overall eye health — not just your prescription.',         slug: 'comprehensive-eye-exam' },
-  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Precise fittings for daily, multifocal, and specialty lenses.',                             slug: 'contact-lens-exam' },
-  { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Detecting and managing diabetic retinopathy and related changes early.',                    slug: 'diabetic-eye-exam' },
-  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Prompt care for injuries, foreign objects, and sudden vision changes.',                     slug: 'emergency-medical-exam' },
-  { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Identifying visual triggers and developing management strategies.',                         slug: 'migraine-management' },
-  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing nearsightedness progression in children and young adults.',                        slug: 'myopia-control' },
-  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Specialized, engaging exams designed for young eyes and first-time patients.',             slug: 'child-eye-exam' },
-  { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Sharpening visual skills and reaction time for athletes at every level.',                  slug: 'sports-vision' },
+  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'More than a prescription check — we map your eye health, catch early disease, and walk you through every finding.',    slug: 'comprehensive-eye-exam' },
+  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Lenses fitted to feel right all day, not just in the exam room — including specialty options for tricky prescriptions.', slug: 'contact-lens-exam' },
+  { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Consistent monitoring that catches retinopathy and related changes before they have a chance to affect your sight.',     slug: 'diabetic-eye-exam' },
+  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something in your eye, sudden pain, or a vision change that worries you? Call first — we triage quickly.',             slug: 'emergency-medical-exam' },
+  { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'We trace which visual factors may be behind your headaches and work through practical ways to reduce them.',            slug: 'migraine-management' },
+  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Evidence-based treatments that slow how fast your child\'s prescription changes — best started as early as possible.',  slug: 'myopia-control' },
+  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Calm, age-appropriate exams for young patients — we make sure kids leave without dreading the next one.',              slug: 'child-eye-exam' },
+  { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Building the reaction time and depth perception that give athletes a measurable advantage in their sport.',             slug: 'sports-vision' },
 ]
 
 export default function ServicesPage() {
@@ -36,7 +36,7 @@ export default function ServicesPage() {
             Services for every stage of vision
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            From a child&apos;s first exam to sports vision training, our care grows with you and your family.
+            We see patients from age three through every stage of life — one practice that doesn&apos;t ask you to start over somewhere new as you get older.
           </p>
         </div>
       </div>

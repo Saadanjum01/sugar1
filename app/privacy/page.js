@@ -4,7 +4,7 @@ export default function PrivacyPage() {
   return (
     <LegalLayout
       title="Privacy Policy"
-      intro="How Sugar Land Vision collects, uses, and protects your information."
+      intro="How First Colony Vision collects, uses, and protects your information."
       updatedNote="Placeholder document -- final policy to be supplied by the practice prior to launch."
     >
       <div>

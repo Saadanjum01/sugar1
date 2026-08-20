@@ -18,7 +18,7 @@ export default function DoctorPage() {
             Meet the doctor behind your care
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            A patient-first approach to every visit — unhurried, thorough, and built around the person in the chair.
+            Thorough, calm, and built for real people — Dr. Virani designed this practice around the kind of visit he would want for his own family.
           </p>
         </div>
       </div>
@@ -102,12 +102,12 @@ export default function DoctorPage() {
               Philosophy
             </div>
             <h2 className="font-display text-[26px] sm:text-[38px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              Care that grows with your family
+              One practice, every stage of life
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
-              { title: 'Patient-First',      body: 'Unhurried visits where every question gets answered — for every age, at every stage.' },
+              { title: 'Time to Actually Talk', body: 'Every appointment has a real explanation at the end — what we found, what it means, and what happens next.' },
               { title: 'Modern Diagnostics', body: 'Current equipment to catch issues early and explain findings in plain language.' },
               { title: 'Family-Friendly',    body: "From a child's first exam to sports vision and senior eye health — care for every generation." },
             ].map((item) => (

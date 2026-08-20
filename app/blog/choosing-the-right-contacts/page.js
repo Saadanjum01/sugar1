@@ -31,7 +31,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Experience the freedom and clarity of contact lenses. Contact Sugar Land Vision today to schedule a contact lens exam."
+      ctaBody="Experience the freedom and clarity of contact lenses. Contact First Colony Vision today to schedule a contact lens exam."
       relatedReading={[
         { title: 'Contact Lens Exam Service', href: '/services/contact-lens-exam' },
         { title: 'What Are Floaters?', href: '/blog/what-are-floaters' },

@@ -11,7 +11,7 @@ export default function Page() {
         {
           heading: "Nurturing Your Child's Vision",
           paragraphs: [
-            "At Sugar Land Vision, we understand that a child's vision is essential for their development, learning, and overall well-being. Our child eye exams are designed to provide specialized care for young eyes, ensuring healthy vision and detecting any potential problems early on. We create a comfortable and engaging environment for children, making their eye exam a positive experience."
+            "At First Colony Vision, we understand that a child's vision is essential for their development, learning, and overall well-being. Our child eye exams are designed to provide specialized care for young eyes, ensuring healthy vision and detecting any potential problems early on. We create a comfortable and engaging environment for children, making their eye exam a positive experience."
           ]
         },
         {
@@ -37,7 +37,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Give your child the gift of clear vision. Contact Sugar Land Vision today to schedule a child eye exam."
+      ctaBody="Give your child the gift of clear vision. Contact First Colony Vision today to schedule a child eye exam."
       bookLabel="Book a Child Eye Exam"
       relatedServices={[
         { title: 'Myopia Control', slug: 'myopia-control' },

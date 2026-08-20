@@ -6,7 +6,7 @@ export default function Page() {
       title="Migraine Management"
       intro="Identifying visual triggers and management strategies to help reduce the frequency and impact of migraines."
       image="/images/office-exterior.jpg"
-      imageAlt="Patient consultation at Sugar Land Vision"
+      imageAlt="Patient consultation at First Colony Vision"
       sections={[
         {
           heading: 'The Connection Between Vision and Migraines',
@@ -24,7 +24,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Think your vision may be contributing to your migraines? Contact Sugar Land Vision today to schedule a consultation."
+      ctaBody="Think your vision may be contributing to your migraines? Contact First Colony Vision today to schedule a consultation."
       relatedServices={[
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Red Eye Care', slug: 'red-eye-care' },

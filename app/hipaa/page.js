@@ -4,13 +4,13 @@ export default function HipaaPage() {
   return (
     <LegalLayout
       title="HIPAA Notice of Privacy Practices"
-      intro="How Sugar Land Vision protects your health information under HIPAA."
-      updatedNote="Placeholder document -- Sugar Land Vision will supply its official HIPAA Notice of Privacy Practices for publication on this page."
+      intro="How First Colony Vision protects your health information under HIPAA."
+      updatedNote="Placeholder document -- First Colony Vision will supply its official HIPAA Notice of Privacy Practices for publication on this page."
     >
       <div>
         <h3 className="font-bold text-xl text-[#1E2749] mb-3">Our Commitment to Your Privacy</h3>
         <p className="text-[#33415C] text-base leading-relaxed">
-          Sugar Land Vision is committed to protecting the privacy of your health information in accordance with the Health Insurance Portability and Accountability Act (HIPAA). This notice describes how your medical information may be used and disclosed, and how you can access it.
+          First Colony Vision is committed to protecting the privacy of your health information in accordance with the Health Insurance Portability and Accountability Act (HIPAA). This notice describes how your medical information may be used and disclosed, and how you can access it.
         </p>
       </div>
       <div>

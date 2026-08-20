@@ -12,7 +12,7 @@ export default function Page() {
           heading: 'Understanding Myopia and Its Impact',
           paragraphs: [
             'Myopia, or nearsightedness, is a common condition where the eyeball grows too long or the cornea is too curved. This causes light to focus in front of the retina instead of directly on it, resulting in blurred distance vision. While common, myopia can worsen over time, leading to the need for stronger prescriptions and increasing the risk of serious eye conditions later in life.',
-            "At Sugar Land Vision, we're dedicated to providing proactive solutions to manage myopia, especially in children and young adults. Our experienced optometrists utilize the latest research and advanced technologies to help slow the progression of myopia and protect your child's precious eyesight."
+            "At First Colony Vision, we're dedicated to providing proactive solutions to manage myopia, especially in children and young adults. Our experienced optometrists utilize the latest research and advanced technologies to help slow the progression of myopia and protect your child's precious eyesight."
           ]
         },
         {
@@ -25,7 +25,7 @@ export default function Page() {
           ]
         }
       ]}
-      ctaBody="Protect your child's vision with our advanced myopia control methods. Contact Sugar Land Vision today to schedule a consultation."
+      ctaBody="Protect your child's vision with our advanced myopia control methods. Contact First Colony Vision today to schedule a consultation."
       relatedServices={[
         { title: 'Child Eye Exam', slug: 'child-eye-exam' },
         { title: 'Contact Lens Exam', slug: 'contact-lens-exam' },
