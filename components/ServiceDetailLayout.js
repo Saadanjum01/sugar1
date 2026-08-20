@@ -10,43 +10,56 @@ export default function ServiceDetailLayout({
   relatedServices = [],
   ctaHeading = 'Ready to schedule your exam?',
   ctaBody = 'Our team is here to answer your questions and get you on the calendar.',
-  bookLabel
+  bookLabel,
 }) {
   return (
     <div className="min-h-screen bg-white">
+
       {/* Hero */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white">
+      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#093F42] text-white">
         <div className="max-w-4xl">
-          <div className="text-sm text-[#C0C3CC] mb-4">
+          <div className="text-sm text-[#C9E5E3] mb-4">
             <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <span className="mx-2 opacity-60">/</span>
-            <span>{title}</span>
+            <span className="mx-2 opacity-50">/</span>
+            <span className="opacity-70">{title}</span>
           </div>
-          <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-3 tracking-widest">{eyebrow.toUpperCase()}</div>
-          <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">{title}</h1>
-          <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl leading-relaxed">{intro}</p>
+          <div className="text-[#37B2B8] text-xs sm:text-sm font-semibold mb-3 tracking-widest">{eyebrow.toUpperCase()}</div>
+          <h1
+            className="font-display text-3xl sm:text-5xl font-medium mb-5"
+            style={{ letterSpacing: '-0.03em' }}
+          >
+            {title}
+          </h1>
+          <p className="text-base sm:text-lg text-[#C9E5E3] max-w-2xl leading-relaxed">{intro}</p>
         </div>
       </section>
 
       {/* Body */}
       <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[2.1fr_1fr] gap-12 lg:gap-14 items-start">
+
+          {/* Main content */}
           <div className="space-y-8">
             {sections.map((sec, i) => (
               <div key={i}>
                 {sec.heading && (
-                  <h3 className="font-bold text-xl sm:text-2xl text-[#1E2749] mb-3">{sec.heading}</h3>
+                  <h3
+                    className="font-display font-medium text-xl sm:text-2xl text-[#093F42] mb-3"
+                    style={{ letterSpacing: '-0.02em' }}
+                  >
+                    {sec.heading}
+                  </h3>
                 )}
                 {sec.paragraphs?.map((p, j) => (
-                  <p key={j} className="text-[#33415C] text-base leading-relaxed mb-3">{p}</p>
+                  <p key={j} className="text-[#16201E] text-base leading-relaxed mb-3">{p}</p>
                 ))}
                 {sec.list && (
                   <ul className="space-y-3 mt-2">
                     {sec.list.map((item, k) => (
-                      <li key={k} className="flex gap-3 text-[#33415C] text-[15.5px] leading-relaxed">
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#B33951] flex-shrink-0"></span>
+                      <li key={k} className="flex gap-3 text-[#16201E] text-[15.5px] leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0D5D62] flex-shrink-0" />
                         <span>
-                          {item.term && <b className="text-[#1E2749]">{item.term}: </b>}
+                          {item.term && <b className="text-[#093F42]">{item.term}: </b>}
                           {item.text}
                         </span>
                       </li>
@@ -56,38 +69,39 @@ export default function ServiceDetailLayout({
               </div>
             ))}
 
-            <div className="bg-[#F6F6F8] rounded-2xl p-6 sm:p-7 text-[#33415C] italic text-base leading-relaxed">
+            <div className="bg-[#E2F3F0] rounded-2xl p-6 sm:p-7 text-[#6E7C77] italic text-base leading-relaxed">
               {ctaBody}
             </div>
           </div>
 
+          {/* Sidebar */}
           <aside className="space-y-5">
             {image && (
-              <div className="rounded-2xl overflow-hidden h-52 relative">
+              <div className="rounded-2xl overflow-hidden h-52" style={{ boxShadow: '0 4px 16px rgba(15,50,52,.1)' }}>
                 <img src={image} alt={imageAlt} className="w-full h-full object-cover" />
               </div>
             )}
 
-            <div className="bg-[#F6F6F8] rounded-2xl p-6">
-              <h5 className="text-xs font-bold tracking-widest text-[#1E2749] mb-3">BOOK THIS SERVICE</h5>
-              <p className="text-sm text-[#59607A] mb-4">Call us or request an appointment online.</p>
+            <div className="bg-[#FBF7F1] rounded-2xl p-6" style={{ boxShadow: '0 1px 4px rgba(15,50,52,.06)' }}>
+              <h5 className="text-xs font-semibold tracking-widest text-[#37B2B8] mb-1">BOOK THIS SERVICE</h5>
+              <p className="text-sm text-[#6E7C77] mb-4">Call us or request an appointment online.</p>
               <a
                 href="/book"
-                className="block w-full text-center px-6 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] press focus-ring"
+                className="block w-full text-center px-6 py-3.5 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-colors"
               >
                 {bookLabel || 'Book an Appointment'}
               </a>
             </div>
 
             {relatedServices.length > 0 && (
-              <div className="bg-[#F6F6F8] rounded-2xl p-6">
-                <h5 className="text-xs font-bold tracking-widest text-[#1E2749] mb-3">RELATED SERVICES</h5>
-                <div className="divide-y divide-[#1E2749]/10">
+              <div className="bg-[#FBF7F1] rounded-2xl p-6" style={{ boxShadow: '0 1px 4px rgba(15,50,52,.06)' }}>
+                <h5 className="text-xs font-semibold tracking-widest text-[#37B2B8] mb-3">RELATED SERVICES</h5>
+                <div className="divide-y divide-[#E7EBEA]">
                   {relatedServices.map((r) => (
                     <Link
                       key={r.slug}
                       href={`/services/${r.slug}`}
-                      className="block py-2.5 text-sm font-semibold text-[#33415C] hover:text-[#B33951] transition-colors"
+                      className="block py-2.5 text-sm font-semibold text-[#16201E] hover:text-[#0D5D62] transition-colors"
                     >
                       {r.title}
                     </Link>
@@ -100,16 +114,21 @@ export default function ServiceDetailLayout({
       </section>
 
       {/* CTA band */}
-      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#F6F6F8] text-center">
-        <h2 className="font-display text-2xl sm:text-4xl font-black text-[#1E2749] mb-4">{ctaHeading}</h2>
-        <p className="text-[#59607A] text-base sm:text-lg max-w-xl mx-auto mb-8">
+      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#FBF7F1] text-center">
+        <h2
+          className="font-display text-2xl sm:text-4xl font-medium text-[#093F42] mb-4"
+          style={{ letterSpacing: '-0.03em' }}
+        >
+          {ctaHeading}
+        </h2>
+        <p className="text-[#6E7C77] text-base sm:text-lg max-w-xl mx-auto mb-8">
           Our team is here to answer your questions and get you on the calendar.
         </p>
         <a
           href="/book"
-          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] press focus-ring rounded-xl"
+          className="inline-block px-9 py-4 bg-[#0D5D62] text-white font-semibold text-sm hover:bg-[#093F42] transition-colors rounded-xl"
         >
-          BOOK AN APPOINTMENT
+          Book an Appointment
         </a>
       </section>
     </div>

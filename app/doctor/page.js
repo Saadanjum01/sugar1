@@ -1,88 +1,171 @@
+import { IconEye, IconCheck, IconHeart } from '@/components/BrandIcons'
+
 export default function DoctorPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white text-center">
-        <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">OUR TEAM</div>
-        <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">Meet the team behind your care</h1>
-        <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
-          A patient-first approach to every visit, combining advanced technology with genuine, unhurried care.
-        </p>
+
+      {/* Page header */}
+      <div className="bg-[#FBF7F1] border-b border-[#E7EBEA]">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 pt-16 pb-14 lg:pt-20 lg:pb-16">
+          <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#0D5D62] mb-4">
+            <IconEye size={15} className="text-[#B85E31]" />
+            Our team
+          </div>
+          <h1
+            className="font-display text-[38px] sm:text-[50px] text-[#16201E] mb-4"
+            style={{ letterSpacing: '-0.03em' }}
+          >
+            Meet the doctor behind your care
+          </h1>
+          <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
+            A patient-first approach to every visit — unhurried, thorough, and built around the person in the chair.
+          </p>
+        </div>
+      </div>
+
+      {/* Doctor profile */}
+      <section className="py-16 sm:py-24 lg:py-[100px]">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+
+          {/* Avatar */}
+          <div
+            className="rounded-[20px] overflow-hidden flex flex-col items-center justify-center relative"
+            style={{ aspectRatio: '3/3.6', boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)', background: 'linear-gradient(160deg, #E2F3F0 0%, #ffffff 100%)' }}
+          >
+            <svg
+              width="260" height="260" viewBox="0 0 200 200" fill="none"
+              className="absolute top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+              aria-hidden="true"
+            >
+              <circle cx="100" cy="100" r="94" stroke="#0D5D62" strokeWidth="1.4" opacity=".28" />
+              <circle cx="100" cy="100" r="76" stroke="#E2895B" strokeWidth="1.4" opacity=".22" />
+              <path d="M22 100s24-46 78-46 78 46 78 46-24 46-78 46-78-46-78-46z" stroke="#0D5D62" strokeWidth="2.2" opacity=".16" />
+            </svg>
+            <div
+              className="relative z-10 w-[140px] h-[140px] rounded-full flex items-center justify-center font-display font-semibold text-[48px] text-white"
+              style={{ background: '#0D5D62', boxShadow: '0 12px 28px -10px rgba(20,66,66,.35)', letterSpacing: '-0.02em' }}
+            >
+              SV
+            </div>
+            <div className="relative z-10 mt-5 inline-flex items-center gap-2 text-[12.5px] font-semibold text-[#6E7C77] bg-white border border-[#E7EBEA] rounded-full px-4 py-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E2895B] inline-block" />
+              Professional portrait coming before launch
+            </div>
+          </div>
+
+          {/* Bio */}
+          <div>
+            <h2 className="font-display text-[28px] sm:text-[40px] text-[#16201E] mb-1.5" style={{ letterSpacing: '-0.03em' }}>
+              Shiroz Virani, O.D.
+            </h2>
+            <p className="text-[14.5px] font-semibold text-[#37B2B8] mb-7">
+              Optometrist and founder, First Colony Vision
+            </p>
+            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
+              Dr. Virani opened First Colony Vision on a simple conviction: good eye care depends on how carefully someone listens before they ever pick up an instrument.
+            </p>
+            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
+              Every appointment here is built to be thorough and calm. Dr. Virani and his team take the time to explain what they see, what it means, and what happens next — so you leave understanding your own eyes, not just holding a prescription.
+            </p>
+            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-7 max-w-[540px]">
+              <em className="not-italic font-medium text-[#16201E]">Full biography, education history, and professional headshot will be added before launch.</em>
+            </p>
+            <div className="flex flex-col gap-3 mb-8">
+              {[
+                'Doctor of Optometry',
+                'Pediatric and family vision care',
+                'Specialty and hard-to-fit contact lenses',
+                'Sports vision and myopia control',
+              ].map((point) => (
+                <div key={point} className="flex items-center gap-3 text-[14.5px] font-medium text-[#16201E]">
+                  <IconCheck size={18} className="text-[#37B2B8] shrink-0" />
+                  {point}
+                </div>
+              ))}
+            </div>
+            <a
+              href="/book"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
+            >
+              Book with Dr. Virani
+            </a>
+          </div>
+        </div>
       </section>
 
-      {/* Team grid */}
-      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Dr. Virani */}
-          <div className="bg-[#F6F6F8] rounded-2xl overflow-hidden">
-            <div className="h-64">
-              <img src="/images/doctor-portrait.jpg" alt="Dr. Shiroz Virani, O.D." className="w-full h-full object-cover" />
+      {/* Philosophy */}
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#FBF7F1]">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
+          <div className="max-w-[640px] mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#0D5D62] mb-4">
+              <IconHeart size={15} className="text-[#B85E31]" />
+              Philosophy
             </div>
-            <div className="p-6">
-              <div className="text-[#B33951] text-xs font-bold mb-2 tracking-widest">OPTOMETRIST</div>
-              <h2 className="font-display text-xl font-black text-[#1E2749] mb-1">Shiroz Virani, O.D.</h2>
-              <div className="text-[#59607A] text-sm font-semibold mb-4">Doctor of Optometry &middot; Sugar Land Vision</div>
-              <p className="text-[#33415C] text-[15px] leading-relaxed">
-                Dr. Virani and the Sugar Land Vision team take a patient-first approach to every visit — combining advanced technology with genuine, unhurried care for patients of every age.
+            <h2 className="font-display text-[26px] sm:text-[38px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
+              Care that grows with your family
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              { title: 'Patient-First',      body: 'Unhurried visits where every question gets answered — for every age, at every stage.' },
+              { title: 'Modern Diagnostics', body: 'Current equipment to catch issues early and explain findings in plain language.' },
+              { title: 'Family-Friendly',    body: "From a child's first exam to sports vision and senior eye health — care for every generation." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-2xl p-8"
+                style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
+              >
+                <h4 className="font-display font-semibold text-[18px] text-[#093F42] mb-3" style={{ letterSpacing: '-0.02em' }}>{item.title}</h4>
+                <p className="text-[#6E7C77] text-[14.5px] leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Team placeholder */}
+          <div className="mt-8 border-2 border-dashed border-[#E7EBEA] rounded-2xl flex flex-col sm:flex-row items-center justify-center text-center gap-5 p-10">
+            <div className="w-12 h-12 rounded-full bg-[#E2F3F0] flex items-center justify-center shrink-0">
+              <span className="text-xl text-[#0D5D62]/40 font-bold">+</span>
+            </div>
+            <div className="text-left">
+              <h4 className="font-semibold text-[#093F42] mb-1">More Team Members — Coming Soon</h4>
+              <p className="text-[#6E7C77] text-[14px]">
+                Reserved for additional doctors and staff. Send us names, titles, bios, and headshots.
               </p>
             </div>
           </div>
-
-          {/* Placeholder slot for additional team members */}
-          <div className="border-2 border-dashed border-[#1E2749]/20 rounded-2xl flex flex-col items-center justify-center text-center p-10 min-h-[380px]">
-            <div className="w-14 h-14 rounded-full bg-[#1E2749]/5 flex items-center justify-center mb-4">
-              <span className="text-2xl text-[#1E2749]/40">+</span>
-            </div>
-            <h4 className="font-bold text-[#1E2749] mb-2">More of Our Team &mdash; Coming Soon</h4>
-            <p className="text-[#59607A] text-[15px] italic max-w-xs">
-              Reserved for additional doctors and staff. Send us names, titles, bios, and headshots and we&apos;ll add them here.
-            </p>
-          </div>
-        </div>
-
-        {/* Full bio + booking, still specific to Dr. Virani */}
-        <div className="max-w-5xl mx-auto mt-10">
-          <div className="bg-[#F6F6F8] rounded-2xl p-6 mb-4">
-            <h4 className="font-bold text-[#1E2749] mb-2">Our Philosophy of Care</h4>
-            <p className="text-[#33415C] text-[15.5px] leading-relaxed">
-              Every question gets answered, and every visit is tailored to the person in the chair, not just the prescription on file.
-            </p>
-          </div>
-
-          <div className="border border-dashed border-[#1E2749]/20 rounded-2xl p-6 mb-6">
-            <h4 className="font-bold text-[#1E2749] mb-2">Full Biography &mdash; Coming Soon</h4>
-            <p className="text-[#59607A] text-[15px] italic">
-              This space is reserved for Dr. Virani&apos;s complete background, education, and philosophy of care, alongside a professional headshot supplied by the practice.
-            </p>
-          </div>
-
-          <a
-            href="/book"
-            className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] press focus-ring rounded-xl"
-          >
-            BOOK AN APPOINTMENT
-          </a>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-14 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#F6F6F8]">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="text-[#B33951] text-xs font-bold mb-3 tracking-widest">WHY CHOOSE US</div>
-          <h2 className="font-display text-2xl sm:text-4xl font-black text-[#1E2749]">Care that grows with your family</h2>
-        </div>
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
-          <div className="bg-white rounded-2xl p-7">
-            <h4 className="font-bold text-[#1E2749] mb-2">Patient-First</h4>
-            <p className="text-[#59607A] text-sm leading-relaxed">Unhurried visits where every question gets answered — for every age.</p>
-          </div>
-          <div className="bg-white rounded-2xl p-7">
-            <h4 className="font-bold text-[#1E2749] mb-2">Advanced Tech</h4>
-            <p className="text-[#59607A] text-sm leading-relaxed">State-of-the-art diagnostics to catch issues early and treat them precisely.</p>
-          </div>
-          <div className="bg-white rounded-2xl p-7">
-            <h4 className="font-bold text-[#1E2749] mb-2">Family-Friendly</h4>
-            <p className="text-[#59607A] text-sm leading-relaxed">From child eye exams to sports vision, care that grows with your family.</p>
+      {/* CTA */}
+      <section className="py-16 sm:py-24 lg:py-[100px]">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
+          <div
+            className="relative rounded-[24px] overflow-hidden text-center"
+            style={{ background: '#0D5D62', padding: '64px 48px' }}
+          >
+            <svg
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] opacity-[.1] pointer-events-none"
+              viewBox="0 0 200 200" fill="none" aria-hidden="true"
+            >
+              <circle cx="100" cy="100" r="96" stroke="white" strokeWidth="1.4" />
+              <circle cx="100" cy="100" r="70" stroke="white" strokeWidth="1.4" />
+              <circle cx="100" cy="100" r="44" stroke="white" strokeWidth="1.4" />
+            </svg>
+            <div className="relative z-10 max-w-[520px] mx-auto">
+              <h2 className="font-display text-[36px] text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
+                Ready to meet Dr. Virani?
+              </h2>
+              <p className="text-[#C9E5E3] text-[16px] mb-8 leading-relaxed">
+                Book an appointment online — we confirm by phone and verify your insurance before you arrive.
+              </p>
+              <a
+                href="/book"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
+              >
+                Book an Appointment
+              </a>
+            </div>
           </div>
         </div>
       </section>

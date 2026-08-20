@@ -17,7 +17,28 @@ module.exports = {
         }
       },
       extend: {
+        fontFamily: {
+          sans: ['var(--font-inter)', 'sans-serif'],
+          inter: ['var(--font-inter)', 'sans-serif'],
+          display: ['var(--font-dm-sans)', 'sans-serif'],
+          'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
+        },
         colors: {
+          /* Brand palette — use as bg-brand-teal, text-brand-ink, etc. */
+          brand: {
+            teal: '#0D5D62',
+            'teal-dark': '#093F42',
+            turquoise: '#37B2B8',
+            terracotta: '#E2895B',
+            'terracotta-deep': '#B85E31',
+            blush: '#F4E1D8',
+            cream: '#FBF7F1',
+            tint: '#E2F3F0',
+            ink: '#16201E',
+            stone: '#6E7C77',
+            line: '#E7EBEA',
+            off: '#F7F8F7',
+          },
           border: 'hsl(var(--border))',
           input: 'hsl(var(--input))',
           ring: 'hsl(var(--ring))',

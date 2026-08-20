@@ -1,111 +1,104 @@
 'use client'
 
 import Link from 'next/link'
-import { Eye, Glasses, Droplet, AlertTriangle, Waves, ScanEye, Smile, Target } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import {
+  IconEye, IconLens, IconDrop, IconPulse, IconMigraine,
+  IconTarget, IconFamily, IconBolt, IconSpark,
+} from '@/components/BrandIcons'
 
 const services = [
-  {
-    icon: Eye,
-    title: 'Comprehensive Eye Exam',
-    blurb: 'A full evaluation of vision and overall eye health.',
-    slug: 'comprehensive-eye-exam'
-  },
-  {
-    icon: Glasses,
-    title: 'Contact Lens Exam',
-    blurb: 'Precise fittings for daily, multifocal, and specialty lenses.',
-    slug: 'contact-lens-exam'
-  },
-  {
-    icon: Droplet,
-    title: 'Diabetic Eye Exam',
-    blurb: 'Detecting and managing diabetic retinopathy early.',
-    slug: 'diabetic-eye-exam'
-  },
-  {
-    icon: AlertTriangle,
-    title: 'Emergency Eye Exam',
-    blurb: 'Prompt care for injuries, foreign objects, and sudden vision changes.',
-    slug: 'emergency-medical-exam'
-  },
-  {
-    icon: Waves,
-    title: 'Migraine Management',
-    blurb: 'Identifying visual triggers and management strategies for migraines.',
-    slug: 'migraine-management'
-  },
-  {
-    icon: ScanEye,
-    title: 'Myopia Control',
-    blurb: 'Slowing nearsightedness progression in children and young adults.',
-    slug: 'myopia-control'
-  },
-  {
-    icon: Smile,
-    title: 'Child Eye Exam',
-    blurb: 'Specialized, engaging exams designed for young eyes.',
-    slug: 'child-eye-exam'
-  },
-  {
-    icon: Target,
-    title: 'Sports Vision',
-    blurb: 'Sharpening visual skills for a competitive athletic edge.',
-    slug: 'sports-vision'
-  }
+  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'A full evaluation of vision and overall eye health — not just your prescription.',         slug: 'comprehensive-eye-exam' },
+  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Precise fittings for daily, multifocal, and specialty lenses.',                             slug: 'contact-lens-exam' },
+  { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Detecting and managing diabetic retinopathy and related changes early.',                    slug: 'diabetic-eye-exam' },
+  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Prompt care for injuries, foreign objects, and sudden vision changes.',                     slug: 'emergency-medical-exam' },
+  { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Identifying visual triggers and developing management strategies.',                         slug: 'migraine-management' },
+  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing nearsightedness progression in children and young adults.',                        slug: 'myopia-control' },
+  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Specialized, engaging exams designed for young eyes and first-time patients.',             slug: 'child-eye-exam' },
+  { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Sharpening visual skills and reaction time for athletes at every level.',                  slug: 'sports-vision' },
 ]
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="py-16 sm:py-24 lg:py-28 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white text-center">
-        <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">WHAT WE OFFER</div>
-        <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black mb-5">
-          Services for every stage of vision
-        </h1>
-        <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
-          From a child's first exam to sports vision training, our care grows with you and your family. Select a service below to learn more.
-        </p>
-      </section>
+
+      {/* Page header */}
+      <div className="bg-[#FBF7F1] border-b border-[#E7EBEA]">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 pt-16 pb-14 lg:pt-20 lg:pb-16">
+          <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#0D5D62] mb-4">
+            <IconSpark size={15} className="text-[#B85E31]" />
+            What we offer
+          </div>
+          <h1
+            className="font-display text-[38px] sm:text-[50px] text-[#16201E] mb-4"
+            style={{ letterSpacing: '-0.03em' }}
+          >
+            Services for every stage of vision
+          </h1>
+          <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
+            From a child&apos;s first exam to sports vision training, our care grows with you and your family.
+          </p>
+        </div>
+      </div>
 
       {/* Services Grid */}
-      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-16">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {services.map((service) => {
-            const Icon = service.icon
-            return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group bg-[#F6F6F8] hover:bg-white border border-transparent hover:border-[#1E2749]/10 hover:shadow-xl rounded-2xl p-6 sm:p-7 flex flex-col gap-4 press-sm focus-ring"
-              >
-                <div className="w-11 h-11 rounded-xl bg-[#1E2749]/10 group-hover:bg-[#B33951] flex items-center justify-center transition-colors">
-                  <Icon size={20} className="text-[#1E2749] group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[16.5px] text-[#1E2749] mb-2">{service.title}</h4>
-                  <p className="text-sm text-[#59607A] leading-relaxed">{service.blurb}</p>
-                </div>
-              </Link>
-            )
-          })}
+      <section className="py-16 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16">
+        <div className="max-w-[1180px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="group bg-[#F7F8F7] hover:bg-white border border-transparent hover:border-[#E7EBEA] hover:shadow-lg rounded-2xl p-6 sm:p-7 flex flex-col gap-4 transition-all"
+            >
+              <div className="w-[46px] h-[46px] rounded-[12px] bg-[#E2F3F0] group-hover:bg-[#0D5D62] flex items-center justify-center transition-colors text-[#0D5D62] group-hover:text-white shrink-0">
+                <service.Icon size={23} />
+              </div>
+              <div>
+                <h4 className="font-semibold text-[16px] text-[#093F42] mb-2">{service.title}</h4>
+                <p className="text-sm text-[#6E7C77] leading-relaxed">{service.blurb}</p>
+              </div>
+              <div className="mt-auto flex items-center gap-1 text-xs font-semibold text-[#37B2B8] opacity-0 group-hover:opacity-100 transition-opacity">
+                Learn more <ArrowRight size={12} />
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-16 bg-[#F6F6F8] text-center">
-        <h2 className="font-display text-2xl sm:text-4xl font-black text-[#1E2749] mb-4">
-          Not sure which service you need?
-        </h2>
-        <p className="text-[#59607A] text-base sm:text-lg max-w-xl mx-auto mb-8">
-          Give us a call and our team will help point you in the right direction.
-        </p>
-        <a
-          href="/book"
-          className="inline-block px-9 py-4 bg-[#B33951] text-white font-bold text-sm hover:bg-[#1E2749] press focus-ring rounded-xl"
-        >
-          BOOK AN APPOINTMENT
-        </a>
+      {/* CTA callout */}
+      <section className="py-16 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16">
+        <div className="max-w-[1180px] mx-auto">
+          <div
+            className="relative rounded-[24px] overflow-hidden text-center"
+            style={{ background: '#0D5D62', padding: '64px 48px' }}
+          >
+            <svg
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] opacity-[.1] pointer-events-none"
+              viewBox="0 0 200 200" fill="none" aria-hidden="true"
+            >
+              <circle cx="100" cy="100" r="96" stroke="white" strokeWidth="1.4" />
+              <circle cx="100" cy="100" r="70" stroke="white" strokeWidth="1.4" />
+              <circle cx="100" cy="100" r="44" stroke="white" strokeWidth="1.4" />
+            </svg>
+            <div className="relative z-10 max-w-[520px] mx-auto">
+              <h2
+                className="font-display text-[36px] text-white mb-4"
+                style={{ letterSpacing: '-0.03em' }}
+              >
+                Not sure which service you need?
+              </h2>
+              <p className="text-[#C9E5E3] text-[16px] mb-8 leading-relaxed">
+                Give us a call and we&apos;ll help point you in the right direction — no pressure, no jargon.
+              </p>
+              <a
+                href="/book"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
+              >
+                Book an Appointment
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   )

@@ -4,19 +4,22 @@
 
 @layer base {
   :root {
+    /* Brand colors as HSL for shadcn compatibility */
     --background: 0 0% 100%;
-    --foreground: 210 40% 8%;
+    --foreground: 168 19% 11%;        /* Ink #16201E */
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 8%;
-    --primary: 10 65% 52%;
+    --card-foreground: 168 19% 11%;
+    --primary: 184 77% 22%;           /* Primary Teal #0D5D62 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 200 15% 56%;
-    --secondary-foreground: 210 40% 8%;
-    --accent: 10 65% 52%;
+    --secondary: 183 54% 47%;         /* Turquoise #37B2B8 */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 22 72% 62%;             /* Terracotta #E2895B */
     --accent-foreground: 0 0% 100%;
-    --muted: 200 15% 56%;
-    --muted-foreground: 210 20% 40%;
-    --border: 200 10% 85%;
+    --muted: 160 8% 91%;              /* Line #E7EBEA */
+    --muted-foreground: 158 6% 46%;   /* Stone #6E7C77 */
+    --border: 160 8% 91%;
+    --input: 160 8% 91%;
+    --ring: 184 77% 22%;
     --radius: 0.75rem;
   }
 }
@@ -27,6 +30,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
     font-feature-settings: "kern";
     overflow-x: hidden;
   }
@@ -37,24 +41,22 @@
 }
 
 @layer components {
+  /* DM Sans — headlines and display text per brand guide */
   .font-display {
-    font-family: var(--font-roboto);
-    font-weight: 900;
-    letter-spacing: 0.02em;
+    font-family: var(--font-dm-sans), sans-serif;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
-  .font-roboto {
-    font-family: var(--font-roboto);
+  /* Inter — body and UI text */
+  .font-inter {
+    font-family: var(--font-inter), sans-serif;
   }
 }
 
 /* Marquee Animation */
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
@@ -82,14 +84,8 @@
 
 /* Smooth reveal */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
@@ -97,20 +93,12 @@
 }
 
 /* Hover scale effect */
-.hover-scale-image {
-  overflow: hidden;
-}
+.hover-scale-image { overflow: hidden; }
+.hover-scale-image img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.hover-scale-image:hover img { transform: scale(1.08); }
 
-.hover-scale-image img {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hover-scale-image:hover img {
-  transform: scale(1.08);
-}
-
-/* Custom selection */
+/* Custom selection — teal tint */
 ::selection {
-  background-color: rgba(200, 90, 62, 0.3);
+  background-color: rgba(55, 178, 184, 0.25);
   color: inherit;
 }

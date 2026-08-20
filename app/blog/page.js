@@ -5,7 +5,7 @@ const posts = [
     slug: 'what-are-floaters',
     category: 'Eye Health',
     title: 'What Are Floaters?',
-    blurb: 'Understanding those small spots drifting across your vision.',
+    blurb: 'Understanding those small spots drifting across your vision — what causes them and when to be concerned.',
     image: '/images/eye-closeup.jpg',
     imageAlt: 'Close up of a human eye',
   },
@@ -13,7 +13,7 @@ const posts = [
     slug: 'diabetic-eye-health-101',
     category: 'Diabetic Care',
     title: 'Diabetic Eye Health 101',
-    blurb: 'What every diabetic patient should know about eye exams.',
+    blurb: 'What every diabetic patient should know about eye exams, retinopathy, and why regular checkups matter.',
     image: '/images/diabetic-equipment.jpg',
     imageAlt: 'Eye testing equipment used to check diabetic eye health',
   },
@@ -21,7 +21,7 @@ const posts = [
     slug: 'choosing-the-right-contacts',
     category: 'Contact Lenses',
     title: 'Choosing the Right Contacts',
-    blurb: 'A guide to daily, multifocal, and specialty lens options.',
+    blurb: 'A practical guide to daily, multifocal, and specialty lens options — and how to know which fits your life.',
     image: '/images/contact-lens.jpg',
     imageAlt: 'Close up of a contact lens',
   },
@@ -30,25 +30,31 @@ const posts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
+
       {/* Hero */}
-      <section className="py-16 sm:py-20 px-5 sm:px-8 lg:px-16 bg-[#1E2749] text-white text-center">
-        <div className="text-[#D5929F] text-xs sm:text-sm font-bold mb-4 tracking-widest">FROM THE BLOG</div>
-        <h1 className="font-display text-3xl sm:text-5xl font-black mb-5">Eye health, explained</h1>
-        <p className="text-base sm:text-lg text-[#C0C3CC] max-w-2xl mx-auto leading-relaxed">
-          Practical guidance from the Sugar Land Vision team to help you understand and protect your vision.
+      <section className="py-16 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16 bg-[#093F42] text-white text-center">
+        <div className="text-[#37B2B8] text-xs sm:text-sm font-semibold mb-4 tracking-widest">FROM THE BLOG</div>
+        <h1
+          className="font-display text-3xl sm:text-5xl font-medium mb-5"
+          style={{ letterSpacing: '-0.03em' }}
+        >
+          Eye health, explained
+        </h1>
+        <p className="text-base sm:text-lg text-[#C9E5E3] max-w-2xl mx-auto leading-relaxed">
+          Practical guidance from the First Colony Vision team to help you understand and protect your vision.
         </p>
       </section>
 
       {/* Post grid */}
-      <section className="py-16 sm:py-24 px-5 sm:px-8 lg:px-16">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-16 sm:py-24 lg:py-[100px] px-5 sm:px-8 lg:px-16">
+        <div className="max-w-[1180px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#1E2749]/10 hover:shadow-xl press-sm focus-ring"
+              className="group bg-white rounded-2xl overflow-hidden border border-[#E7EBEA] hover:shadow-lg hover:border-transparent transition-all"
             >
-              <div className="h-44 overflow-hidden">
+              <div className="h-48 overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.imageAlt}
@@ -56,15 +62,39 @@ export default function BlogPage() {
                 />
               </div>
               <div className="p-6">
-                <div className="text-[11px] font-bold text-[#B33951] tracking-widest mb-2">{post.category.toUpperCase()}</div>
-                <h4 className="font-bold text-[#1E2749] text-base mb-2">{post.title}</h4>
-                <p className="text-[#59607A] text-sm leading-relaxed mb-3">{post.blurb}</p>
-                <span className="text-sm font-bold text-[#1E2749] group-hover:text-[#B33951] transition-colors">
+                <div className="text-[11px] font-semibold text-[#37B2B8] tracking-widest mb-2">{post.category.toUpperCase()}</div>
+                <h4 className="font-display font-semibold text-[#093F42] text-base mb-2" style={{ letterSpacing: '-0.01em' }}>{post.title}</h4>
+                <p className="text-[#6E7C77] text-sm leading-relaxed mb-4">{post.blurb}</p>
+                <span className="text-sm font-semibold text-[#0D5D62] group-hover:text-[#37B2B8] transition-colors">
                   Read more &rarr;
                 </span>
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Newsletter CTA — inspired by mockup news section */}
+      <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16 bg-[#FBF7F1]">
+        <div className="max-w-[1180px] mx-auto bg-[#093F42] rounded-3xl p-8 sm:p-12 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <div className="text-[#37B2B8] text-xs font-semibold mb-3 tracking-widest">STAY INFORMED</div>
+            <h2
+              className="font-display text-2xl sm:text-3xl font-medium text-white mb-2"
+              style={{ letterSpacing: '-0.02em' }}
+            >
+              Eye health tips, a few times a year
+            </h2>
+            <p className="text-[#C9E5E3] text-[15px] leading-relaxed">
+              Practical eye health tips and clinic news from First Colony Vision. Never more than that.
+            </p>
+          </div>
+          <a
+            href="/contact"
+            className="shrink-0 px-8 py-4 bg-[#0D5D62] hover:bg-[#37B2B8] text-white font-semibold text-sm rounded-xl transition-colors whitespace-nowrap"
+          >
+            Subscribe
+          </a>
         </div>
       </section>
     </div>
