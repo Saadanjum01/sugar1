@@ -96,7 +96,7 @@ export default function InsurancePage() {
       </section>
 
       {/* Payment options */}
-      <section className="pb-14 sm:pb-20 px-5 sm:px-8 lg:px-16 bg-white">
+      <section className="pb-14 sm:pb-20 px-5 sm:px-8 lg:px-16 bg-[#E2F3F0]">
         <div className="max-w-3xl mx-auto text-center mb-8">
           <div className="text-[#37B2B8] text-xs font-semibold mb-3 tracking-widest">PAYMENT</div>
           <h2

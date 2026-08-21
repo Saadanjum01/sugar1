@@ -254,7 +254,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ── */}
-      <section id="services" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]">
+      <section id="services" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconSpark}>What we offer</Kicker>
@@ -287,39 +287,43 @@ export default function HomePage() {
       </section>
 
       {/* ── First Visit ── */}
-      <section id="first-visit" className="py-16 sm:py-24 lg:py-[100px] bg-[#FBF7F1] scroll-mt-[130px]">
+      <section
+        id="first-visit"
+        className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]"
+        style={{ background: '#0D5D62' }}
+      >
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
-            <Kicker Icon={IconList}>Your first visit</Kicker>
-            <h2 className="font-display text-[28px] sm:text-[42px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
+            <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-white mb-4">
+              <IconList size={15} className="text-[#E2895B]" />
+              Your first visit
+            </div>
+            <h2 className="font-display text-[28px] sm:text-[42px] text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
               Know exactly what to expect
             </h2>
-            <p className="text-[#6E7C77] text-[16.5px] leading-relaxed">
+            <p className="text-[16.5px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Most first appointments run about an hour. Here is how that hour is spent, so nothing about your visit is a surprise.
             </p>
           </div>
 
           {/* 4-step grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[22px] mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[22px] mb-8">
             {firstVisitSteps.map((step) => (
               <div key={step.num} className="py-1.5 px-1">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#F4E1D8] text-[#B85E31] font-display font-semibold text-[15px] mb-5">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#E2895B] text-white font-display font-semibold text-[15px] mb-5">
                   {step.num}
                 </div>
-                <h3 className="font-display font-medium text-[18px] text-[#16201E] mb-2" style={{ letterSpacing: '-0.02em' }}>
+                <h3 className="font-display font-medium text-[18px] text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                   {step.title}
                 </h3>
-                <p className="text-[14px] text-[#6E7C77] leading-relaxed mb-3">{step.body}</p>
-                <span className="text-[12.5px] font-semibold text-[#37B2B8]">{step.timing}</span>
+                <p className="text-[14px] leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.8)' }}>{step.body}</p>
+                <span className="text-[12.5px] font-semibold text-[#F4E1D8]">{step.timing}</span>
               </div>
             ))}
           </div>
 
           {/* What to bring */}
-          <div
-            className="bg-white border border-[rgba(15,50,52,.07)] rounded-[20px] p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 sm:gap-10 items-center"
-            style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
-          >
+          <div className="bg-white rounded-[20px] p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 sm:gap-10 items-center shadow-xl">
             <div>
               <h3 className="font-display text-[24px] text-[#16201E] mb-2" style={{ letterSpacing: '-0.02em' }}>
                 What to bring
@@ -329,7 +333,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
               {whatToBring.map((item) => (
                 <div key={item.label} className="flex items-center gap-[10px] text-[14px] font-medium text-[#16201E]">
-                  <item.Icon size={17} className="text-[#37B2B8] shrink-0" />
+                  <item.Icon size={17} className="text-[#0D5D62] shrink-0" />
                   {item.label}
                 </div>
               ))}
@@ -339,7 +343,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Doctor ── */}
-      <section id="team" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]">
+      <section id="team" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-[#F4E1D8]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
 
           {/* Avatar / photo */}
@@ -407,7 +411,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Practice Gallery ── */}
-      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#F7F8F7]">
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-white">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconHeart}>Inside the practice</Kicker>
@@ -458,56 +462,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Frames ── */}
-      <section id="frames" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]">
-        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[60px] items-center">
-
-          {/* Photo */}
-          <div
-            className="rounded-[20px] overflow-hidden"
-            style={{ aspectRatio: '4/3.7', boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)' }}
-          >
-            <img
-              src="/images/hero-glasses.jpg"
-              alt="Eyewear collection at First Colony Vision"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Copy */}
-          <div>
-            <Kicker Icon={IconGlasses}>The optical</Kicker>
-            <h2 className="font-display text-[40px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              Frames chosen with a real eye
-            </h2>
-            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-4 max-w-[480px]">
-              Our collection is curated rather than crammed — a considered range across classic, modern, and playful, in sizes that genuinely fit children as well as adults.
-            </p>
-            <div className="flex flex-col gap-3 my-6">
-              {[
-                { strong: 'Honest guidance.', rest: ' Our optician will tell you when a frame isn\'t right for your prescription or your face.' },
-                { strong: 'Pricing up front.', rest: ' You\'ll see the full cost, including lens options, before anything is ordered.' },
-                { strong: 'Adjustments always free.', rest: ' Come back any time they slip, pinch, or need a tune-up.' },
-              ].map((pt, i) => (
-                <div key={i} className="flex items-start gap-3 text-[14.5px] text-[#16201E]">
-                  <IconCheck size={18} className="text-[#37B2B8] shrink-0 mt-0.5" />
-                  <span>
-                    <strong className="font-semibold">{pt.strong}</strong>
-                    {pt.rest}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/frames"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
-            >
-              Come try some on
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── Insurance ── */}
       <section id="insurance" className="py-16 sm:py-24 lg:py-[100px] bg-[#FBF7F1] scroll-mt-[130px]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
@@ -551,10 +505,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Payment ── */}
-      <section className="py-16 sm:py-24 lg:py-[100px]">
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div
-            className="bg-[#F7F8F7] border border-[rgba(15,50,52,.07)] rounded-[20px] p-6 sm:p-12 grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-8 sm:gap-11 items-center"
+            className="bg-white border border-[rgba(15,50,52,.07)] rounded-[20px] p-6 sm:p-12 grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-8 sm:gap-11 items-center"
             style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
           >
             <div>
@@ -581,7 +535,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]">
+      <section id="faq" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-white">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconList}>Good questions</Kicker>
@@ -606,7 +560,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Location ── */}
-      <section id="location" className="py-16 sm:py-24 lg:py-[100px] bg-[#F7F8F7] scroll-mt-[130px]">
+      <section id="location" className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0] scroll-mt-[130px]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
             <Kicker Icon={IconPin}>Come see us</Kicker>
@@ -692,7 +646,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Newsletter ── */}
-      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#F7F8F7]">
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div
             className="bg-white border border-[rgba(15,50,52,.07)] rounded-[20px] p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 sm:gap-10 items-center"
