@@ -18,7 +18,7 @@ export default function DoctorPage() {
             Meet the doctor behind your care
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            Thorough, calm, and built for real people — Dr. Virani designed this practice around the kind of visit he would want for his own family.
+            Thorough, calm, and built for real people — Dr. Virani designed this practice around the kind of visit she would want for her own family.
           </p>
         </div>
       </div>
@@ -29,28 +29,14 @@ export default function DoctorPage() {
 
           {/* Avatar */}
           <div
-            className="rounded-[20px] overflow-hidden flex flex-col items-center justify-center relative"
-            style={{ aspectRatio: '3/3.6', boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)', background: 'linear-gradient(160deg, #E2F3F0 0%, #ffffff 100%)' }}
+            className="rounded-[20px] overflow-hidden relative"
+            style={{ aspectRatio: '3/3.6', boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)' }}
           >
-            <svg
-              width="260" height="260" viewBox="0 0 200 200" fill="none"
-              className="absolute top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2"
-              aria-hidden="true"
-            >
-              <circle cx="100" cy="100" r="94" stroke="#0D5D62" strokeWidth="1.4" opacity=".28" />
-              <circle cx="100" cy="100" r="76" stroke="#E2895B" strokeWidth="1.4" opacity=".22" />
-              <path d="M22 100s24-46 78-46 78 46 78 46-24 46-78 46-78-46-78-46z" stroke="#0D5D62" strokeWidth="2.2" opacity=".16" />
-            </svg>
-            <div
-              className="relative z-10 w-[140px] h-[140px] rounded-full flex items-center justify-center font-display font-semibold text-[48px] text-white"
-              style={{ background: '#0D5D62', boxShadow: '0 12px 28px -10px rgba(20,66,66,.35)', letterSpacing: '-0.02em' }}
-            >
-              SV
-            </div>
-            <div className="relative z-10 mt-5 inline-flex items-center gap-2 text-[12.5px] font-semibold text-[#6E7C77] bg-white border border-[#E7EBEA] rounded-full px-4 py-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E2895B] inline-block" />
-              Professional portrait coming before launch
-            </div>
+            <img
+              src="/images/doctor-portrait.jpg"
+              alt="Dr. Shiroz Virani, O.D."
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Bio */}
@@ -65,10 +51,7 @@ export default function DoctorPage() {
               Dr. Virani opened First Colony Vision on a simple conviction: good eye care depends on how carefully someone listens before they ever pick up an instrument.
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
-              Every appointment here is built to be thorough and calm. Dr. Virani and his team take the time to explain what they see, what it means, and what happens next — so you leave understanding your own eyes, not just holding a prescription.
-            </p>
-            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-7 max-w-[540px]">
-              <em className="not-italic font-medium text-[#16201E]">Full biography, education history, and professional headshot will be added before launch.</em>
+              Every appointment here is built to be thorough and calm. Dr. Virani and her team take the time to explain what they see, what it means, and what happens next — so you leave understanding your own eyes, not just holding a prescription.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               {[

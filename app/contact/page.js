@@ -26,9 +26,9 @@ const methods = [
   {
     Icon: Mail,
     label: 'Email us',
-    body: 'info@sugarlandvision.com',
+    body: 'info@firstcolonyvision.com',
     note: 'For non-urgent questions about your visit.',
-    href: 'mailto:info@sugarlandvision.com',
+    href: 'mailto:info@firstcolonyvision.com',
     cta: 'Send email',
   },
 ]

@@ -12,7 +12,7 @@ export default function LegalLayout({ title, intro, updatedNote, children }) {
           <div className="text-sm text-[#59607A] italic mb-8">{updatedNote}</div>
           <div className="space-y-8">{children}</div>
           <p className="mt-10 text-sm text-[#59607A] italic">
-            This is placeholder text for the website demo. Sugar Land Vision will supply the finalized document for publication.
+            This is placeholder text for the website demo. First Colony Vision will supply the finalized document for publication.
           </p>
         </div>
       </section>

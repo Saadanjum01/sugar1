@@ -9,7 +9,7 @@ const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 const GREETING = {
   role: 'assistant',
-  text: "Hi! Ask me about hours, services, insurance, or booking at Sugar Land Vision.",
+  text: "Hi! Ask me about hours, services, insurance, or booking at First Colony Vision.",
 }
 
 export default function ChatWidget() {
@@ -79,7 +79,7 @@ export default function ChatWidget() {
       {open && (
         <div className="fixed bottom-28 right-6 sm:right-10 z-50 w-[92vw] max-w-sm h-[480px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#1E2749]/10">
           <div className="bg-[#1E2749] text-white px-5 py-4">
-            <div className="font-bold text-sm">Sugar Land Vision</div>
+            <div className="font-bold text-sm">First Colony Vision</div>
             <div className="text-[#C0C3CC] text-xs">Ask us anything</div>
           </div>
 
