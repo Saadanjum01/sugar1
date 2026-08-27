@@ -88,7 +88,7 @@ export default function ContactPage() {
       </section>
 
       {/* Office info + map */}
-      <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16">
+      <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16 bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-start">
           <div>
             <div className="text-[#37B2B8] text-xs font-semibold mb-3 tracking-widest">VISIT US</div>

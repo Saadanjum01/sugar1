@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { notFound } from 'next/navigation'
 import { IconGlasses } from '@/components/BrandIcons'
 
 const BRANDS = ['Tom Ford', 'Wiley X', 'Ray-Ban', 'Oakley', 'Warby Parker']
@@ -32,6 +33,10 @@ const PRODUCTS = [
 ]
 
 export default function FramesPage() {
+  // Gallery is built but not launched yet -- hidden from nav/links until
+  // the client is ready to go live with it.
+  notFound()
+
   const [brandFilter, setBrandFilter] = useState('All')
   const [styleFilter, setStyleFilter] = useState('All')
   const [sort, setSort] = useState('featured')

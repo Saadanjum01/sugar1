@@ -24,7 +24,7 @@ export default function DoctorPage() {
       </div>
 
       {/* Doctor profile */}
-      <section className="py-16 sm:py-24 lg:py-[100px]">
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
 
           {/* Avatar */}

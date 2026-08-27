@@ -11,7 +11,16 @@ export default function Header() {
   const isHome = pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48)
+    // Hysteresis (solidify past 80px, only clear again below 24px) so the
+    // header can't flicker transparent/solid while scrolling near one
+    // fixed threshold.
+    const onScroll = () => {
+      setScrolled((prev) => {
+        const y = window.scrollY
+        if (prev) return y > 24
+        return y > 80
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -21,10 +30,10 @@ export default function Header() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
         transparent
           ? 'bg-transparent border-b border-transparent'
-          : 'bg-white/96 backdrop-blur-sm border-b border-[#E7EBEA] shadow-sm'
+          : 'bg-white border-b border-[#E7EBEA] shadow-sm'
       }`}
     >
       {/* Utility bar — only visible when header is solid */}
@@ -51,13 +60,13 @@ export default function Header() {
           >
             <div className="flex flex-col leading-none select-none">
               <span
-                className="font-display font-semibold text-[16px] sm:text-[18px] transition-colors duration-300"
+                className="font-display font-semibold text-[16px] sm:text-[18px]"
                 style={{ letterSpacing: '-0.02em', color: transparent ? 'white' : '#0D5D62' }}
               >
                 First Colony
               </span>
               <span
-                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] transition-colors duration-300"
+                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em]"
                 style={{ color: transparent ? 'rgba(255,255,255,0.7)' : '#37B2B8' }}
               >
                 VISION
@@ -67,7 +76,7 @@ export default function Header() {
 
           {/* Desktop nav links */}
           <div
-            className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[14px] font-medium transition-colors ${
+            className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[14px] font-medium ${
               transparent ? 'text-white' : 'text-[#093F42]'
             }`}
           >
@@ -75,7 +84,6 @@ export default function Header() {
             <Link href="/#services" className="hover:opacity-75 transition-opacity">Services</Link>
             <Link href="/#first-visit" className="hover:opacity-75 transition-opacity">First Visit</Link>
             <Link href="/doctor" className="hover:opacity-75 transition-opacity">Our Team</Link>
-            <Link href="/frames" className="hover:opacity-75 transition-opacity">Frames</Link>
             <Link href="/insurance" className="hover:opacity-75 transition-opacity">Insurance</Link>
             <Link href="/#faq" className="hover:opacity-75 transition-opacity">FAQ</Link>
             <Link href="/book" className="hover:opacity-75 transition-opacity">Visit Us</Link>
@@ -124,7 +132,6 @@ export default function Header() {
             <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Services</Link>
             <Link href="/#first-visit" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">First Visit</Link>
             <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Our Team</Link>
-            <Link href="/frames" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Frames</Link>
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Insurance</Link>
             <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">FAQ</Link>
             <Link href="/book" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
