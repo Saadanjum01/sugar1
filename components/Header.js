@@ -40,7 +40,7 @@ export default function Header() {
       {!transparent && (
         <div className="bg-[#0D5D62] text-white">
           <div className="mx-auto px-4 sm:px-8 lg:px-16 py-1.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-0.5 text-[11px] sm:text-xs font-semibold tracking-wide text-center">
-            <span>TUE&ndash;FRI &nbsp;9:30 AM&ndash;6:00 PM</span>
+            <span>Tuesday to Friday, 9:30 AM to 6:00 PM</span>
             <span className="hidden sm:inline opacity-40">&bull;</span>
             <a href="tel:281-916-2020" className="hover:text-[#37B2B8] transition-colors">281-916-2020</a>
             <span className="hidden sm:inline opacity-40">&bull;</span>

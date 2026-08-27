@@ -14,30 +14,30 @@ import HeroSlideshow from '@/components/HeroSlideshow'
 /* ── Data ─────────────────────────────────────────────── */
 
 const services = [
-  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'A complete evaluation of how you see and how your eyes are doing underneath.',               slug: 'comprehensive-eye-exam' },
-  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'We fit lenses that feel right all day — not just in the exam room — including hard-to-fit prescriptions.',  slug: 'contact-lens-exam' },
-  { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Watchful, consistent monitoring to catch diabetic retinopathy early.',                        slug: 'diabetic-eye-exam' },
-  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something worrying you — sudden pain, blurry vision, or an object in your eye? Call us first.',       slug: 'emergency-medical-exam' },
-  { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Identifying the visual triggers behind your headaches, and how to ease them.',                slug: 'migraine-management' },
-  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing the progression of nearsightedness in children and young adults.',                   slug: 'myopia-control' },
-  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Patient, playful exams designed to keep young eyes comfortable and curious.',                 slug: 'child-eye-exam' },
-  { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Training the visual skills that give athletes a genuine competitive edge.',                   slug: 'sports-vision' },
+  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'A full check of how well you see and how healthy your eyes are underneath.',               slug: 'comprehensive-eye-exam' },
+  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Fittings for daily, multifocal and specialty lenses, including the ones that are hard to fit.',  slug: 'contact-lens-exam' },
+  { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Regular monitoring so diabetic retinopathy gets caught early.',                        slug: 'diabetic-eye-exam' },
+  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Quick help with injuries, something stuck in your eye, or a sudden change in vision.',       slug: 'emergency-medical-exam' },
+  { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Working out which visual triggers are behind your headaches, and what actually helps.',                slug: 'migraine-management' },
+  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing down nearsightedness in children and young adults.',                   slug: 'myopia-control' },
+  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Short, friendly exams that keep kids comfortable the whole way through.',                 slug: 'child-eye-exam' },
+  { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Training the visual skills athletes lean on, like tracking and reaction time.',                   slug: 'sports-vision' },
 ]
 
 const firstVisitSteps = [
-  { num: '1', title: 'Arrival and paperwork',   timing: 'About 10 minutes',  body: "We confirm your insurance ahead of time, so check-in is a signature and a hello." },
-  { num: '2', title: 'Imaging and testing',     timing: 'About 15 minutes',  body: "Quick, comfortable scans that map your eye health before you see the doctor." },
-  { num: '3', title: 'Time with Dr. Virani',   timing: 'About 25 minutes',  body: "A thorough exam, then a plain-language walkthrough of what she found and why it matters." },
-  { num: '4', title: 'Frames, if you need them', timing: 'Take your time',  body: "Browse with help from our optician. We will tell you the cost before anything is ordered." },
+  { num: '1', title: 'Arrival and paperwork',   timing: '',                  body: "Quick check in with our welcoming staff who will help with going over items on our iPad." },
+  { num: '2', title: 'Imaging and testing',     timing: 'About 15 minutes',  body: "A few quick scans that map out your eye health before you see the doctor. Nothing uncomfortable." },
+  { num: '3', title: 'Time with Dr. Virani',   timing: 'About 25 minutes',  body: "Comprehensive exam to address the reason for your visit. Answering your questions and building a plan of action." },
+  { num: '4', title: 'Frames',                   timing: 'Take your time',  body: "Our opticians can help you find a style which fits your needs and your price point." },
 ]
 
 const whatToBring = [
   { Icon: IconId,      label: 'Photo ID' },
   { Icon: IconCardPay, label: 'Insurance card' },
-  { Icon: IconGlasses, label: 'Current glasses or contacts' },
+  { Icon: IconGlasses, label: 'Current glasses and/or contacts' },
   { Icon: IconList,    label: 'A list of medications' },
   { Icon: IconEye,     label: 'Sunglasses for the drive home' },
-  { Icon: IconFamily,  label: 'A parent, for patients under 18' },
+  { Icon: IconFamily,  label: 'A guardian, for patients under 18' },
 ]
 
 const insurers = [
@@ -62,35 +62,31 @@ const payments = [
 const faqs = [
   {
     q: 'How long does a first appointment take?',
-    a: "Plan on about an hour for a comprehensive exam. If you are choosing frames afterward, give yourself a little extra — we would rather you not feel rushed through that part.",
+    a: "We advise you to expect it to take about an hour. If you are looking for new frames we suggest giving yourself an additional 30 mins.",
   },
   {
     q: 'Do you take my insurance?',
-    a: "We accept most major vision and medical plans, including EyeMed, VSP, Blue Cross Blue Shield, Cigna, Medicare, UnitedHealthcare, Spectera, Superior Vision, and Aetna. We verify your specific benefits before your visit, so you know your costs in advance.",
+    a: "We accept most major vision and medical plans, including EyeMed, VSP, Blue Cross Blue Shield, Cigna, Medicare, UnitedHealthcare, Spectera, Superior Vision and Aetna. We check your benefits before your visit. Call us if your plan is not on the list.",
   },
   {
     q: "What if I don't have vision insurance?",
-    a: "You are still very welcome here. We will quote the full cost of your exam up front, and CareCredit is available if you would rather spread payments out.",
+    a: "We always have a variety of promotions and prompt pay options. These can't be combined with insurance, so they are just for you.",
   },
   {
     q: 'How young can my child be for a first exam?',
-    a: "We see children from around age three. Early exams catch things a school screening can miss, and we keep them short, playful, and free of anything that stings.",
+    a: "We see children starting at age three (when they are able to identify letters).",
   },
   {
     q: 'Do you handle eye emergencies?',
-    a: "Yes — for irritation, infections, foreign objects, injuries, and sudden changes in vision. Call us and we will get you in as quickly as we can. For severe trauma or sudden total vision loss, go to an emergency room first.",
+    a: "Yes. Irritation, eye infections, something stuck in your eye, injuries, sudden changes in vision. Call and we will get you in as fast as we can. For serious trauma or sudden total vision loss, go straight to an emergency room.",
   },
   {
     q: 'Can I use my own prescription to buy frames here?',
-    a: "Absolutely. Bring a current prescription from any provider and our optician will help you find frames and lenses that suit it.",
+    a: "Of course. Bring a current prescription from any provider and our optician will help you find frames and lenses to match it.",
   },
   {
     q: 'Do I need an appointment, or can I walk in?',
-    a: "Appointments are best — it means the time is genuinely yours. That said, if you are nearby and needing urgent help with your eyes, call and we will do everything we can to fit you in.",
-  },
-  {
-    q: 'You are a new practice. Why should I trust you?',
-    a: "Fair question. Dr. Virani is a licensed Doctor of Optometry, the practice uses current diagnostic equipment, and every price is quoted before treatment. Being new is exactly why we can offer appointments that are not squeezed into ten minutes.",
+    a: "Appointments are advised to ensure minimized wait time. Need same day? Call our office for immediate assistance.",
   },
 ]
 
@@ -170,10 +166,10 @@ export default function HomePage() {
               className="font-display text-[38px] sm:text-[52px] lg:text-[58px] mb-6"
               style={{ letterSpacing: '-0.03em', lineHeight: 1.1, color: '#ffffff' }}
             >
-              Eye care your whole family can settle into.
+              Eye care for your whole family.
             </h1>
             <p className="text-[18px] max-w-[460px] mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.84)' }}>
-              A new Sugar Land practice built around unhurried visits, careful diagnostics, and a team that learns your name before your prescription.
+              Your new practice in Sugar Land who puts the patient first. Our doctors and team use the latest technology to ensure this is the best eye doctor visit.
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
@@ -204,6 +200,17 @@ export default function HomePage() {
           {/* Right — photo slideshow */}
           <div className="relative hidden lg:block">
             <HeroSlideshow />
+            <div
+              className="absolute -bottom-6 -left-6 z-20 bg-white rounded-2xl px-5 py-4 max-w-[240px]"
+              style={{ boxShadow: '0 20px 40px -12px rgba(6,38,40,.35)' }}
+            >
+              <p className="font-display font-semibold text-[14.5px] text-[#093F42] mb-0.5" style={{ letterSpacing: '-0.015em' }}>
+                Locally owned and operated
+              </p>
+              <p className="text-[13px] text-[#6E7C77] leading-snug">
+                Our team has over 30 years of experience
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -213,9 +220,9 @@ export default function HomePage() {
         <div className="max-w-[1180px] mx-auto grid grid-cols-2 lg:grid-cols-4">
           {[
             { Icon: IconCal,    title: 'Open Tuesday to Friday',  body: '9:30 AM to 6:00 PM, by appointment' },
-            { Icon: IconShield, title: 'Benefits checked first',   body: 'We verify your coverage before you arrive' },
-            { Icon: IconFamily, title: 'Every generation',         body: 'First exams through senior eye health' },
-            { Icon: IconPin,    title: 'Easy to reach',            body: 'Southwest Freeway with free parking' },
+            { Icon: IconShield, title: 'Insurance Verification',   body: 'Insurance savings verified before your appointment' },
+            { Icon: IconFamily, title: 'All ages',                 body: 'Exams to address all eye health areas' },
+            { Icon: IconPin,    title: 'Easy Parking',              body: 'Off the Southwest Freeway in front of Target, parking is free' },
           ].map((cell, i) => (
             <div
               key={i}
@@ -251,10 +258,10 @@ export default function HomePage() {
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconSpark}>What we offer</Kicker>
             <h2 className="font-display text-[28px] sm:text-[42px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              Services for every stage of vision
+              Services we offer
             </h2>
             <p className="text-[#6E7C77] text-[16.5px] leading-relaxed">
-              From a child&apos;s very first eye exam to sharpening an athlete&apos;s edge, our care grows alongside your family.
+              Our doctors can help all your eye care needs from your yearly eye exam, eye infections and managing chronic diseases like cataracts or glaucoma.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
@@ -291,10 +298,10 @@ export default function HomePage() {
               Your first visit
             </div>
             <h2 className="font-display text-[28px] sm:text-[42px] text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
-              Know exactly what to expect
+              What happens at your first visit
             </h2>
             <p className="text-[16.5px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              Most first appointments run about an hour. Here is how that hour is spent, so nothing about your visit is a surprise.
+              First appointments take an hour.
             </p>
           </div>
 
@@ -320,7 +327,7 @@ export default function HomePage() {
               <h3 className="font-display text-[24px] text-[#16201E] mb-2" style={{ letterSpacing: '-0.02em' }}>
                 What to bring
               </h3>
-              <p className="text-[14.5px] text-[#6E7C77]">Six small things that make your first visit go smoothly.</p>
+              <p className="text-[14.5px] text-[#6E7C77]">Six things to bring to your appointment.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
               {whatToBring.map((item) => (
@@ -360,16 +367,16 @@ export default function HomePage() {
               Optometrist and founder, First Colony Vision
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-4 max-w-[540px]">
-              Dr. Virani opened First Colony Vision on a simple conviction: good eye care depends on how carefully someone listens before they ever pick up an instrument.
+              Dr. Virani opened First Colony Vision so she could practice the way she thinks eye care should work. Ask first, listen properly, then examine.
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-6 max-w-[540px]">
-              Every exam here is built to be thorough and calm. She and her team take the time to explain what they see, what it means, and what happens next — so you leave understanding your own eyes, not just holding a prescription.
+              She and her team take their time with every exam and explain what they are seeing as they go. You should walk out understanding your own eyes, not just holding a prescription.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               {[
                 'Doctor of Optometry',
-                'Pediatric and family vision care',
-                'Specialty and hard-to-fit contact lenses',
+                'Kids and family vision care',
+                'Specialty and hard to fit contact lenses',
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3 text-[14.5px] font-medium text-[#16201E]">
                   <IconCheck size={18} className="text-[#37B2B8] shrink-0" />
@@ -393,10 +400,10 @@ export default function HomePage() {
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconHeart}>Inside the practice</Kicker>
             <h2 className="font-display text-[28px] sm:text-[42px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              A calm room to have your eyes looked after
+              A welcoming office focused on your eye health
             </h2>
             <p className="text-[#6E7C77] text-[16.5px] leading-relaxed">
-              Bright, quiet, and built for real conversations — not a waiting room that makes you want to leave.
+              Step into our office to meet your eye care team.
             </p>
           </div>
 
@@ -410,7 +417,7 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
               <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
-                Comprehensive, unhurried care
+                Comprehensive exams to address your eye health needs
               </span>
             </div>
             <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
@@ -421,7 +428,7 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
               <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
-                A range worth browsing
+                Quality eyewear for everyone
               </span>
             </div>
             <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
@@ -432,7 +439,7 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
               <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
-                Considered eyewear
+                Newest advanced lens technology
               </span>
             </div>
           </div>
@@ -448,7 +455,7 @@ export default function HomePage() {
               Insurance we accept
             </h2>
             <p className="text-[#6E7C77] text-[16.5px] leading-relaxed">
-              We work with most major vision and medical plans, and we verify your benefits before you arrive — so there are no surprises at checkout.
+              We work with most major vision and medical plans. Our team works to verify your coverage before your visit.
             </p>
           </div>
 
@@ -472,11 +479,10 @@ export default function HomePage() {
           </div>
 
           <p className="text-[14.5px] text-[#6E7C77] text-center">
-            Don&apos;t see your plan?{' '}
+            Don&apos;t see your plan? Call us at{' '}
             <a href="tel:281-916-2020" className="text-[#0D5D62] font-semibold hover:text-[#37B2B8] transition-colors">
-              Call us at 281-916-2020
-            </a>{' '}
-            — we&apos;re glad to walk through your coverage with you.
+              281-916-2020
+            </a>.
           </p>
         </div>
       </section>
@@ -490,9 +496,9 @@ export default function HomePage() {
           >
             <div>
               <h2 className="font-display text-[30px] text-[#16201E] mb-2.5" style={{ letterSpacing: '-0.03em' }}>
-                Flexible ways to pay
+                Ways to pay
               </h2>
-              <p className="text-[15px] text-[#6E7C77]">Whatever works best for your family. We will always tell you the cost before we begin.</p>
+              <p className="text-[15px] text-[#6E7C77]">Variety of payment options.</p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {payments.map((p) => (
@@ -515,12 +521,12 @@ export default function HomePage() {
       <section id="faq" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-white">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
-            <Kicker Icon={IconList}>Good questions</Kicker>
+            <Kicker Icon={IconList}>Common questions</Kicker>
             <h2 className="font-display text-[28px] sm:text-[42px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              The things people ask us first
+              Questions we get a lot
             </h2>
             <p className="text-[#6E7C77] text-[16.5px] leading-relaxed">
-              If your question isn&apos;t here, call us. We would rather answer it now than have you wonder about it.
+              Still need answers? Give us a call.
             </p>
           </div>
           <div className="max-w-[820px] mx-auto">
@@ -546,7 +552,7 @@ export default function HomePage() {
             </h2>
             {[
               { Icon: IconPin,   title: 'Address',  body: <>16126 Southwest Fwy, Ste 180<br />Sugar Land, TX 77479</> },
-              { Icon: IconClock, title: 'Hours',    body: <>Tuesday to Friday, 9:30 AM – 6:00 PM<br />Closed Saturday through Monday</> },
+              { Icon: IconClock, title: 'Hours',    body: <>Tuesday thru Friday, 9:30 AM to 6:00 PM<br />Closed Saturday through Monday</> },
               { Icon: IconPhone, title: 'Phone',    body: <a href="tel:281-916-2020" className="text-[#0D5D62] font-medium hover:text-[#37B2B8] transition-colors">281-916-2020</a> },
               { Icon: IconCar,   title: 'Parking',  body: 'Free surface parking directly outside Suite 180, with step-free access to the entrance.' },
             ].map((detail, i) => (
@@ -599,10 +605,10 @@ export default function HomePage() {
             </svg>
             <div className="relative z-10 max-w-[560px] mx-auto">
               <h2 className="font-display text-[28px] sm:text-[44px] text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
-                Ready when you are.
+                Come and see us.
               </h2>
               <p className="text-[16.5px] text-[#C9E5E3] mb-8 leading-relaxed">
-                Request an appointment online in about a minute. We will confirm by phone or email, and check your insurance before you walk in.
+                Requesting an appointment online takes about a minute. We will confirm by phone or email and check your insurance before you arrive.
               </p>
               <a
                 href="/book"
@@ -631,10 +637,10 @@ export default function HomePage() {
           >
             <div>
               <h3 className="font-display text-[25px] text-[#16201E] mb-2" style={{ letterSpacing: '-0.025em' }}>
-                Small habits, healthier eyes
+                A few emails a year, that is all
               </h3>
               <p className="text-[14.5px] text-[#6E7C77]">
-                Practical eye health tips and clinic news, a few times a year. Never more than that.
+                Eye health tips you can actually use, plus the occasional clinic update. The best part…exclusive discounts! A few times a year and no more than that.
               </p>
             </div>
             {subscribed ? (

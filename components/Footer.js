@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-[#6E7C77] text-sm leading-relaxed">
-              Family eye care in First Colony, Sugar Land, Texas
+              Eye care for the whole family, here in Sugar Land, Texas.
             </p>
           </div>
           <div>
@@ -38,7 +38,7 @@ export default function Footer() {
               Sugar Land, TX 77479
             </p>
             <p className="text-[#6E7C77] text-sm">
-              Tue–Fri: 9:30 AM–6:00 PM
+              Tuesday to Friday 9:30 AM to 6:00 PM
             </p>
           </div>
           <div>

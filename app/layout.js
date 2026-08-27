@@ -20,14 +20,14 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'First Colony Vision — Eye Care for Your Whole Family',
+  title: 'First Colony Vision | Family Eye Care in Sugar Land, TX',
   description: 'Comprehensive, family-friendly eye care in Sugar Land, Texas. Routine exams, diabetic eye care, specialty contacts, and pediatric vision — guided by Dr. Shiroz Virani, O.D.',
   icons: {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
   },
   openGraph: {
-    title: 'First Colony Vision — Eye Care for Your Whole Family',
+    title: 'First Colony Vision | Family Eye Care in Sugar Land, TX',
     description: 'Comprehensive, family-friendly eye care in Sugar Land, Texas.',
     images: ['/images/logo.png'],
     type: 'website',

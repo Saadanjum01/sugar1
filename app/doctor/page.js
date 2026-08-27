@@ -48,16 +48,16 @@ export default function DoctorPage() {
               Optometrist and founder, First Colony Vision
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
-              Dr. Virani opened First Colony Vision on a simple conviction: good eye care depends on how carefully someone listens before they ever pick up an instrument.
+              Dr. Virani opened First Colony Vision so she could practice the way she thinks eye care should work. Ask first, listen properly, then examine.
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
-              Every appointment here is built to be thorough and calm. Dr. Virani and her team take the time to explain what they see, what it means, and what happens next — so you leave understanding your own eyes, not just holding a prescription.
+              She and her team take their time with every exam and explain what they are seeing as they go. You should walk out understanding your own eyes, not just holding a prescription.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               {[
                 'Doctor of Optometry',
-                'Pediatric and family vision care',
-                'Specialty and hard-to-fit contact lenses',
+                'Kids and family vision care',
+                'Specialty and hard to fit contact lenses',
                 'Sports vision and myopia control',
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3 text-[14.5px] font-medium text-[#16201E]">
