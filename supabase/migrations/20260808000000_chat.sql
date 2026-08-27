@@ -1,4 +1,4 @@
--- Sugar Land Vision chat concierge: answer cache + usage/rate-limit log.
+-- First Colony Vision chat concierge: answer cache + usage/rate-limit log.
 -- Public site, no auth -- rate limiting is per-IP-hash, not per-user.
 
 create table if not exists chat_cache (

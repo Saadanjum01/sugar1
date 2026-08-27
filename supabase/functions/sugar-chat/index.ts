@@ -1,4 +1,4 @@
-// sugar-chat — Sugar Land Vision's front-desk chat concierge.
+// sugar-chat — First Colony Vision's front-desk chat concierge.
 //
 // Ported from rag-chatbot/generation.py to a Supabase Edge Function so the
 // chatbot runs serverlessly next to the rest of the site on Vercel, instead
@@ -50,14 +50,14 @@ async function sha256(s: string) {
 // ─── Clinic facts (was docs/sugar_land_vision.txt, chunked + embedded) ─────
 // Small enough to inline as one fact block -- no retrieval step needed.
 const CLINIC_FACTS = `
-Name: Sugar Land Vision -- an eye care clinic located in Sugar Land, Texas.
+Name: First Colony Vision -- an eye care clinic located in Sugar Land, Texas.
 
 Business hours: Tuesday through Friday, 9:30 AM to 6:00 PM. Closed Saturday, Sunday, and Monday.
 
 Phone: 281-916-2020
 Address: 16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479
 
-Doctor: Shiroz Virani, O.D. is the optometrist at Sugar Land Vision. He and the team take a
+Doctor: Shiroz Virani, O.D. is the optometrist at First Colony Vision. She and the team take a
 patient-first approach to every visit, combining advanced technology with genuine, unhurried
 care for patients of every age.
 
@@ -84,7 +84,7 @@ Services offered:
 - Sports Vision: Training and assessment to improve visual acuity, depth perception, eye-hand
   coordination, peripheral vision, tracking, and visual reaction time for athletes.
 
-Pricing: Sugar Land Vision does not publish exact prices for exams or services. If asked
+Pricing: First Colony Vision does not publish exact prices for exams or services. If asked
 about cost, say pricing depends on the specific exam and insurance coverage, and recommend
 calling 281-916-2020 for exact pricing.
 
@@ -101,7 +101,7 @@ Appointments: can be requested online through the website's booking form or by c
 281-916-2020 directly.
 `.trim();
 
-const SYSTEM_PROMPT = `You are the front-desk chat assistant for Sugar Land Vision, an eye
+const SYSTEM_PROMPT = `You are the front-desk chat assistant for First Colony Vision, an eye
 care clinic. Talk like a helpful person at the front desk, not a document search tool.
 
 - Chat normally. Reply to greetings, thanks, and small talk the way a person would -- short
@@ -169,7 +169,7 @@ async function callGroq(messages: { role: string; content: string }[], temperatu
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({
-      model: env("AI_MODEL", "llama-3.3-70b-versatile"),
+      model: env("AI_MODEL", "openai/gpt-oss-20b"),
       messages,
       max_tokens: MAX_OUTPUT_TOKENS,
       temperature,
