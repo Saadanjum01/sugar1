@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: 'How young can my child be for a first exam?',
-    a: "We see children starting at age three (when they are able to identify letters).",
+    a: "We see children starting at age five (when they are able to identify letters).",
   },
   {
     q: 'Do you handle eye emergencies?',
@@ -188,7 +188,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
-              {['Most insurance accepted', 'Ages 3 and up', 'Same-week openings'].map((fact) => (
+              {['Most insurance accepted', 'Ages 5 and up', 'Same-week openings'].map((fact) => (
                 <span key={fact} className="flex items-center gap-2 text-[13.5px] font-medium" style={{ color: 'white' }}>
                   <IconCheck size={16} />
                   {fact}
@@ -198,10 +198,10 @@ export default function HomePage() {
           </div>
 
           {/* Right — photo slideshow */}
-          <div className="relative hidden lg:block">
+          <div className="relative">
             <HeroSlideshow />
             <div
-              className="absolute -bottom-6 -left-6 z-20 bg-white rounded-2xl px-5 py-4 max-w-[240px]"
+              className="absolute -bottom-5 left-4 right-4 sm:left-auto sm:right-auto sm:-bottom-6 sm:-left-6 z-20 bg-white rounded-2xl px-5 py-4 sm:max-w-[240px]"
               style={{ boxShadow: '0 20px 40px -12px rgba(6,38,40,.35)' }}
             >
               <p className="font-display font-semibold text-[14.5px] text-[#093F42] mb-0.5" style={{ letterSpacing: '-0.015em' }}>

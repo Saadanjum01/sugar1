@@ -36,7 +36,7 @@ export default function HeroSlideshow() {
       ))}
 
       {/* Slide indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+      <div className="absolute bottom-20 sm:bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {slides.map((slide, i) => (
           <button
             key={slide.src}

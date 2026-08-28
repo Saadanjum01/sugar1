@@ -36,7 +36,7 @@ export default function ServicesPage() {
             Services for every stage of vision
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            We see patients from age three through every stage of life — one practice that doesn&apos;t ask you to start over somewhere new as you get older.
+            We see patients from age five through every stage of life — one practice that doesn&apos;t ask you to start over somewhere new as you get older.
           </p>
         </div>
       </div>
