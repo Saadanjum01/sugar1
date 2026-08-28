@@ -23,8 +23,12 @@ export const metadata = {
   title: 'First Colony Vision | Family Eye Care in Sugar Land, TX',
   description: 'Comprehensive, family-friendly eye care in Sugar Land, Texas. Routine exams, diabetic eye care, specialty contacts, and pediatric vision — guided by Dr. Shiroz Virani, O.D.',
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/images/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/images/apple-touch-icon.png',
   },
   openGraph: {
     title: 'First Colony Vision | Family Eye Care in Sugar Land, TX',

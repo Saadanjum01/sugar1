@@ -52,26 +52,17 @@ export default function Header() {
       <div className="mx-auto px-4 sm:px-8 lg:px-16">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-6">
 
-          {/* Brand wordmark — text until logo is finalised */}
+          {/* Brand logo */}
           <Link
             href="/"
             className="flex items-center shrink-0 py-2"
             aria-label="First Colony Vision — home"
           >
-            <div className="flex flex-col leading-none select-none">
-              <span
-                className="font-display font-semibold text-[16px] sm:text-[18px]"
-                style={{ letterSpacing: '-0.02em', color: transparent ? 'white' : '#0D5D62' }}
-              >
-                First Colony
-              </span>
-              <span
-                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em]"
-                style={{ color: transparent ? 'rgba(255,255,255,0.7)' : '#37B2B8' }}
-              >
-                VISION
-              </span>
-            </div>
+            <img
+              src={transparent ? '/images/logo-mark-white.png' : '/images/logo-mark.png'}
+              alt="First Colony Vision"
+              className="h-7 sm:h-8 w-auto select-none"
+            />
           </Link>
 
           {/* Desktop nav links */}

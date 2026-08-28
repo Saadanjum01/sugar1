@@ -7,13 +7,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12 mb-12 sm:mb-16">
           <div>
-            <Link href="/" className="inline-flex flex-col leading-none mb-6" aria-label="First Colony Vision — home">
-              <span className="font-display font-semibold text-[17px] text-white" style={{ letterSpacing: '-0.02em' }}>
-                First Colony
-              </span>
-              <span className="text-[11px] font-semibold tracking-[0.12em] text-[#37B2B8]">
-                VISION
-              </span>
+            <Link href="/" className="inline-flex mb-6" aria-label="First Colony Vision — home">
+              <img src="/images/logo-mark-white.png" alt="First Colony Vision" className="h-7 w-auto" />
             </Link>
             <p className="text-[#6E7C77] text-sm leading-relaxed">
               Eye care for the whole family, here in Sugar Land, Texas.
