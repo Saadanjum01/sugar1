@@ -12,12 +12,63 @@ const GREETING = {
   text: "Hi! Ask me about hours, services, insurance, or booking at First Colony Vision.",
 }
 
+// Turns of history sent to the backend per request (3 exchanges = 6 messages).
+const MAX_HISTORY_MESSAGES = 6
+
+const STORAGE_KEY = 'fcv-chat-history'
+
+function isValidMessage(m) {
+  return (
+    m !== null &&
+    typeof m === 'object' &&
+    (m.role === 'user' || m.role === 'assistant') &&
+    typeof m.text === 'string' &&
+    m.text.length > 0
+  )
+}
+
+function loadStoredMessages() {
+  if (typeof window === 'undefined') return [GREETING]
+  try {
+    const raw = window.sessionStorage.getItem(STORAGE_KEY)
+    if (!raw) return [GREETING]
+    const parsed = JSON.parse(raw)
+    if (!Array.isArray(parsed) || parsed.length === 0) return [GREETING]
+    const valid = parsed.filter(isValidMessage)
+    return valid.length > 0 ? valid : [GREETING]
+  } catch {
+    return [GREETING]
+  }
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([GREETING])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const scrollRef = useRef(null)
+
+  // Whether this tab's stored conversation has been loaded yet -- kept out
+  // of useState's initializer so server and first client render match
+  // (avoids a hydration mismatch), then hydrated from sessionStorage right
+  // after mount. Gates the persist effect below so it never fires with the
+  // stale `[GREETING]` default and clobbers a longer stored conversation.
+  const hydrated = useRef(false)
+
+  useEffect(() => {
+    setMessages(loadStoredMessages())
+    hydrated.current = true
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !hydrated.current) return
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages))
+    } catch {
+      // Storage full or unavailable (private browsing) -- conversation just
+      // won't survive a reload this time, not worth surfacing to the user.
+    }
+  }, [messages])
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -29,6 +80,15 @@ export default function ChatWidget() {
     e.preventDefault()
     const question = input.trim()
     if (!question || loading) return
+
+    // Messages sent so far in this session, excluding the canned greeting at
+    // index 0 -- that's UI chrome, not something the assistant actually
+    // said. Sliced by position (not by matching the greeting's text) so a
+    // patient's own message never gets mistaken for it.
+    const history = messages
+      .slice(1)
+      .slice(-MAX_HISTORY_MESSAGES)
+      .map((m) => ({ role: m.role, content: m.text }))
 
     setMessages((prev) => [...prev, { role: 'user', text: question }])
     setInput('')
@@ -42,7 +102,7 @@ export default function ChatWidget() {
           Authorization: `Bearer ${ANON_KEY}`,
           apikey: ANON_KEY,
         },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, history }),
       })
 
       const data = await res.json()

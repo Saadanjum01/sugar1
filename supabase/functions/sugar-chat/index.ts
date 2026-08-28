@@ -30,6 +30,39 @@ const MAX_Q_CHARS = num("MAX_Q_CHARS", 300);
 const MAX_OUTPUT_TOKENS = 300;
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const MAX_REVISE_ATTEMPTS = 1;
+const MAX_HISTORY_TURNS = 6; // last 3 exchanges (user+assistant pairs)
+
+type ChatTurn = { role: "user" | "assistant"; content: string };
+
+// Trusts only role/content shape and length from the client -- history is
+// context for the model, never executed or trusted as fact on its own (the
+// system prompt still grounds every answer in CLINIC_FACTS, not in whatever
+// the client claims was said earlier).
+function parseHistory(raw: unknown): ChatTurn[] {
+  if (!Array.isArray(raw)) return [];
+  const turns: ChatTurn[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const role = (item as { role?: unknown }).role;
+    const content = (item as { content?: unknown }).content;
+    if ((role !== "user" && role !== "assistant") || typeof content !== "string") continue;
+    const trimmed = content.trim().slice(0, MAX_Q_CHARS);
+    if (!trimmed) continue;
+    // Drop anything that breaks strict user/assistant alternation instead of
+    // just skipping the bad turn -- a lone survivor of a dropped pair would
+    // otherwise sit next to another same-role turn and confuse the model
+    // about who said what.
+    const prevRole = turns[turns.length - 1]?.role;
+    if (prevRole === role) continue;
+    turns.push({ role, content: trimmed });
+  }
+  // Trim from the front until the slice starts with "user" -- Groq's chat
+  // template expects the turn right before the final question to read as a
+  // real back-and-forth, not open on an assistant line.
+  const recent = turns.slice(-MAX_HISTORY_TURNS);
+  const firstUserIdx = recent.findIndex((t) => t.role === "user");
+  return firstUserIdx === -1 ? [] : recent.slice(firstUserIdx);
+}
 
 function json(status: number, body: unknown) {
   return new Response(JSON.stringify(body), {
@@ -118,6 +151,10 @@ care clinic. Talk like a helpful person at the front desk, not a document search
   "manages" that condition unless the reference info says so directly.
 - Never diagnose, prescribe, or give medical advice over chat, even if asked directly --
   decline warmly and point to calling the office or booking a visit.
+- Use the earlier turns in this conversation only to understand what the patient means (e.g.
+  "and on Saturdays?" after a question about hours) -- never as a source of clinic facts. Every
+  factual claim still must come from <reference_info>, even if something in the conversation
+  history suggested otherwise.
 - Keep it short -- a sentence or two, like a real reply, not a report.
 
 <reference_info>
@@ -132,8 +169,8 @@ rules.`;
 // specific to eye clinics or to bugs already found. Catches failure modes
 // that weren't anticipated in SYSTEM_PROMPT, instead of only known ones.
 const CRITIQUE_PROMPT = `You are a strict editor checking a draft chat reply before it goes
-out to a patient. You will be shown the reference info, the patient's question, and the draft
-reply. Check the draft against these rules:
+out to a patient. You will be shown the reference info, optionally the prior conversation, the
+patient's question, and the draft reply. Check the draft against these rules:
 
 1. Self-contradiction: does the draft say two things that conflict (e.g. hedges "not sure"
    and then states the answer anyway, or says yes and no to the same thing)?
@@ -141,10 +178,13 @@ reply. Check the draft against these rules:
    reference info actually says (e.g. reference says an exam "checks for" a condition, draft
    says the clinic "treats" it)?
 3. Unsupported facts: does the draft state a specific fact (a number, a name, a policy) that
-   isn't actually present in the reference info?
+   isn't actually present in the reference info -- even if that fact appears to come from the
+   prior conversation. The prior conversation is context for what the patient means, not a
+   source of facts; only <reference_info> (shown in the system prompt) counts as grounded.
 4. Medical overreach: does the draft diagnose, prescribe, or give medical advice instead of
    redirecting to the office?
-5. Ignores the question: does the draft fail to address what was actually asked?
+5. Ignores the question: does the draft fail to address what was actually asked, including
+   what "it"/"that"/"the same one" refers to from the prior conversation, if any?
 
 Small talk, greetings, and follow-up questions with no factual content automatically pass --
 don't flag those.
@@ -189,8 +229,15 @@ async function callGroq(messages: { role: string; content: string }[], temperatu
   };
 }
 
-async function critiqueAnswer(question: string, draft: string): Promise<{ ok: boolean; reason?: string }> {
-  const userMessage = `Patient question: ${question}\n\nDraft reply: ${draft}`;
+async function critiqueAnswer(
+  history: ChatTurn[],
+  question: string,
+  draft: string,
+): Promise<{ ok: boolean; reason?: string }> {
+  const historyBlock = history.length
+    ? `Prior conversation:\n${history.map((h) => `${h.role === "user" ? "Patient" : "Assistant"}: ${h.content}`).join("\n")}\n\n`
+    : "";
+  const userMessage = `${historyBlock}Patient question: ${question}\n\nDraft reply: ${draft}`;
   try {
     const result = await callGroq(
       [
@@ -213,16 +260,20 @@ async function critiqueAnswer(question: string, draft: string): Promise<{ ok: bo
   }
 }
 
-async function generateAnswer(question: string): Promise<{ answer: string; revised: boolean }> {
+async function generateAnswer(
+  history: ChatTurn[],
+  question: string,
+): Promise<{ answer: string; revised: boolean }> {
   const messages = [
     { role: "system", content: SYSTEM_PROMPT },
+    ...history.map((h) => ({ role: h.role, content: h.content })),
     { role: "user", content: question },
   ];
   let answer = (await callGroq(messages, 0.4)).text;
 
   let revised = false;
   for (let attempt = 0; attempt < MAX_REVISE_ATTEMPTS; attempt++) {
-    const critique = await critiqueAnswer(question, answer);
+    const critique = await critiqueAnswer(history, question, answer);
     if (critique.ok) break;
     const reason = critique.reason ?? "unspecified issue";
     console.info("[critique] flagged draft, revising:", reason);
@@ -246,7 +297,7 @@ Deno.serve(async (req) => {
   if (req.method !== "POST") return json(405, { error: "POST only", code: "method" });
 
   try {
-    let body: { question?: string };
+    let body: { question?: string; history?: unknown };
     try {
       body = await req.json();
     } catch {
@@ -258,6 +309,10 @@ Deno.serve(async (req) => {
     if (question.length > MAX_Q_CHARS) {
       return json(400, { error: `Keep questions under ${MAX_Q_CHARS} characters.`, code: "bad_request" });
     }
+
+    // History is only ever an optimization for follow-up context -- never
+    // trusted as fact, and only sourced from what this same request sent.
+    const history = parseHistory(body.history);
 
     // No auth on a public marketing site -- rate limit by hashed IP instead
     // of user id. x-forwarded-for's first hop is what Supabase's edge sets.
@@ -286,32 +341,45 @@ Deno.serve(async (req) => {
       return json(429, { error: "The chat assistant is resting -- please call 281-916-2020.", code: "budget_exhausted" });
     }
 
-    const cacheKey = await sha256(normalizeQuestion(question));
-    const { data: hit } = await admin.from("chat_cache").select("answer, hits, created_at").eq("key", cacheKey).maybeSingle();
-    if (hit && now - new Date(hit.created_at).getTime() < CACHE_TTL_MS) {
-      await Promise.all([
-        admin.from("chat_cache").update({ hits: (hit.hits ?? 0) + 1 }).eq("key", cacheKey),
-        admin.from("chat_usage").insert({ ip_hash: ipHash, question_chars: question.length, cached: true }),
-      ]);
-      return json(200, { answer: hit.answer, cached: true });
+    // The answer cache is keyed on the question text alone, so it's only
+    // safe to read/write for a fresh question with no prior context -- a
+    // follow-up like "and on Saturdays?" means something different depending
+    // on what was asked before, and must always go to the model fresh.
+    const cacheEligible = history.length === 0;
+    const cacheKey = cacheEligible ? await sha256(normalizeQuestion(question)) : null;
+
+    if (cacheKey) {
+      const { data: hit } = await admin.from("chat_cache").select("answer, hits, created_at").eq("key", cacheKey).maybeSingle();
+      if (hit && now - new Date(hit.created_at).getTime() < CACHE_TTL_MS) {
+        await Promise.all([
+          admin.from("chat_cache").update({ hits: (hit.hits ?? 0) + 1 }).eq("key", cacheKey),
+          admin.from("chat_usage").insert({ ip_hash: ipHash, question_chars: question.length, cached: true }),
+        ]);
+        return json(200, { answer: hit.answer, cached: true });
+      }
     }
 
     if (!env("GROQ_API_KEY")) {
       return json(503, { error: "Chat is warming up -- please call 281-916-2020.", code: "not_configured" });
     }
 
-    const { answer, revised } = await generateAnswer(question);
+    const { answer, revised } = await generateAnswer(history, question);
 
-    await Promise.all([
+    const writes = [
       admin.from("chat_usage").insert({ ip_hash: ipHash, question_chars: question.length, cached: false, revised }),
-      admin.from("chat_cache").upsert({
-        key: cacheKey,
-        question: question.slice(0, 300),
-        answer,
-        hits: 0,
-        created_at: new Date().toISOString(),
-      }),
-    ]);
+    ];
+    if (cacheKey) {
+      writes.push(
+        admin.from("chat_cache").upsert({
+          key: cacheKey,
+          question: question.slice(0, 300),
+          answer,
+          hits: 0,
+          created_at: new Date().toISOString(),
+        }),
+      );
+    }
+    await Promise.all(writes);
 
     return json(200, { answer, cached: false });
   } catch (e) {
