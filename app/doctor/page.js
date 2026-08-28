@@ -18,7 +18,7 @@ export default function DoctorPage() {
             Meet the doctor behind your care
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            Thorough, calm, and built for real people — Dr. Virani designed this practice around the kind of visit she would want for her own family.
+            Dr. Virani built First Colony Vision around one idea. Ask first, listen properly, then examine.
           </p>
         </div>
       </div>
@@ -85,14 +85,14 @@ export default function DoctorPage() {
               Philosophy
             </div>
             <h2 className="font-display text-[26px] sm:text-[38px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
-              One practice, every stage of life
+              How she practices
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
-              { title: 'Time to Actually Talk', body: 'Every appointment has a real explanation at the end — what we found, what it means, and what happens next.' },
-              { title: 'Modern Diagnostics', body: 'Current equipment to catch issues early and explain findings in plain language.' },
-              { title: 'Family-Friendly',    body: "From a child's first exam to sports vision and senior eye health — care for every generation." },
+              { title: 'She listens first', body: 'Every visit starts with your questions, not a checklist. You get a real explanation of what she found and what it means.' },
+              { title: 'Current technology', body: 'Modern equipment that catches issues early, explained in plain language you can actually use.' },
+              { title: 'Every generation',    body: "From a child's first exam to sports vision and senior eye health, the whole family sees the same doctor." },
             ].map((item) => (
               <div
                 key={item.title}
