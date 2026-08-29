@@ -131,7 +131,7 @@ export default function InsurancePage() {
           Our team is happy to help you understand your benefits before your visit — just give us a call.
         </p>
         <a
-          href="/book"
+          href="/book#appointment-form"
           className="inline-block px-9 py-4 bg-[#0D5D62] text-white font-semibold text-sm hover:bg-[#093F42] transition-colors rounded-xl"
         >
           Book an Appointment

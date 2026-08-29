@@ -173,7 +173,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
-                href="/book"
+                href="/book#appointment-form"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#093F42] rounded-xl text-[14.5px] font-semibold hover:opacity-90 transition-opacity"
               >
                 <IconCal size={16} />
@@ -385,7 +385,7 @@ export default function HomePage() {
               ))}
             </div>
             <a
-              href="/book"
+              href="/book#appointment-form"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
             >
               Book with Dr. Virani
@@ -611,7 +611,7 @@ export default function HomePage() {
                 Requesting an appointment online takes about a minute. We will confirm by phone or email and check your insurance before you arrive.
               </p>
               <a
-                href="/book"
+                href="/book#appointment-form"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 <IconCal size={16} />

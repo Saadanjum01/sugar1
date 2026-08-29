@@ -77,12 +77,12 @@ export default function Header() {
             <Link href="/doctor" className="hover:opacity-75 transition-opacity">Our Team</Link>
             <Link href="/insurance" className="hover:opacity-75 transition-opacity">Insurance</Link>
             <Link href="/#faq" className="hover:opacity-75 transition-opacity">FAQ</Link>
-            <Link href="/book" className="hover:opacity-75 transition-opacity">Visit Us</Link>
+            <Link href="/book#appointment-form" className="hover:opacity-75 transition-opacity">Visit Us</Link>
           </div>
 
           {/* Book button */}
           <a
-            href="/book"
+            href="/book#appointment-form"
             className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 ${
               transparent
                 ? 'bg-white text-[#093F42] hover:bg-white/90'
@@ -125,9 +125,9 @@ export default function Header() {
             <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Our Team</Link>
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Insurance</Link>
             <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">FAQ</Link>
-            <Link href="/book" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
+            <Link href="/book#appointment-form" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
             <a
-              href="/book"
+              href="/book#appointment-form"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center px-8 py-3 bg-[#0D5D62] text-white text-sm font-semibold mt-4 rounded-xl hover:bg-[#093F42] transition-colors"
             >

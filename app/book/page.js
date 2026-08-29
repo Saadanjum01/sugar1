@@ -177,7 +177,7 @@ export default function BookPage() {
           </div>
 
           {/* ── Right column: form ── */}
-          <div>
+          <div id="appointment-form" className="scroll-mt-[140px]">
             {submitted ? (
               <div
                 className="bg-white rounded-2xl p-10 text-center"

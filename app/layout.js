@@ -20,6 +20,7 @@ const inter = Inter({
 })
 
 export const metadata = {
+  metadataBase: new URL('https://www.firstcolonyvision.com'),
   title: 'First Colony Vision | Family Eye Care in Sugar Land, TX',
   description: 'Comprehensive, family-friendly eye care in Sugar Land, Texas. Routine exams, diabetic eye care, specialty contacts, and pediatric vision — guided by Dr. Shiroz Virani, O.D.',
   icons: {
@@ -53,7 +54,7 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
 
-        <a href="/book" className="fixed bottom-8 right-8 z-50 flex items-center gap-2 h-14 pl-4 pr-5 bg-[#0D5D62] text-white hover:bg-[#093F42] transition-all shadow-2xl rounded-full" aria-label="Book appointment">
+        <a href="/book#appointment-form" className="fixed bottom-8 right-8 z-50 flex items-center gap-2 h-14 pl-4 pr-5 bg-[#0D5D62] text-white hover:bg-[#093F42] transition-all shadow-2xl rounded-full" aria-label="Book appointment">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
             <rect x="3" y="5" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="2" />
             <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
