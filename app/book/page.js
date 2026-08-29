@@ -45,15 +45,33 @@ export default function BookPage() {
     notes: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   function set(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) return
-    setSubmitted(true)
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || submitting) return
+
+    setSubmitting(true)
+    setError('')
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setSubmitted(true)
+    } catch (err) {
+      setError(err.message || "Sorry, we couldn't submit your request. Please call us at 281-916-2020.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const inputClass =
@@ -331,11 +349,18 @@ export default function BookPage() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-[13.5px] text-[#B33951] bg-[#B33951]/10 rounded-xl px-4 py-3">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#0D5D62] text-white font-semibold text-[15px] rounded-xl hover:bg-[#093F42] transition-colors"
+                  disabled={submitting}
+                  className="w-full py-4 bg-[#0D5D62] text-white font-semibold text-[15px] rounded-xl hover:bg-[#093F42] transition-colors disabled:opacity-60"
                 >
-                  Send appointment request
+                  {submitting ? 'Sending…' : 'Send appointment request'}
                 </button>
 
                 <p className="text-[12.5px] text-[#6E7C77] text-center !mt-3">

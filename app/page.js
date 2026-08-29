@@ -10,6 +10,7 @@ import {
   IconClock, IconHeart, IconShield, IconCar, IconSpark,
 } from '@/components/BrandIcons'
 import HeroSlideshow from '@/components/HeroSlideshow'
+import NewsletterForm from '@/components/NewsletterForm'
 
 /* ── Data ─────────────────────────────────────────────── */
 
@@ -130,8 +131,6 @@ function FAQItem({ faq, isOpen, onClick }) {
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(null)
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
 
   return (
     <div className="min-h-screen bg-white text-[#16201E]">
@@ -643,30 +642,7 @@ export default function HomePage() {
                 Eye health tips you can actually use, plus the occasional clinic update. The best part…exclusive discounts! A few times a year and no more than that.
               </p>
             </div>
-            {subscribed ? (
-              <p className="text-sm font-semibold text-[#0D5D62]">You&apos;re subscribed — thank you!</p>
-            ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); if (email.trim()) setSubscribed(true) }}
-                className="flex flex-col sm:flex-row gap-2.5"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  aria-label="Email address"
-                  className="font-inter text-[14.5px] px-[18px] py-3 rounded-xl border border-[#E7EBEA] bg-white text-[#16201E] outline-none focus:border-[#37B2B8] transition-colors w-full sm:min-w-[270px]"
-                />
-                <button
-                  type="submit"
-                  className="shrink-0 px-5 py-3 bg-[#B85E31] text-white text-[14.5px] font-semibold rounded-xl hover:bg-[#093F42] transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            )}
+            <NewsletterForm variant="light" />
           </div>
         </div>
       </section>

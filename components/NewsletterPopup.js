@@ -9,6 +9,8 @@ export default function NewsletterPopup() {
   const [open, setOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -23,12 +25,28 @@ export default function NewsletterPopup() {
     localStorage.setItem(STORAGE_KEY, '1')
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (!email.trim()) return
-    setSubmitted(true)
-    localStorage.setItem(STORAGE_KEY, '1')
-    setTimeout(dismiss, 1800)
+    if (!email.trim() || submitting) return
+
+    setSubmitting(true)
+    setError('')
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setSubmitted(true)
+      localStorage.setItem(STORAGE_KEY, '1')
+      setTimeout(dismiss, 1800)
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (!open) return null
@@ -69,11 +87,13 @@ export default function NewsletterPopup() {
                 placeholder="you@example.com"
                 className="w-full px-4 py-3 rounded-xl border border-[#16201E]/15 text-sm text-[#16201E] focus:outline-none focus:border-[#0D5D62] transition-colors"
               />
+              {error && <p className="text-[13px] font-medium text-[#B33951] text-left">{error}</p>}
               <button
                 type="submit"
-                className="w-full py-3 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-colors"
+                disabled={submitting}
+                className="w-full py-3 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-colors disabled:opacity-60"
               >
-                Subscribe
+                {submitting ? 'Subscribing…' : 'Subscribe'}
               </button>
             </form>
             <button onClick={dismiss} className="text-[#6E7C77] text-xs mt-4 hover:text-[#16201E] transition-colors">
