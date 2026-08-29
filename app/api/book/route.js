@@ -1,17 +1,10 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
+import { emailLayout, summaryTable, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
 
 export const runtime = 'nodejs'
 
 const PRACTICE_EMAIL = process.env.EMAIL_USER
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -60,18 +53,38 @@ export async function POST(req) {
     ['Preferred time', time || 'Any time works'],
     ['Notes', notes || '—'],
   ]
-
   const textSummary = summaryRows.map(([k, v]) => `${k}: ${v}`).join('\n')
-  const htmlSummary = `
-    <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">
-      ${summaryRows
-        .map(
-          ([k, v]) =>
-            `<tr><td style="font-weight:600;color:#093F42;vertical-align:top;">${escapeHtml(k)}</td><td>${escapeHtml(v).replace(/\n/g, '<br/>')}</td></tr>`,
-        )
-        .join('')}
-    </table>
-  `
+
+  const practiceHtml = emailLayout({
+    preheader: `New appointment request from ${name}`,
+    body: `
+      <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.orangeDark};">New request</p>
+      <h1 style="margin:0 0 20px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">Appointment request from ${escapeHtml(name)}</h1>
+      ${summaryTable(summaryRows)}
+      <p style="margin:24px 0 0;font-family:sans-serif;font-size:13px;color:${BRAND.textMuted};">
+        Reply directly to this email to reach ${escapeHtml(name.split(' ')[0])} at ${escapeHtml(email)}.
+      </p>
+    `,
+  })
+
+  const patientHtml = emailLayout({
+    preheader: 'We received your appointment request',
+    body: `
+      <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.accent};">Request received</p>
+      <h1 style="margin:0 0 16px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">Thanks, ${escapeHtml(name.split(' ')[0])}!</h1>
+      <p style="margin:0 0 24px;font-family:sans-serif;font-size:15px;line-height:1.6;color:${BRAND.text};">
+        We received your appointment request and will call <strong>${escapeHtml(phone)}</strong> within one business day to confirm.
+      </p>
+      <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;font-weight:600;color:${BRAND.tealDark};">What you requested</p>
+      ${summaryTable(summaryRows)}
+      <p style="margin:28px 0 0;font-family:sans-serif;font-size:14px;line-height:1.6;color:${BRAND.textMuted};">
+        Questions in the meantime? Call us at <a href="tel:281-916-2020" style="color:${BRAND.teal};">281-916-2020</a>.
+      </p>
+      <div style="margin-top:24px;">
+        ${button('Visit our website', 'https://www.firstcolonyvision.com')}
+      </div>
+    `,
+  })
 
   try {
     // Notify the practice -- reply-to is the patient's own email so staff can
@@ -81,7 +94,7 @@ export async function POST(req) {
       replyTo: email,
       subject: `New appointment request — ${name}`,
       text: `New appointment request from the website:\n\n${textSummary}`,
-      html: `<h2 style="font-family:sans-serif;">New appointment request</h2>${htmlSummary}`,
+      html: practiceHtml,
     })
 
     // Confirm to the patient. Best-effort -- the practice notification above
@@ -92,14 +105,7 @@ export async function POST(req) {
         to: email,
         subject: 'Your appointment request — First Colony Vision',
         text: `Hi ${name.split(' ')[0]},\n\nThanks for requesting an appointment with First Colony Vision. We'll call ${phone} within one business day to confirm.\n\nWhat you requested:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
-        html: `
-          <p>Hi ${escapeHtml(name.split(' ')[0])},</p>
-          <p>Thanks for requesting an appointment with First Colony Vision. We'll call <strong>${escapeHtml(phone)}</strong> within one business day to confirm.</p>
-          <p><strong>What you requested:</strong></p>
-          ${htmlSummary}
-          <p>Questions in the meantime? Call us at <a href="tel:281-916-2020">281-916-2020</a>.</p>
-          <p>— First Colony Vision<br/>16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479</p>
-        `,
+        html: patientHtml,
       })
     } catch (patientEmailError) {
       console.error('[book] patient confirmation email failed:', patientEmailError)

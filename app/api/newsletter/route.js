@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
+import { emailLayout, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
 
 export const runtime = 'nodejs'
 
@@ -31,13 +32,38 @@ export async function POST(req) {
     return NextResponse.json({ error: 'Newsletter signup is not available right now.' }, { status: 503 })
   }
 
+  const practiceHtml = emailLayout({
+    preheader: `New newsletter signup: ${email}`,
+    body: `
+      <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.orangeDark};">New subscriber</p>
+      <h1 style="margin:0 0 16px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">New newsletter signup</h1>
+      <p style="margin:0;font-family:sans-serif;font-size:15px;color:${BRAND.text};">
+        <strong>${escapeHtml(email)}</strong> signed up for the newsletter on the website.
+      </p>
+    `,
+  })
+
+  const subscriberHtml = emailLayout({
+    preheader: "You're on the list",
+    body: `
+      <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.accent};">Subscribed</p>
+      <h1 style="margin:0 0 16px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">You're on the list!</h1>
+      <p style="margin:0 0 24px;font-family:sans-serif;font-size:15px;line-height:1.6;color:${BRAND.text};">
+        Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year — never more than that.
+      </p>
+      <div>
+        ${button('Visit our website', 'https://www.firstcolonyvision.com')}
+      </div>
+    `,
+  })
+
   try {
     await sendMail({
       to: PRACTICE_EMAIL,
       replyTo: email,
       subject: 'New newsletter signup',
       text: `New newsletter signup from the website: ${email}`,
-      html: `<p>New newsletter signup from the website: <strong>${email.replace(/</g, '&lt;')}</strong></p>`,
+      html: practiceHtml,
     })
 
     try {
@@ -45,10 +71,7 @@ export async function POST(req) {
         to: email,
         subject: "You're on the list — First Colony Vision",
         text: `Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year — never more than that.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479\n281-916-2020`,
-        html: `
-          <p>Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year — never more than that.</p>
-          <p>— First Colony Vision<br/>16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479<br/>281-916-2020</p>
-        `,
+        html: subscriberHtml,
       })
     } catch (subscriberEmailError) {
       console.error('[newsletter] subscriber confirmation email failed:', subscriberEmailError)
