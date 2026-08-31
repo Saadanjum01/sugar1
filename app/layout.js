@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChatWidget from '@/components/ChatWidget'
 import NewsletterPopup from '@/components/NewsletterPopup'
+import WelcomePopup from '@/components/WelcomePopup'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         </a>
 
         <ChatWidget />
+        <WelcomePopup />
         <NewsletterPopup />
       </body>
     </html>
