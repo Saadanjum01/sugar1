@@ -61,7 +61,7 @@ export default function WelcomePopup() {
               </svg>
             </div>
             <h2 className="font-display text-[26px] sm:text-[28px] text-white" style={{ letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              Welcome to First Colony Vision
+              Welcome Today&apos;s Vision clients to the First Colony Vision family
             </h2>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function WelcomePopup() {
         {/* Body */}
         <div className="bg-white px-8 pt-7 pb-8">
           <p className="text-[#6E7C77] text-[15px] leading-relaxed mb-6">
-            If you were a patient of Today&apos;s Vision, you&apos;re in the right place. Your care continues here with the same warm, attentive team — now as part of the First Colony Vision family.
+            You&apos;re in the right place. Your care continues here with the same warm, attentive team.
           </p>
           <button
             onClick={dismiss}
