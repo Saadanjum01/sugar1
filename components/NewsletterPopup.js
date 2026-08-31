@@ -5,6 +5,12 @@ import { useState, useEffect } from 'react'
 const STORAGE_KEY = 'fcv-newsletter-dismissed'
 const DELAY_MS = 6000
 
+// Mirrors WelcomePopup's own expiry/storage key -- while that campaign is
+// live, wait for it to be dismissed first so the two modals never stack.
+const WELCOME_STORAGE_KEY = 'fcv-welcome-dismissed'
+const WELCOME_EXPIRES_AT = new Date('2026-09-30T23:59:59-05:00')
+const WELCOME_CHECK_INTERVAL_MS = 500
+
 export default function NewsletterPopup() {
   const [open, setOpen] = useState(false)
   const [email, setEmail] = useState('')
@@ -16,8 +22,22 @@ export default function NewsletterPopup() {
     if (typeof window === 'undefined') return
     if (localStorage.getItem(STORAGE_KEY)) return
 
-    const timer = setTimeout(() => setOpen(true), DELAY_MS)
-    return () => clearTimeout(timer)
+    const welcomeStillActive = Date.now() <= WELCOME_EXPIRES_AT.getTime()
+
+    if (!welcomeStillActive || localStorage.getItem(WELCOME_STORAGE_KEY)) {
+      const timer = setTimeout(() => setOpen(true), DELAY_MS)
+      return () => clearTimeout(timer)
+    }
+
+    // Welcome popup hasn't been dismissed yet -- poll until it has, then
+    // start this popup's own delay from that point.
+    const poll = setInterval(() => {
+      if (localStorage.getItem(WELCOME_STORAGE_KEY)) {
+        clearInterval(poll)
+        setTimeout(() => setOpen(true), DELAY_MS)
+      }
+    }, WELCOME_CHECK_INTERVAL_MS)
+    return () => clearInterval(poll)
   }, [])
 
   function dismiss() {
