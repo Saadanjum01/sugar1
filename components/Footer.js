@@ -59,8 +59,19 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/10 text-center text-[#6E7C77] text-sm">
+        <div className="pt-8 border-t border-white/10 text-center text-[#6E7C77] text-sm space-y-1.5">
           <p>© 2026 First Colony Vision. All rights reserved.</p>
+          <p>
+            Managed by{' '}
+            <a
+              href="https://procloudsource.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#37B2B8] transition-colors underline underline-offset-2"
+            >
+              ProCloudSource
+            </a>
+          </p>
         </div>
       </div>
     </footer>
