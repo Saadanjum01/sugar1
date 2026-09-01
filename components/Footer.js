@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Phone, Instagram, Facebook, Twitter } from 'lucide-react'
+import Wordmark from '@/components/Wordmark'
 
 export default function Footer() {
   return (
@@ -60,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-white/10 text-center text-[#6E7C77] text-sm space-y-1.5">
-          <p>© 2026 First Colony Vision. All rights reserved.</p>
+          <p>© 2026 <Wordmark color="text-[#6E7C77]" />. All rights reserved.</p>
           <p>
             Managed by{' '}
             <a
