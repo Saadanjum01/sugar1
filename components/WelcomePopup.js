@@ -55,13 +55,10 @@ export default function WelcomePopup() {
 
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-16 rounded-full bg-white/15 border border-white/25 flex items-center justify-center mb-5">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="white" strokeWidth="1.8" strokeLinejoin="round" />
-                <circle cx="12" cy="12" r="3.2" stroke="white" strokeWidth="1.8" />
-              </svg>
+              <img src="/images/icon-mark-white.png" alt="" className="w-8 h-8" aria-hidden="true" />
             </div>
             <h2 className="font-display text-[26px] sm:text-[28px] text-white" style={{ letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              Welcome Today&apos;s Vision Sugar Land clients to the First Colony Vision family
+              Welcome Today&apos;s Vision clients to the First Colony Vision family
             </h2>
           </div>
         </div>
@@ -69,7 +66,7 @@ export default function WelcomePopup() {
         {/* Body */}
         <div className="bg-white px-8 pt-7 pb-8">
           <p className="text-[#6E7C77] text-[15px] leading-relaxed mb-6">
-            You&apos;re in the right place. Your care continues here with the same warm, attentive team.
+            You&apos;re in the right place — your care continues here, with the same team you know.
           </p>
           <button
             onClick={dismiss}

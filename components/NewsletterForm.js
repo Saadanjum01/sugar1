@@ -7,7 +7,7 @@ import { useState } from 'react'
  * contact page so the markup/behavior only lives in one place.
  *
  * variant="light"  -> for placing on a white/light card
- * variant="dark"   -> for placing on the navy card
+ * variant="dark"   -> for placing on the teal card
  */
 export default function NewsletterForm({ variant = 'light' }) {
   const [email, setEmail] = useState('')
@@ -41,7 +41,7 @@ export default function NewsletterForm({ variant = 'light' }) {
 
   if (submitted) {
     return (
-      <p className={`text-sm font-bold ${isDark ? 'text-white' : 'text-[#1E2749]'}`}>
+      <p className={`text-sm font-bold ${isDark ? 'text-white' : 'text-[#093F42]'}`}>
         You&apos;re subscribed! Thanks for joining the list.
       </p>
     )
@@ -56,19 +56,19 @@ export default function NewsletterForm({ variant = 'light' }) {
           placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-full px-4 py-3.5 rounded-xl border text-[#1E2749] focus:outline-none focus:border-[#B33951] transition-colors ${
-            isDark ? 'bg-white border-transparent' : 'bg-[#F6F6F8] border-[#1E2749]/15'
+          className={`w-full px-4 py-3.5 rounded-xl border text-[#16201E] focus:outline-none focus:border-[#37B2B8] transition-colors ${
+            isDark ? 'bg-white border-transparent' : 'bg-[#FBF7F1] border-[#E7EBEA]'
           }`}
         />
         <button
           type="submit"
           disabled={submitting}
-          className="shrink-0 px-6 py-3.5 bg-[#B33951] text-white font-bold text-sm rounded-xl hover:bg-[#1E2749] transition-all disabled:opacity-60"
+          className="shrink-0 px-6 py-3.5 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-all disabled:opacity-60"
         >
-          {submitting ? 'SENDING…' : 'SUBSCRIBE'}
+          {submitting ? 'Sending…' : 'Subscribe'}
         </button>
       </div>
-      {error && <p className="text-[13px] font-medium text-[#B33951]">{error}</p>}
+      {error && <p className="text-[13px] font-medium text-[#B85E31]">{error}</p>}
     </form>
   )
 }

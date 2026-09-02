@@ -128,7 +128,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? 'Close chat' : 'Open chat'}
-        className="fixed bottom-8 right-32 sm:right-36 z-50 w-16 h-16 rounded-full bg-[#1E2749] text-white shadow-2xl hover:bg-[#B33951] transition-all flex items-center justify-center"
+        className="fixed bottom-8 right-32 sm:right-36 z-50 w-16 h-16 rounded-full bg-[#0D5D62] text-white shadow-2xl hover:bg-[#093F42] transition-all flex items-center justify-center"
       >
         {open ? (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
@@ -138,20 +138,20 @@ export default function ChatWidget() {
       </button>
 
       {open && (
-        <div className="fixed bottom-28 right-6 sm:right-10 z-50 w-[92vw] max-w-sm h-[480px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#1E2749]/10">
-          <div className="bg-[#1E2749] text-white px-5 py-4">
+        <div className="fixed bottom-28 right-6 sm:right-10 z-50 w-[92vw] max-w-sm h-[480px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#0D5D62]/10">
+          <div className="bg-[#0D5D62] text-white px-5 py-4">
             <Wordmark color="text-white" className="text-[15px]" />
-            <div className="text-[#C0C3CC] text-xs">Ask us anything</div>
+            <div className="text-[#A2CCC9] text-xs">Ask us anything</div>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#F6F6F8]">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#FBF7F1]">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === 'user'
-                      ? 'bg-[#1E2749] text-white rounded-br-sm'
-                      : 'bg-white text-[#33415C] rounded-bl-sm shadow-sm'
+                      ? 'bg-[#0D5D62] text-white rounded-br-sm'
+                      : 'bg-white text-[#16201E] rounded-bl-sm shadow-sm'
                   }`}
                 >
                   {m.text}
@@ -162,26 +162,26 @@ export default function ChatWidget() {
               <div className="flex justify-start">
                 <div className="bg-white rounded-2xl rounded-bl-sm px-4 py-2.5 shadow-sm">
                   <div className="flex gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1E2749]/40 animate-bounce [animation-delay:-0.3s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1E2749]/40 animate-bounce [animation-delay:-0.15s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1E2749]/40 animate-bounce" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0D5D62]/40 animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0D5D62]/40 animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0D5D62]/40 animate-bounce" />
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          <form onSubmit={sendMessage} className="p-3 border-t border-[#1E2749]/10 flex gap-2">
+          <form onSubmit={sendMessage} className="p-3 border-t border-[#0D5D62]/10 flex gap-2">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a question..."
-              className="flex-1 px-4 py-2.5 rounded-full border border-[#1E2749]/15 text-sm text-[#1E2749] focus:outline-none focus:border-[#B33951]"
+              className="flex-1 px-4 py-2.5 rounded-full border border-[#0D5D62]/15 text-sm text-[#16201E] focus:outline-none focus:border-[#37B2B8]"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="w-10 h-10 rounded-full bg-[#B33951] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#1E2749] transition-colors flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-[#0D5D62] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#093F42] transition-colors flex-shrink-0"
               aria-label="Send"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>

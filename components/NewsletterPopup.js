@@ -107,7 +107,7 @@ export default function NewsletterPopup() {
                 placeholder="you@example.com"
                 className="w-full px-4 py-3 rounded-xl border border-[#16201E]/15 text-sm text-[#16201E] focus:outline-none focus:border-[#0D5D62] transition-colors"
               />
-              {error && <p className="text-[13px] font-medium text-[#B33951] text-left">{error}</p>}
+              {error && <p className="text-[13px] font-medium text-[#B85E31] text-left">{error}</p>}
               <button
                 type="submit"
                 disabled={submitting}

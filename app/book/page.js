@@ -350,7 +350,7 @@ export default function BookPage() {
                 </div>
 
                 {error && (
-                  <p className="text-[13.5px] text-[#B33951] bg-[#B33951]/10 rounded-xl px-4 py-3">
+                  <p className="text-[13.5px] text-[#B85E31] bg-[#B85E31]/10 rounded-xl px-4 py-3">
                     {error}
                   </p>
                 )}
