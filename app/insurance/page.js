@@ -19,7 +19,7 @@ const insurers = [
   { name: 'Medicare',          logo: '/images/insurance/medicare.png' },
   { name: 'United Healthcare', logo: '/images/insurance/unitedhealthcare.png' },
   { name: 'Spectera',          logo: '/images/insurance/spectera.png' },
-  { name: 'Superior Vision',   logo: '/images/insurance/superiorvision.png', darkLogo: true },
+  { name: 'Superior Vision',   logo: '/images/insurance/superiorvision.png' },
   { name: 'Aetna',             logo: '/images/insurance/aetna.png' },
 ]
 

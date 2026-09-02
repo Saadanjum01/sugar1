@@ -54,9 +54,7 @@ export default function WelcomePopup() {
           </button>
 
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-white/15 border border-white/25 flex items-center justify-center mb-5">
-              <img src="/images/icon-mark-white.png" alt="" className="w-8 h-8" aria-hidden="true" />
-            </div>
+            <img src="/images/logo-mark-white.png" alt="First Colony Vision" className="h-8 sm:h-9 w-auto mb-6" />
             <h2 className="font-display text-[26px] sm:text-[28px] text-white" style={{ letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Welcome Today&apos;s Vision clients to the First Colony Vision family
             </h2>
