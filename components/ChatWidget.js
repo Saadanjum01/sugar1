@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Wordmark from '@/components/Wordmark'
 
 // Supabase Edge Function (Deno, serverless) -- no persistent server to run
 // alongside the Vercel deployment. See supabase/functions/sugar-chat.
@@ -140,8 +139,8 @@ export default function ChatWidget() {
       {open && (
         <div className="fixed bottom-28 right-6 sm:right-10 z-50 w-[92vw] max-w-sm h-[480px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#0D5D62]/10">
           <div className="bg-[#0D5D62] text-white px-5 py-4">
-            <Wordmark color="text-white" className="text-[15px]" />
-            <div className="text-[#A2CCC9] text-xs">Ask us anything</div>
+            <img src="/images/logo-mark-white.png" alt="First Colony Vision" className="h-5 w-auto mb-1" />
+            <div className="text-white/70 text-xs">Ask us anything</div>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#FBF7F1]">
