@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { IconList } from '@/components/BrandIcons'
 
 export default function BlogPostLayout({
   title,
@@ -21,7 +22,10 @@ export default function BlogPostLayout({
             <span className="mx-2 opacity-50">/</span>
             <span className="opacity-70">{title}</span>
           </div>
-          <div className="text-[#37B2B8] text-xs sm:text-sm font-semibold mb-3 tracking-widest">{category.toUpperCase()}</div>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold mb-3 tracking-widest text-[#37B2B8]">
+            <IconList size={14} className="text-[#E2895B]" />
+            {category.toUpperCase()}
+          </div>
           <h1
             className="font-display text-3xl sm:text-5xl font-medium mb-5"
             style={{ letterSpacing: '-0.03em' }}

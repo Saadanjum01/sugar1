@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { IconList } from '@/components/BrandIcons'
 
 const posts = [
   {
@@ -33,7 +34,10 @@ export default function BlogPage() {
 
       {/* Hero */}
       <section className="py-16 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16 bg-[#093F42] text-white text-center">
-        <div className="text-[#37B2B8] text-xs sm:text-sm font-semibold mb-4 tracking-widest">FROM THE BLOG</div>
+        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold mb-4 tracking-widest text-[#37B2B8]">
+          <IconList size={14} className="text-[#E2895B]" />
+          FROM THE BLOG
+        </div>
         <h1
           className="font-display text-3xl sm:text-5xl font-medium mb-5"
           style={{ letterSpacing: '-0.03em' }}
