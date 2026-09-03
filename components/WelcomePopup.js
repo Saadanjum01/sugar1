@@ -64,7 +64,7 @@ export default function WelcomePopup() {
         {/* Body */}
         <div className="bg-white px-8 pt-7 pb-8">
           <p className="text-[#6E7C77] text-[15px] leading-relaxed mb-6">
-            You&apos;re in the right place — your care continues here, with the same team you know.
+            You&apos;re in the right place. Your care continues here, with the same team you know.
           </p>
           <button
             onClick={dismiss}
