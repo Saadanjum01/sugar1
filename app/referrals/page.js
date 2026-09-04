@@ -79,7 +79,15 @@ export default function ReferralsPage() {
     'flex-1 bg-transparent border-0 border-b border-[#1E2E4A]/70 focus:border-[#0D5D62] outline-none px-1 py-1 text-[17px] text-[#1E2E4A] font-medium placeholder:text-[#1E2E4A]/30'
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 px-4 print:py-0 print:px-0">
+    <div className="min-h-screen bg-[#FBF7F1] flex flex-col items-center py-10 sm:py-16 px-4 print:bg-white print:py-0 print:px-0">
+      <div className="max-w-[820px] w-full text-center mb-8 print:hidden">
+        <h1 className="font-display text-[28px] sm:text-[36px] text-[#093F42] mb-2" style={{ letterSpacing: '-0.03em' }}>
+          Patient referral form
+        </h1>
+        <p className="text-[#6E7C77] text-[15px]">
+          Fill out and submit below, or print and fax to our office.
+        </p>
+      </div>
       <div
         className="w-full max-w-[820px] bg-white border-[3px] border-[#0D5D62] rounded-sm overflow-hidden print:border-0"
         style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 24px 48px -24px rgba(13,93,98,.3)' }}
