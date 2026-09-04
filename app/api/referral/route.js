@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
-import { emailLayout, summaryTable, BRAND, escapeHtml } from '@/lib/emailTemplate'
+import { emailLayout, summaryTable, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
 
 export const runtime = 'nodejs'
 
@@ -68,7 +68,28 @@ export async function POST(req) {
     `,
   })
 
+  const confirmationHtml = emailLayout({
+    preheader: `Referral received for ${patientName}`,
+    body: `
+      <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.accent};">Referral received</p>
+      <h1 style="margin:0 0 16px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">Thanks, Dr. ${escapeHtml(referringDr)}</h1>
+      <p style="margin:0 0 24px;font-family:sans-serif;font-size:15px;line-height:1.6;color:${BRAND.text};">
+        We received your referral for <strong>${escapeHtml(patientName)}</strong> and our team will follow up shortly.
+      </p>
+      <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;font-weight:600;color:${BRAND.tealDark};">What was submitted</p>
+      ${summaryTable(summaryRows)}
+      <p style="margin:28px 0 0;font-family:sans-serif;font-size:14px;line-height:1.6;color:${BRAND.textMuted};">
+        Questions in the meantime? Call us at <a href="tel:281-916-2020" style="color:${BRAND.teal};">281-916-2020</a>.
+      </p>
+      <div style="margin-top:24px;">
+        ${button('Visit our website', 'https://www.firstcolonyvision.com')}
+      </div>
+    `,
+  })
+
   try {
+    // Notify the practice -- this must succeed for the request to count as
+    // received, since it's the only place staff actually see the referral.
     await sendMail({
       to: PRACTICE_EMAIL,
       ...(referringEmail ? { replyTo: referringEmail } : {}),
@@ -76,6 +97,22 @@ export async function POST(req) {
       text: `New patient referral submitted from the website:\n\n${textSummary}`,
       html: practiceHtml,
     })
+
+    // Confirm to the referring doctor, if they gave an email. Best-effort --
+    // the practice notification above is what matters; if this fails we
+    // still tell the submitter it went through, since it did.
+    if (referringEmail) {
+      try {
+        await sendMail({
+          to: referringEmail,
+          subject: 'Referral received — First Colony Vision',
+          text: `Thanks, Dr. ${referringDr}.\n\nWe received your referral for ${patientName} and our team will follow up shortly.\n\nWhat was submitted:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
+          html: confirmationHtml,
+        })
+      } catch (confirmationEmailError) {
+        console.error('[referral] confirmation email to referring doctor failed:', confirmationEmailError)
+      }
+    }
 
     return NextResponse.json({ ok: true })
   } catch (err) {
