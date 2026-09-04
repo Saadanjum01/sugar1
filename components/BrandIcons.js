@@ -112,6 +112,17 @@ export function IconCheck({ size = 24 }) {
   )
 }
 
+export function IconGlobe({ size = 24 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...STROKE}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a13.5 13.5 0 0 1 0 18" />
+      <path d="M12 3a13.5 13.5 0 0 0 0 18" />
+    </svg>
+  )
+}
+
 export function IconPin({ size = 24 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" {...STROKE}>
