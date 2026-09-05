@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { IconPin, IconPhone, IconGlobe, IconHeart } from '@/components/BrandIcons'
+import { IconPin, IconPhone, IconGlobe, IconHeart, IconEye } from '@/components/BrandIcons'
 
 const LEFT_REASONS = [
   'Comprehensive Eye Exam',
@@ -254,14 +254,13 @@ export default function ReferralsPage() {
         {/* Wave footer */}
         <div className="relative">
           <svg
-            className="absolute -top-12 left-0 w-full h-12 text-[#0D5D62]"
+            className="absolute -top-12 left-0 w-full h-12"
             viewBox="0 0 820 48"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <path d="M0 48 C 200 0, 620 48, 820 0 L 820 48 Z" fill="currentColor" />
-            <path d="M0 48 C 220 10, 600 40, 820 6 L 820 48 Z" fill="#37B2B8" opacity="0.35" />
-            <path d="M0 48 C 180 20, 500 44, 820 14 L 820 48 Z" fill="#E2895B" opacity="0.5" />
+            <path d="M0 48 C 200 0, 620 48, 820 0 L 820 48 Z" fill="#0D5D62" />
+            <path d="M0 46 C 200 -2, 620 46, 820 -2" fill="none" stroke="#E2895B" strokeWidth="2.5" />
           </svg>
 
           <div className="bg-[#0D5D62] px-8 sm:px-12 py-9 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-8 items-center">
@@ -287,14 +286,12 @@ export default function ReferralsPage() {
                   <IconGlobe size={15} />
                 </div>
                 <a href="https://www.firstcolonyvision.com/referrals" className="text-white text-[14.5px] hover:text-[#C9E5E3] transition-colors">
-                  Firstcolonyvision.com/referrals
+                  firstcolonyvision.com/referrals
                 </a>
               </div>
             </div>
 
-            <svg width="130" height="90" viewBox="0 0 200 140" fill="none" className="opacity-30 justify-self-center sm:justify-self-end" aria-hidden="true">
-              <path d="M20 90s30-70 80-70 80 70 80 70-30 45-80 45-80-45-80-45z" stroke="white" strokeWidth="6" strokeLinecap="round" />
-            </svg>
+            <IconEye size={72} className="text-white opacity-25 justify-self-center sm:justify-self-end" />
           </div>
 
           <div className="bg-[#37B2B8] py-4 flex items-center justify-center gap-4">
