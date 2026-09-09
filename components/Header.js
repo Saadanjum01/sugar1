@@ -76,6 +76,7 @@ export default function Header() {
             <Link href="/#first-visit" className="hover:opacity-75 transition-opacity">First Visit</Link>
             <Link href="/doctor" className="hover:opacity-75 transition-opacity">Our Team</Link>
             <Link href="/insurance" className="hover:opacity-75 transition-opacity">Insurance</Link>
+            <Link href="/referrals" className="hover:opacity-75 transition-opacity">Referrals</Link>
             <Link href="/#faq" className="hover:opacity-75 transition-opacity">FAQ</Link>
             <Link href="/book#appointment-form" className="hover:opacity-75 transition-opacity">Visit Us</Link>
           </div>
@@ -124,6 +125,7 @@ export default function Header() {
             <Link href="/#first-visit" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">First Visit</Link>
             <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Our Team</Link>
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Insurance</Link>
+            <Link href="/referrals" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Referrals</Link>
             <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">FAQ</Link>
             <Link href="/book#appointment-form" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
             <a

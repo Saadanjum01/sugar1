@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { IconPin, IconPhone, IconGlobe, IconHeart, IconEye } from '@/components/BrandIcons'
+import Turnstile from '@/components/Turnstile'
 
 const LEFT_REASONS = [
   'Comprehensive Eye Exam',
@@ -33,6 +34,7 @@ export default function ReferralsPage() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   function toggleReason(label) {
     setReasons((prev) =>
@@ -63,6 +65,7 @@ export default function ReferralsPage() {
           referringDr,
           referringPhone,
           referringEmail,
+          turnstileToken,
         }),
       })
       const data = await res.json()
@@ -240,6 +243,13 @@ export default function ReferralsPage() {
                 {error}
               </p>
             )}
+
+            <div className="print:hidden">
+              <Turnstile
+                onVerify={setTurnstileToken}
+                onExpire={() => setTurnstileToken('')}
+              />
+            </div>
 
             <button
               type="submit"
