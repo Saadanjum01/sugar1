@@ -16,45 +16,23 @@ export default function NewsletterForm({ variant = 'light' }) {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
-  // Invisible reCAPTCHA resolves on its callback, so submit waits on a
-  // promise that the callback settles. Resolving null (rather than hanging)
-  // keeps the form usable if the widget never loads.
+  // Visible checkbox: the widget verifies itself when clicked and hands
+  // the token straight to onVerify -- no execute()/promise choreography
+  // needed the way the invisible variant requires.
   const recaptchaRef = useRef(null)
-  const pendingRef = useRef(null)
-
-  function requestToken() {
-    if (!recaptchaRef.current?.execute) return Promise.resolve(null)
-    return new Promise((resolve) => {
-      pendingRef.current = resolve
-      const started = recaptchaRef.current.execute()
-      if (!started) {
-        pendingRef.current = null
-        resolve(null)
-        return
-      }
-      setTimeout(() => {
-        if (pendingRef.current === resolve) {
-          pendingRef.current = null
-          resolve(null)
-        }
-      }, 10000)
-    })
-  }
-
-  function settleToken(token) {
-    const resolve = pendingRef.current
-    pendingRef.current = null
-    resolve?.(token ?? null)
-  }
+  const [recaptchaToken, setRecaptchaToken] = useState('')
 
   async function handleSubmit(e) {
     e.preventDefault()
     if (!email.trim() || submitting) return
+    if (!recaptchaToken) {
+      setError('Please complete the "I\'m not a robot" check below.')
+      return
+    }
 
     setSubmitting(true)
     setError('')
     try {
-      const recaptchaToken = await requestToken()
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -67,6 +45,7 @@ export default function NewsletterForm({ variant = 'light' }) {
       setError(err.message || 'Something went wrong. Please try again.')
     } finally {
       recaptchaRef.current?.reset()
+      setRecaptchaToken('')
       setSubmitting(false)
     }
   }
@@ -96,7 +75,7 @@ export default function NewsletterForm({ variant = 'light' }) {
         />
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || !recaptchaToken}
           className="shrink-0 px-6 py-3.5 bg-[#0D5D62] text-white font-semibold text-sm rounded-xl hover:bg-[#093F42] transition-all disabled:opacity-60"
         >
           {submitting ? 'Sending…' : 'Subscribe'}
@@ -105,9 +84,9 @@ export default function NewsletterForm({ variant = 'light' }) {
       {error && <p className="text-[13px] font-medium text-[#B85E31]">{error}</p>}
       <Recaptcha
         ref={recaptchaRef}
-        size="invisible"
-        onVerify={settleToken}
-        onExpire={() => settleToken(null)}
+        size="normal"
+        onVerify={setRecaptchaToken}
+        onExpire={() => setRecaptchaToken('')}
       />
     </form>
   )

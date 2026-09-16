@@ -53,46 +53,23 @@ export default function BookPage() {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
   }
 
-  // Invisible reCAPTCHA only prompts a challenge when Google's risk check
-  // wants one -- the widget stays hidden until Submit is clicked, and the
-  // form only actually posts once execute() delivers a token (immediately
-  // for a low-risk submission, or after the user clears a popup challenge).
+  // Visible checkbox: the widget verifies itself when clicked and hands
+  // the token straight to onVerify -- no execute()/promise choreography
+  // needed the way the invisible variant requires.
   const recaptchaRef = useRef(null)
-  const pendingRef = useRef(null)
-
-  function requestToken() {
-    if (!recaptchaRef.current?.execute) return Promise.resolve(null)
-    return new Promise((resolve) => {
-      pendingRef.current = resolve
-      const started = recaptchaRef.current.execute()
-      if (!started) {
-        pendingRef.current = null
-        resolve(null)
-        return
-      }
-      setTimeout(() => {
-        if (pendingRef.current === resolve) {
-          pendingRef.current = null
-          resolve(null)
-        }
-      }, 30000)
-    })
-  }
-
-  function settleToken(token) {
-    const resolve = pendingRef.current
-    pendingRef.current = null
-    resolve?.(token ?? null)
-  }
+  const [recaptchaToken, setRecaptchaToken] = useState('')
 
   async function handleSubmit(e) {
     e.preventDefault()
     if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || submitting) return
+    if (!recaptchaToken) {
+      setError('Please complete the "I\'m not a robot" check below.')
+      return
+    }
 
     setSubmitting(true)
     setError('')
     try {
-      const recaptchaToken = await requestToken()
       const res = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -105,6 +82,7 @@ export default function BookPage() {
       setError(err.message || "Sorry, we couldn't submit your request. Please call us at 281-916-2020.")
     } finally {
       recaptchaRef.current?.reset()
+      setRecaptchaToken('')
       setSubmitting(false)
     }
   }
@@ -392,14 +370,14 @@ export default function BookPage() {
 
                 <Recaptcha
                   ref={recaptchaRef}
-                  size="invisible"
-                  onVerify={settleToken}
-                  onExpire={() => settleToken(null)}
+                  size="normal"
+                  onVerify={setRecaptchaToken}
+                  onExpire={() => setRecaptchaToken('')}
                 />
 
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || !recaptchaToken}
                   className="w-full py-4 bg-[#0D5D62] text-white font-semibold text-[15px] rounded-xl hover:bg-[#093F42] transition-colors disabled:opacity-60"
                 >
                   {submitting ? 'Sending…' : 'Send appointment request'}
