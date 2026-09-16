@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Recaptcha from '@/components/Recaptcha'
 import {
   IconCal, IconPin, IconClock, IconPhone, IconCheck,
@@ -47,11 +47,42 @@ export default function BookPage() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const [recaptchaToken, setRecaptchaToken] = useState('')
   const [error, setError] = useState('')
 
   function set(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
+  }
+
+  // Invisible reCAPTCHA only prompts a challenge when Google's risk check
+  // wants one -- the widget stays hidden until Submit is clicked, and the
+  // form only actually posts once execute() delivers a token (immediately
+  // for a low-risk submission, or after the user clears a popup challenge).
+  const recaptchaRef = useRef(null)
+  const pendingRef = useRef(null)
+
+  function requestToken() {
+    if (!recaptchaRef.current?.execute) return Promise.resolve(null)
+    return new Promise((resolve) => {
+      pendingRef.current = resolve
+      const started = recaptchaRef.current.execute()
+      if (!started) {
+        pendingRef.current = null
+        resolve(null)
+        return
+      }
+      setTimeout(() => {
+        if (pendingRef.current === resolve) {
+          pendingRef.current = null
+          resolve(null)
+        }
+      }, 30000)
+    })
+  }
+
+  function settleToken(token) {
+    const resolve = pendingRef.current
+    pendingRef.current = null
+    resolve?.(token ?? null)
   }
 
   async function handleSubmit(e) {
@@ -61,6 +92,7 @@ export default function BookPage() {
     setSubmitting(true)
     setError('')
     try {
+      const recaptchaToken = await requestToken()
       const res = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -72,6 +104,7 @@ export default function BookPage() {
     } catch (err) {
       setError(err.message || "Sorry, we couldn't submit your request. Please call us at 281-916-2020.")
     } finally {
+      recaptchaRef.current?.reset()
       setSubmitting(false)
     }
   }
@@ -358,8 +391,10 @@ export default function BookPage() {
                 )}
 
                 <Recaptcha
-                  onVerify={setRecaptchaToken}
-                  onExpire={() => setRecaptchaToken('')}
+                  ref={recaptchaRef}
+                  size="invisible"
+                  onVerify={settleToken}
+                  onExpire={() => settleToken(null)}
                 />
 
                 <button
