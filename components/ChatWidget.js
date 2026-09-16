@@ -105,8 +105,17 @@ export default function ChatWidget() {
         body: JSON.stringify({ question, history }),
       })
 
-      const data = await res.json()
-      if (!res.ok || !data.answer) throw new Error(data.error || `Request failed (${res.status})`)
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.answer) {
+        // The backend explains itself (rate limits, question too long, budget
+        // caps). Surface that wording -- falling back to the generic line here
+        // made every one of those look like the network was down. Anything
+        // without a message of its own stays generic, so a real network drop
+        // never shows the user a raw "Failed to fetch".
+        const err = new Error(data.error || `Request failed (${res.status})`)
+        err.fromServer = Boolean(data.error)
+        throw err
+      }
 
       setMessages((prev) => [...prev, { role: 'assistant', text: data.answer }])
     } catch (err) {
@@ -114,7 +123,9 @@ export default function ChatWidget() {
         ...prev,
         {
           role: 'assistant',
-          text: "Sorry, I couldn't reach the assistant right now. Please call us at 281-916-2020.",
+          text: err?.fromServer
+            ? err.message
+            : "Sorry, I couldn't reach the assistant right now. Please call us at 281-916-2020.",
         },
       ])
     } finally {

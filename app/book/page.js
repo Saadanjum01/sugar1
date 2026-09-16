@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Recaptcha from '@/components/Recaptcha'
 import {
   IconCal, IconPin, IconClock, IconPhone, IconCheck,
   IconId, IconCardPay, IconGlasses, IconList, IconEye, IconFamily,
@@ -46,6 +47,7 @@ export default function BookPage() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState('')
   const [error, setError] = useState('')
 
   function set(field) {
@@ -62,7 +64,7 @@ export default function BookPage() {
       const res = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, recaptchaToken }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Something went wrong.')
@@ -354,6 +356,11 @@ export default function BookPage() {
                     {error}
                   </p>
                 )}
+
+                <Recaptcha
+                  onVerify={setRecaptchaToken}
+                  onExpire={() => setRecaptchaToken('')}
+                />
 
                 <button
                   type="submit"

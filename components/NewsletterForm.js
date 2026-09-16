@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react' 
+import Recaptcha from '@/components/Recaptcha'
 
 /**
  * Shared newsletter signup form. Used on the homepage contact card and the
@@ -15,6 +16,37 @@ export default function NewsletterForm({ variant = 'light' }) {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
+  // Invisible reCAPTCHA resolves on its callback, so submit waits on a
+  // promise that the callback settles. Resolving null (rather than hanging)
+  // keeps the form usable if the widget never loads.
+  const recaptchaRef = useRef(null)
+  const pendingRef = useRef(null)
+
+  function requestToken() {
+    if (!recaptchaRef.current?.execute) return Promise.resolve(null)
+    return new Promise((resolve) => {
+      pendingRef.current = resolve
+      const started = recaptchaRef.current.execute()
+      if (!started) {
+        pendingRef.current = null
+        resolve(null)
+        return
+      }
+      setTimeout(() => {
+        if (pendingRef.current === resolve) {
+          pendingRef.current = null
+          resolve(null)
+        }
+      }, 10000)
+    })
+  }
+
+  function settleToken(token) {
+    const resolve = pendingRef.current
+    pendingRef.current = null
+    resolve?.(token ?? null)
+  }
+
   async function handleSubmit(e) {
     e.preventDefault()
     if (!email.trim() || submitting) return
@@ -22,10 +54,11 @@ export default function NewsletterForm({ variant = 'light' }) {
     setSubmitting(true)
     setError('')
     try {
+      const recaptchaToken = await requestToken()
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, recaptchaToken }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Something went wrong.')
@@ -33,6 +66,7 @@ export default function NewsletterForm({ variant = 'light' }) {
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.')
     } finally {
+      recaptchaRef.current?.reset()
       setSubmitting(false)
     }
   }
@@ -69,6 +103,12 @@ export default function NewsletterForm({ variant = 'light' }) {
         </button>
       </div>
       {error && <p className="text-[13px] font-medium text-[#B85E31]">{error}</p>}
+      <Recaptcha
+        ref={recaptchaRef}
+        size="invisible"
+        onVerify={settleToken}
+        onExpire={() => settleToken(null)}
+      />
     </form>
   )
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
 import { emailLayout, summaryTable, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
-import { verifyTurnstile } from '@/lib/turnstile'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 export const runtime = 'nodejs'
 
@@ -29,7 +29,7 @@ export async function POST(req) {
   const referringDr = String(body.referringDr ?? '').trim().slice(0, 200)
   const referringPhone = String(body.referringPhone ?? '').trim().slice(0, 50)
   const referringEmail = String(body.referringEmail ?? '').trim().slice(0, 200)
-  const turnstileToken = String(body.turnstileToken ?? '').trim()
+  const recaptchaToken = String(body.recaptchaToken ?? '').trim()
 
   if (!patientName || !referringDr) {
     return NextResponse.json({ error: 'Patient name and referring doctor are required.' }, { status: 400 })
@@ -39,7 +39,7 @@ export async function POST(req) {
   }
 
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim()
-  const humanVerified = await verifyTurnstile(turnstileToken, ip)
+  const humanVerified = await verifyRecaptcha(recaptchaToken, ip)
   if (!humanVerified) {
     return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
 import { emailLayout, summaryTable, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 export const runtime = 'nodejs'
 
@@ -27,12 +28,19 @@ export async function POST(req) {
   const time = String(body.time ?? '').trim().slice(0, 50)
   const notes = String(body.notes ?? '').trim().slice(0, 2000)
   const newPatient = body.newPatient === 'no' ? 'Returning patient' : 'New patient'
+  const recaptchaToken = String(body.recaptchaToken ?? '').trim()
 
   if (!name || !email || !phone) {
     return NextResponse.json({ error: 'Name, email, and phone are required.' }, { status: 400 })
   }
   if (!isValidEmail(email)) {
     return NextResponse.json({ error: 'Enter a valid email address.' }, { status: 400 })
+  }
+
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim()
+  const humanVerified = await verifyRecaptcha(recaptchaToken, ip)
+  if (!humanVerified) {
+    return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }
   if (!PRACTICE_EMAIL) {
     console.error('[book] EMAIL_USER not configured')

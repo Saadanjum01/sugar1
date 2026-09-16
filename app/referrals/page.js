@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { IconPin, IconPhone, IconGlobe, IconHeart, IconEye } from '@/components/BrandIcons'
-import Turnstile from '@/components/Turnstile'
+import Recaptcha from '@/components/Recaptcha'
 
 const LEFT_REASONS = [
   'Comprehensive Eye Exam',
@@ -34,7 +34,7 @@ export default function ReferralsPage() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
-  const [turnstileToken, setTurnstileToken] = useState('')
+  const [recaptchaToken, setRecaptchaToken] = useState('')
 
   function toggleReason(label) {
     setReasons((prev) =>
@@ -65,7 +65,7 @@ export default function ReferralsPage() {
           referringDr,
           referringPhone,
           referringEmail,
-          turnstileToken,
+          recaptchaToken,
         }),
       })
       const data = await res.json()
@@ -245,9 +245,9 @@ export default function ReferralsPage() {
             )}
 
             <div className="print:hidden">
-              <Turnstile
-                onVerify={setTurnstileToken}
-                onExpire={() => setTurnstileToken('')}
+              <Recaptcha
+                onVerify={setRecaptchaToken}
+                onExpire={() => setRecaptchaToken('')}
               />
             </div>
 

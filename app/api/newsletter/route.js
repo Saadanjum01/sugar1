@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { sendMail } from '@/lib/mailer'
 import { emailLayout, button, BRAND, escapeHtml } from '@/lib/emailTemplate'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 export const runtime = 'nodejs'
 
@@ -23,9 +24,16 @@ export async function POST(req) {
   }
 
   const email = String(body.email ?? '').trim().slice(0, 200)
+  const recaptchaToken = String(body.recaptchaToken ?? '').trim()
 
   if (!email || !isValidEmail(email)) {
     return NextResponse.json({ error: 'Enter a valid email address.' }, { status: 400 })
+  }
+
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim()
+  const humanVerified = await verifyRecaptcha(recaptchaToken, ip)
+  if (!humanVerified) {
+    return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }
   if (!PRACTICE_EMAIL) {
     console.error('[newsletter] EMAIL_USER not configured')
