@@ -11,7 +11,7 @@ export default function Page() {
         {
           heading: 'Understanding Red Eye',
           paragraphs: [
-            'Redness in the eye is one of the most common reasons patients reach out to us, and it can stem from a wide range of causes — minor irritation, allergies, dryness, or an infection such as conjunctivitis (commonly known as pink eye). In most cases, red eye is temporary and resolves with the right care, but because redness can also signal a more serious underlying issue, persistent or painful redness should always be evaluated promptly by an eye care professional.',
+            'Redness in the eye is one of the most common reasons patients reach out to us, and it can stem from a wide range of causes: minor irritation, allergies, dryness, or an infection such as conjunctivitis (commonly known as pink eye). In most cases, red eye is temporary and resolves with the right care, but because redness can also signal a more serious underlying issue, persistent or painful redness should always be evaluated promptly by an eye care professional.',
             'At First Colony Vision, our optometrists will carefully examine your eyes to determine the cause of your symptoms and recommend an appropriate course of care to help you feel comfortable again.'
           ]
         },
@@ -28,7 +28,7 @@ export default function Page() {
         {
           heading: 'Why Choose First Colony Vision for Red Eye Care',
           paragraphs: [
-            'We know red eye symptoms can be uncomfortable and, at times, worrying — so we prioritize prompt scheduling to get you seen quickly. Our experienced optometrists will perform a thorough evaluation to identify the source of your irritation and build a personalized treatment plan aimed at relieving your symptoms and protecting your long-term eye health.'
+            'We know red eye symptoms can be uncomfortable and, at times, worrying, so we prioritize prompt scheduling to get you seen quickly. Our experienced optometrists will perform a thorough evaluation to identify the source of your irritation and build a personalized treatment plan aimed at relieving your symptoms and protecting your long-term eye health.'
           ]
         }
       ]}

@@ -18,7 +18,7 @@ const methods = [
     Icon: IconCal,
     label: 'Book online',
     body: 'Request an appointment',
-    note: 'Takes under a minute — we confirm by phone.',
+    note: 'Takes under a minute. We confirm by phone.',
     href: '/book',
     cta: 'Book appointment',
     primary: true,
@@ -50,7 +50,7 @@ export default function ContactPage() {
             We&apos;d love to hear from you
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            Call, book online, or drop us a note — whichever is easiest for you.
+            Call, book online, or drop us a note, whichever is easiest for you.
           </p>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function ContactPage() {
             Join our newsletter
           </h2>
           <p className="text-[#6E7C77] text-[15.5px] mb-7 max-w-lg mx-auto">
-            Eye health tips, seasonal reminders, and news from First Colony Vision — straight to your inbox.
+            Eye health tips, seasonal reminders, and news from First Colony Vision, straight to your inbox.
           </p>
           <div className="max-w-md mx-auto">
             <NewsletterForm variant="light" />

@@ -57,7 +57,7 @@ export async function POST(req) {
       <p style="margin:0 0 4px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:${BRAND.accent};">Subscribed</p>
       <h1 style="margin:0 0 16px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">You're on the list!</h1>
       <p style="margin:0 0 24px;font-family:sans-serif;font-size:15px;line-height:1.6;color:${BRAND.text};">
-        Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year — never more than that.
+        Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year, never more than that.
       </p>
       <div>
         ${button('Visit our website', 'https://www.firstcolonyvision.com')}
@@ -77,8 +77,8 @@ export async function POST(req) {
     try {
       await sendMail({
         to: email,
-        subject: "You're on the list — First Colony Vision",
-        text: `Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year — never more than that.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479\n281-916-2020`,
+        subject: "You're on the list | First Colony Vision",
+        text: `Thanks for subscribing to First Colony Vision's newsletter. We send eye health tips and clinic news a few times a year, never more than that.\n\nFirst Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479\n281-916-2020`,
         html: subscriberHtml,
       })
     } catch (subscriberEmailError) {

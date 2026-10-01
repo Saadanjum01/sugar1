@@ -109,7 +109,7 @@ export default function NewsletterPopup() {
             <div className="text-[#B85E31] text-xs font-bold mb-3 tracking-widest">STAY IN TOUCH</div>
             <h3 className="font-display text-2xl font-semibold text-[#16201E] mb-3" style={{ letterSpacing: '-0.02em' }}>Join our newsletter</h3>
             <p className="text-[#6E7C77] text-sm leading-relaxed mb-6">
-              Eye health tips, seasonal reminders, and news from First Colony Vision — straight to your inbox.
+              Eye health tips, seasonal reminders, and news from First Colony Vision, straight to your inbox.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <input

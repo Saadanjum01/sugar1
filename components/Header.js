@@ -56,7 +56,7 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center shrink-0 py-2"
-            aria-label="First Colony Vision — home"
+            aria-label="First Colony Vision home"
           >
             <img
               src={transparent ? '/images/logo-mark-white.png' : '/images/logo-mark.png'}

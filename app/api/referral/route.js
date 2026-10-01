@@ -55,12 +55,12 @@ export async function POST(req) {
 
   const summaryRows = [
     ['Patient name', patientName],
-    ['Date', date || '—'],
-    ['Reason for referral', allReasons.length ? allReasons.join(', ') : '—'],
-    ['Comments', comments || '—'],
+    ['Date', date || 'N/A'],
+    ['Reason for referral', allReasons.length ? allReasons.join(', ') : 'N/A'],
+    ['Comments', comments || 'N/A'],
     ['Referring doctor', referringDr],
-    ['Referring phone', referringPhone || '—'],
-    ['Referring email', referringEmail || '—'],
+    ['Referring phone', referringPhone || 'N/A'],
+    ['Referring email', referringEmail || 'N/A'],
   ]
   const textSummary = summaryRows.map(([k, v]) => `${k}: ${v}`).join('\n')
 
@@ -71,7 +71,7 @@ export async function POST(req) {
       <h1 style="margin:0 0 20px;font-family:sans-serif;font-size:22px;color:${BRAND.tealDark};">Referral for ${escapeHtml(patientName)}</h1>
       ${summaryTable(summaryRows)}
       <p style="margin:24px 0 0;font-family:sans-serif;font-size:13px;color:${BRAND.textMuted};">
-        ${referringEmail ? `Reply directly to this email to reach Dr. ${escapeHtml(referringDr)}.` : `Referring phone: ${escapeHtml(referringPhone || '—')}.`}
+        ${referringEmail ? `Reply directly to this email to reach Dr. ${escapeHtml(referringDr)}.` : `Referring phone: ${escapeHtml(referringPhone || 'N/A')}.`}
       </p>
     `,
   })
@@ -101,7 +101,7 @@ export async function POST(req) {
     await sendMail({
       to: PRACTICE_EMAIL,
       ...(referringEmail ? { replyTo: referringEmail } : {}),
-      subject: `New patient referral — ${patientName}`,
+      subject: `New patient referral: ${patientName}`,
       text: `New patient referral submitted from the website:\n\n${textSummary}`,
       html: practiceHtml,
     })
@@ -113,8 +113,8 @@ export async function POST(req) {
       try {
         await sendMail({
           to: referringEmail,
-          subject: 'Referral received — First Colony Vision',
-          text: `Thanks, Dr. ${referringDr}.\n\nWe received your referral for ${patientName} and our team will follow up shortly.\n\nWhat was submitted:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
+          subject: 'Referral received | First Colony Vision',
+          text: `Thanks, Dr. ${referringDr}.\n\nWe received your referral for ${patientName} and our team will follow up shortly.\n\nWhat was submitted:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\nFirst Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
           html: confirmationHtml,
         })
       } catch (confirmationEmailError) {

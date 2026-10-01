@@ -175,8 +175,8 @@ export default function ReferralsPage() {
                           <label key={sub} className="flex items-center gap-3 cursor-pointer">
                             <input
                               type="checkbox"
-                              checked={reasons.includes(`Contact Lens Fitting — ${sub}`)}
-                              onChange={() => toggleReason(`Contact Lens Fitting — ${sub}`)}
+                              checked={reasons.includes(`Contact Lens Fitting: ${sub}`)}
+                              onChange={() => toggleReason(`Contact Lens Fitting: ${sub}`)}
                               className="w-[15px] h-[15px] rounded-[3px] border-2 border-[#37B2B8] accent-[#0D5D62] shrink-0"
                             />
                             <span className="text-[15px]">{sub}</span>
@@ -243,7 +243,7 @@ export default function ReferralsPage() {
                   type="email"
                   value={referringEmail}
                   onChange={(e) => setReferringEmail(e.target.value)}
-                  placeholder="optional — for a reply confirmation"
+                  placeholder="optional, for a reply confirmation"
                   className="flex-1 bg-transparent border-0 border-b border-[#1E2E4A]/70 focus:border-[#0D5D62] outline-none px-1 py-1 text-[15px] text-[#1E2E4A] font-medium placeholder:text-[#1E2E4A]/30 placeholder:font-normal"
                 />
               </div>

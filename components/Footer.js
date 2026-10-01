@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12 mb-12 sm:mb-16">
           <div>
-            <Link href="/" className="inline-flex mb-6" aria-label="First Colony Vision — home">
+            <Link href="/" className="inline-flex mb-6" aria-label="First Colony Vision home">
               <img src="/images/logo-mark-white.png" alt="First Colony Vision" className="h-7 w-auto" />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed">

@@ -111,10 +111,7 @@ export default function DoctorPage() {
               <span className="text-xl text-[#0D5D62]/40 font-bold">+</span>
             </div>
             <div className="text-left">
-              <h4 className="font-semibold text-[#093F42] mb-1">More Team Members — Coming Soon</h4>
-              <p className="text-[#6E7C77] text-[14px]">
-                Reserved for additional doctors and staff. Send us names, titles, bios, and headshots.
-              </p>
+              <h4 className="font-semibold text-[#093F42] mb-1">More Team Members Coming Soon</h4>
             </div>
           </div>
         </div>
@@ -140,7 +137,7 @@ export default function DoctorPage() {
                 Ready to meet Dr. Virani?
               </h2>
               <p className="text-[#C9E5E3] text-[16px] mb-8 leading-relaxed">
-                Book an appointment online — we confirm by phone and verify your insurance before you arrive.
+                Book an appointment online. We confirm by phone and verify your insurance before you arrive.
               </p>
               <a
                 href="/book#appointment-form"

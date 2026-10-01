@@ -8,13 +8,13 @@ import {
 } from '@/components/BrandIcons'
 
 const services = [
-  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'More than a prescription check — we map your eye health, catch early disease, and walk you through every finding.',    slug: 'comprehensive-eye-exam' },
-  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Lenses fitted to feel right all day, not just in the exam room — including specialty options for tricky prescriptions.', slug: 'contact-lens-exam' },
+  { Icon: IconEye,      title: 'Comprehensive Eye Exam', blurb: 'More than a prescription check. We map your eye health, catch early disease, and walk you through every finding.',    slug: 'comprehensive-eye-exam' },
+  { Icon: IconLens,     title: 'Contact Lens Exam',      blurb: 'Lenses fitted to feel right all day, not just in the exam room, including specialty options for tricky prescriptions.', slug: 'contact-lens-exam' },
   { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Consistent monitoring that catches retinopathy and related changes before they have a chance to affect your sight.',     slug: 'diabetic-eye-exam' },
-  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something in your eye, sudden pain, or a vision change that worries you? Call first — we triage quickly.',             slug: 'emergency-medical-exam' },
+  { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something in your eye, sudden pain, or a vision change that worries you? Call first so we can triage quickly.',             slug: 'emergency-medical-exam' },
   { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'We trace which visual factors may be behind your headaches and work through practical ways to reduce them.',            slug: 'migraine-management' },
-  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Evidence-based treatments that slow how fast your child\'s prescription changes — best started as early as possible.',  slug: 'myopia-control' },
-  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Calm, age-appropriate exams for young patients — we make sure kids leave without dreading the next one.',              slug: 'child-eye-exam' },
+  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Evidence-based treatments that slow how fast your child\'s prescription changes, best started as early as possible.',  slug: 'myopia-control' },
+  { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Calm, age-appropriate exams for young patients. We make sure kids leave without dreading the next one.',              slug: 'child-eye-exam' },
   { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Building the reaction time and depth perception that give athletes a measurable advantage in their sport.',             slug: 'sports-vision' },
 ]
 
@@ -36,7 +36,7 @@ export default function ServicesPage() {
             Services for every stage of vision
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            We see patients from age five through every stage of life — one practice that doesn&apos;t ask you to start over somewhere new as you get older.
+            We see patients from age five through every stage of life: one practice that doesn&apos;t ask you to start over somewhere new as you get older.
           </p>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                 Not sure which service you need?
               </h2>
               <p className="text-[#C9E5E3] text-[16px] mb-8 leading-relaxed">
-                Give us a call and we&apos;ll help point you in the right direction — no pressure, no jargon.
+                Give us a call and we&apos;ll help point you in the right direction. No pressure, no jargon.
               </p>
               <a
                 href="/book#appointment-form"

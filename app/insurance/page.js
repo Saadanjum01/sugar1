@@ -83,7 +83,7 @@ export default function InsurancePage() {
               Don&apos;t see your insurance plan?
             </h3>
             <p className="text-[#6E7C77] text-[15px]">
-              Call us and we&apos;ll confirm your coverage before your visit — no guesswork.
+              Call us and we&apos;ll confirm your coverage before your visit. No guesswork.
             </p>
           </div>
           <a
@@ -128,7 +128,7 @@ export default function InsurancePage() {
           Questions about your coverage?
         </h2>
         <p className="text-[#6E7C77] text-base sm:text-lg max-w-xl mx-auto mb-8">
-          Our team is happy to help you understand your benefits before your visit — just give us a call.
+          Our team is happy to help you understand your benefits before your visit. Just give us a call.
         </p>
         <a
           href="/book#appointment-form"

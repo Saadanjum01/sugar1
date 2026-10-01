@@ -56,10 +56,10 @@ export async function POST(req) {
     ['Phone', phone],
     ['Email', email],
     ['Reason for visit', reason],
-    ['Insurance', insurance || '—'],
+    ['Insurance', insurance || 'N/A'],
     ['Preferred date', date || 'Any'],
     ['Preferred time', time || 'Any time works'],
-    ['Notes', notes || '—'],
+    ['Notes', notes || 'N/A'],
   ]
   const textSummary = summaryRows.map(([k, v]) => `${k}: ${v}`).join('\n')
 
@@ -100,7 +100,7 @@ export async function POST(req) {
     await sendMail({
       to: PRACTICE_EMAIL,
       replyTo: email,
-      subject: `New appointment request — ${name}`,
+      subject: `New appointment request: ${name}`,
       text: `New appointment request from the website:\n\n${textSummary}`,
       html: practiceHtml,
     })
@@ -111,8 +111,8 @@ export async function POST(req) {
     try {
       await sendMail({
         to: email,
-        subject: 'Your appointment request — First Colony Vision',
-        text: `Hi ${name.split(' ')[0]},\n\nThanks for requesting an appointment with First Colony Vision. We'll call ${phone} within one business day to confirm.\n\nWhat you requested:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\n— First Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
+        subject: 'Your appointment request | First Colony Vision',
+        text: `Hi ${name.split(' ')[0]},\n\nThanks for requesting an appointment with First Colony Vision. We'll call ${phone} within one business day to confirm.\n\nWhat you requested:\n${textSummary}\n\nQuestions in the meantime? Call us at 281-916-2020.\n\nFirst Colony Vision\n16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479`,
         html: patientHtml,
       })
     } catch (patientEmailError) {

@@ -108,7 +108,7 @@ export default function BookPage() {
             Schedule your visit
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            Fill in a few details and we&apos;ll reach out to confirm. Most visits take about an hour — and the time is genuinely yours.
+            Fill in a few details and we&apos;ll reach out to confirm. Most visits take about an hour, and the time is genuinely yours.
           </p>
         </div>
       </div>
@@ -202,7 +202,7 @@ export default function BookPage() {
                 </p>
               </div>
               <p className="text-[13.5px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
-                We accept EyeMed, VSP, BCBS, Cigna, Medicare, UnitedHealthcare, Spectera, Superior Vision, and Aetna. Your costs are quoted before you arrive — no surprises.
+                We accept EyeMed, VSP, BCBS, Cigna, Medicare, UnitedHealthcare, Spectera, Superior Vision, and Aetna. Your costs are quoted before you arrive. No surprises.
               </p>
             </div>
           </div>
@@ -357,7 +357,7 @@ export default function BookPage() {
                     rows={3}
                     value={form.notes}
                     onChange={set('notes')}
-                    placeholder="Anything else we should know — symptoms, concerns, or questions for Dr. Virani."
+                    placeholder="Anything else we should know: symptoms, concerns, or questions for Dr. Virani."
                     className={`${inputClass} resize-none`}
                   />
                 </div>
