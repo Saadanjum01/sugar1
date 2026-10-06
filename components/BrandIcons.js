@@ -246,7 +246,7 @@ export function IconSend({ size = 24, className = '' }) {
   )
 }
 
-/** Standard brand icon tile — 46px, 12px radius, Tint bg, Primary Teal icon */
+/** Standard brand icon tile - 46px, 12px radius, Tint bg, Primary Teal icon */
 export function IconTile({ children, className = '' }) {
   return (
     <div
@@ -257,7 +257,7 @@ export function IconTile({ children, className = '' }) {
   )
 }
 
-/** Terracotta accent tile — for numbered steps & kicker badges */
+/** Terracotta accent tile - for numbered steps & kicker badges */
 export function AccentTile({ children, className = '' }) {
   return (
     <div

@@ -67,7 +67,7 @@ export default function DoctorPage() {
               ))}
             </div>
             <a
-              href="/book#appointment-form"
+              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
             >
               Book with Dr. Virani
@@ -140,7 +140,7 @@ export default function DoctorPage() {
                 Book an appointment online. We confirm by phone and verify your insurance before you arrive.
               </p>
               <a
-                href="/book#appointment-form"
+                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 Book an Appointment

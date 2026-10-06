@@ -78,7 +78,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Newsletter CTA — inspired by mockup news section */}
+      {/* Newsletter CTA - inspired by mockup news section */}
       <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16 bg-[#FBF7F1]">
         <div className="max-w-[1180px] mx-auto bg-[#093F42] rounded-3xl p-8 sm:p-12 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-8 items-center">
           <div>

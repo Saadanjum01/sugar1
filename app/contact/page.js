@@ -19,7 +19,7 @@ const methods = [
     label: 'Book online',
     body: 'Request an appointment',
     note: 'Takes under a minute. We confirm by phone.',
-    href: '/book',
+    href: 'https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d',
     cta: 'Book appointment',
     primary: true,
   },

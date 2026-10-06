@@ -36,7 +36,7 @@ export default function Header() {
           : 'bg-white border-b border-[#E7EBEA] shadow-sm'
       }`}
     >
-      {/* Utility bar — only visible when header is solid */}
+      {/* Utility bar - only visible when header is solid */}
       {!transparent && (
         <div className="bg-[#0D5D62] text-white">
           <div className="mx-auto px-4 sm:px-8 lg:px-16 py-1.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-0.5 text-[11px] sm:text-xs font-semibold tracking-wide text-center">
@@ -78,12 +78,12 @@ export default function Header() {
             <Link href="/insurance" className="hover:opacity-75 transition-opacity">Insurance</Link>
             <Link href="/referrals" className="hover:opacity-75 transition-opacity">Referrals</Link>
             <Link href="/#faq" className="hover:opacity-75 transition-opacity">FAQ</Link>
-            <Link href="/book#appointment-form" className="hover:opacity-75 transition-opacity">Visit Us</Link>
+            <Link href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d" className="hover:opacity-75 transition-opacity">Visit Us</Link>
           </div>
 
           {/* Book button */}
           <a
-            href="/book#appointment-form"
+            href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
             className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 ${
               transparent
                 ? 'bg-white text-[#093F42] hover:bg-white/90'
@@ -127,9 +127,9 @@ export default function Header() {
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Insurance</Link>
             <Link href="/referrals" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Referrals</Link>
             <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">FAQ</Link>
-            <Link href="/book#appointment-form" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
+            <Link href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
             <a
-              href="/book#appointment-form"
+              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center px-8 py-3 bg-[#0D5D62] text-white text-sm font-semibold mt-4 rounded-xl hover:bg-[#093F42] transition-colors"
             >

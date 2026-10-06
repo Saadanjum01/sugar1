@@ -54,7 +54,7 @@ export default function InsurancePage() {
         </div>
       </div>
 
-      {/* Logo grid — matches mockup style */}
+      {/* Logo grid - matches mockup style */}
       <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16">
         <div className="max-w-[1180px] mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
           {insurers.map((ins) => (
@@ -131,7 +131,7 @@ export default function InsurancePage() {
           Our team is happy to help you understand your benefits before your visit. Just give us a call.
         </p>
         <a
-          href="/book#appointment-form"
+          href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
           className="inline-block px-9 py-4 bg-[#0D5D62] text-white font-semibold text-sm hover:bg-[#093F42] transition-colors rounded-xl"
         >
           Book an Appointment

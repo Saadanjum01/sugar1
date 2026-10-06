@@ -155,7 +155,7 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-[1180px] mx-auto px-5 sm:px-8 pt-24 sm:pt-36 lg:pt-[152px] pb-14 sm:pb-24 lg:pb-[104px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-[70px] items-center">
 
-          {/* Left — copy */}
+          {/* Left - copy */}
           <div>
             <div className="inline-flex items-center gap-2 bg-white/14 border border-white/22 rounded-full px-4 py-1.5 mb-6 text-[13px] font-semibold text-white">
               <span className="w-[7px] h-[7px] rounded-full bg-[#E2895B] shrink-0" />
@@ -172,7 +172,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
-                href="/book#appointment-form"
+                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#093F42] rounded-xl text-[14.5px] font-semibold hover:opacity-90 transition-opacity"
               >
                 <IconCal size={16} />
@@ -196,11 +196,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right — photo slideshow */}
+          {/* Right - photo slideshow */}
           <div className="relative">
             <HeroSlideshow />
             <div
-              className="absolute -bottom-5 left-4 right-4 sm:left-auto sm:right-auto sm:-bottom-6 sm:-left-6 z-20 bg-white rounded-2xl px-5 py-4 sm:max-w-[240px]"
+              className="absolute -bottom-5 left-4 right-4 sm:left-auto sm:-bottom-6 sm:-right-6 z-20 bg-white rounded-2xl px-5 py-4 sm:max-w-[240px]"
               style={{ boxShadow: '0 20px 40px -12px rgba(6,38,40,.35)' }}
             >
               <p className="font-display font-semibold text-[14.5px] text-[#093F42] mb-0.5" style={{ letterSpacing: '-0.015em' }}>
@@ -384,7 +384,7 @@ export default function HomePage() {
               ))}
             </div>
             <a
-              href="/book#appointment-form"
+              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
             >
               Book with Dr. Virani
@@ -410,8 +410,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:h-[460px]">
             <div className="rounded-[18px] overflow-hidden relative h-56 sm:h-auto sm:row-span-2 group">
               <img
-                src="/images/office-exterior.jpg"
-                alt="First Colony Vision practice"
+                src="/images/family.jpg"
+                alt="A smiling family of five outdoors"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
@@ -421,8 +421,8 @@ export default function HomePage() {
             </div>
             <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
               <img
-                src="/images/frames/frame-05.jpg"
-                alt="Eyewear collection"
+                src="/images/couple-glasses.jpg"
+                alt="A smiling couple wearing their glasses"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
@@ -578,8 +578,8 @@ export default function HomePage() {
             style={{ aspectRatio: '4/3.3', boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)' }}
           >
             <img
-              src="/images/office-exterior.jpg"
-              alt="First Colony Vision office"
+              src="/images/eye-chart.jpg"
+              alt="Eye chart in the exam room at First Colony Vision"
               className="w-full h-full object-cover"
             />
           </div>
@@ -610,7 +610,7 @@ export default function HomePage() {
                 Requesting an appointment online takes about a minute. We will confirm by phone or email and check your insurance before you arrive.
               </p>
               <a
-                href="/book#appointment-form"
+                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 <IconCal size={16} />

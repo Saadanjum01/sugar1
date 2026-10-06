@@ -42,7 +42,7 @@ export default function NotFound() {
               Back to homepage
             </Link>
             <Link
-              href="/book#appointment-form"
+              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/50 rounded-xl text-[14.5px] font-semibold hover:bg-white/10 transition-colors text-white"
             >
               <IconCal size={16} />

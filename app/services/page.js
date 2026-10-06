@@ -91,7 +91,7 @@ export default function ServicesPage() {
                 Give us a call and we&apos;ll help point you in the right direction. No pressure, no jargon.
               </p>
               <a
-                href="/book#appointment-form"
+                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 Book an Appointment
