@@ -218,7 +218,7 @@ export default function HomePage() {
       <section className="border-y border-[#E7EBEA]">
         <div className="max-w-[1180px] mx-auto grid grid-cols-2 lg:grid-cols-4">
           {[
-            { Icon: IconCal,    title: 'Open Tuesday to Friday',  body: '9:30 AM to 6:00 PM, by appointment' },
+            { Icon: IconCal,    title: 'Open Monday to Friday',  body: '9:30 AM to 6:00 PM, by appointment' },
             { Icon: IconShield, title: 'Insurance Verification',   body: 'Insurance savings verified before your appointment' },
             { Icon: IconFamily, title: 'All ages',                 body: 'Exams to address all eye health areas' },
             { Icon: IconPin,    title: 'Easy Parking',              body: 'Off the Southwest Freeway in front of Target, parking is free' },
@@ -551,7 +551,7 @@ export default function HomePage() {
             </h2>
             {[
               { Icon: IconPin,   title: 'Address',  body: <>16126 Southwest Fwy, Ste 180<br />Sugar Land, TX 77479</> },
-              { Icon: IconClock, title: 'Hours',    body: <>Tuesday thru Friday, 9:30 AM to 6:00 PM<br />Closed Saturday through Monday</> },
+              { Icon: IconClock, title: 'Hours',    body: <>Monday thru Friday, 9:30 AM to 6:00 PM<br />Closed Saturday and Sunday</> },
               { Icon: IconPhone, title: 'Phone',    body: <a href="tel:281-916-2020" className="text-[#0D5D62] font-medium hover:text-[#37B2B8] transition-colors">281-916-2020</a> },
               { Icon: IconCar,   title: 'Parking',  body: 'Free surface parking directly outside Suite 180, with step-free access to the entrance.' },
             ].map((detail, i) => (

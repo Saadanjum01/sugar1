@@ -85,7 +85,7 @@ async function sha256(s: string) {
 const CLINIC_FACTS = `
 Name: First Colony Vision -- an eye care clinic located in Sugar Land, Texas.
 
-Business hours: Tuesday through Friday, 9:30 AM to 6:00 PM. Closed Saturday, Sunday, and Monday.
+Business hours: Monday through Friday, 9:30 AM to 6:00 PM. Closed Saturday and Sunday.
 
 Phone: 281-916-2020
 Address: 16126 Southwest Fwy, Ste 180, Sugar Land, TX 77479

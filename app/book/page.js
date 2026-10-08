@@ -76,7 +76,7 @@ export default function BookPage() {
                   </div>
                   <div>
                     <div className="text-[11px] font-semibold text-[#6E7C77] tracking-widest mb-0.5">HOURS</div>
-                    <p className="text-[15px] text-[#093F42] font-medium">Tue – Fri &nbsp;9:30 AM – 6:00 PM</p>
+                    <p className="text-[15px] text-[#093F42] font-medium">Mon – Fri &nbsp;9:30 AM – 6:00 PM</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3.5">

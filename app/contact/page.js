@@ -117,7 +117,7 @@ export default function ContactPage() {
                 <div>
                   <div className="text-xs font-semibold text-[#093F42] tracking-widest mb-1">HOURS</div>
                   <p className="text-[#6E7C77] text-[15px] leading-relaxed">
-                    Tuesday &ndash; Friday<br />9:30 AM &ndash; 6:00 PM
+                    Monday &ndash; Friday<br />9:30 AM &ndash; 6:00 PM
                   </p>
                 </div>
               </div>

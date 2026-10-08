@@ -35,7 +35,7 @@ export default function Footer() {
               Sugar Land, TX 77479
             </p>
             <p className="text-white/70 text-sm">
-              Tuesday to Friday 9:30 AM to 6:00 PM
+              Monday to Friday 9:30 AM to 6:00 PM
             </p>
           </div>
           <div>
