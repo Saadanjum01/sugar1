@@ -5,7 +5,7 @@ export default function Page() {
     <ServiceDetailLayout
       title="Migraine Management"
       intro="Identifying visual triggers and management strategies to help reduce the frequency and impact of migraines."
-      image="/images/office-exterior.jpg"
+      image="/images/office-exam-room.jpg"
       imageAlt="Patient consultation at First Colony Vision"
       sections={[
         {

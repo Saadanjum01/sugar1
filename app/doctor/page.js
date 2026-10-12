@@ -1,4 +1,10 @@
-import { IconEye, IconCheck, IconHeart } from '@/components/BrandIcons'
+import { IconEye, IconCheck, IconHeart, IconFamily } from '@/components/BrandIcons'
+
+const TEAM = [
+  { name: 'Jonathan Machemehl', role: 'Practice Manager', photo: '/images/team-jonathan.jpg' },
+  { name: 'Natalie Gonzales',   role: 'Ophthalmic Tech',  photo: '/images/team-natalie.jpg' },
+  { name: 'Catarina Tum',       role: 'Optician',         photo: '/images/team-catarina.jpg' },
+]
 
 export default function DoctorPage() {
   return (
@@ -15,10 +21,10 @@ export default function DoctorPage() {
             className="font-display text-[38px] sm:text-[50px] text-[#16201E] mb-4"
             style={{ letterSpacing: '-0.03em' }}
           >
-            Meet the doctor behind your care
+            Meet the team behind your care
           </h1>
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
-            Dr. Virani built First Colony Vision around one idea. Ask first, listen properly, then examine.
+            Dr. Virani built First Colony Vision around one idea. Ask first, listen properly, then examine. Her team carries that into every visit.
           </p>
         </div>
       </div>
@@ -35,7 +41,7 @@ export default function DoctorPage() {
             <img
               src="/images/doctor-portrait.jpg"
               alt="Dr. Shiroz Virani, O.D."
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
 
@@ -105,14 +111,56 @@ export default function DoctorPage() {
             ))}
           </div>
 
-          {/* Team placeholder */}
-          <div className="mt-8 border-2 border-dashed border-[#E7EBEA] rounded-2xl flex flex-col sm:flex-row items-center justify-center text-center gap-5 p-10">
-            <div className="w-12 h-12 rounded-full bg-[#E2F3F0] flex items-center justify-center shrink-0">
-              <span className="text-xl text-[#0D5D62]/40 font-bold">+</span>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-16 sm:py-24 lg:py-[100px] bg-white">
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
+          <div className="max-w-[640px] mx-auto text-center mb-12 sm:mb-14">
+            <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#0D5D62] mb-4">
+              <IconFamily size={15} className="text-[#B85E31]" />
+              Your care team
             </div>
-            <div className="text-left">
-              <h4 className="font-semibold text-[#093F42] mb-1">More Team Members Coming Soon</h4>
-            </div>
+            <h2 className="font-display text-[26px] sm:text-[38px] text-[#16201E] mb-4" style={{ letterSpacing: '-0.03em' }}>
+              The people you&apos;ll meet
+            </h2>
+            <p className="text-[#6E7C77] text-[16px] leading-relaxed">
+              From check-in to choosing your frames, a small team that takes the same unhurried approach as Dr. Virani.
+            </p>
+          </div>
+
+          <div
+            className="rounded-[20px] overflow-hidden mb-10 sm:mb-12"
+            style={{ boxShadow: '0 26px 52px -24px rgba(13,93,98,.28)' }}
+          >
+            <img
+              src="/images/team-group.jpg"
+              alt="The First Colony Vision team: Catarina, Dr. Virani, Jonathan and Natalie"
+              className="w-full aspect-[3/2] sm:aspect-[16/9] object-cover object-top"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            {TEAM.map((m) => (
+              <div
+                key={m.name}
+                className="bg-white rounded-2xl overflow-hidden"
+                style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
+              >
+                <img
+                  src={m.photo}
+                  alt={`${m.name}, ${m.role}`}
+                  className="w-full aspect-[4/5] object-cover object-[50%_20%]"
+                />
+                <div className="px-6 py-5">
+                  <h3 className="font-display font-semibold text-[19px] text-[#093F42]" style={{ letterSpacing: '-0.02em' }}>
+                    {m.name}
+                  </h3>
+                  <p className="text-[14px] font-semibold text-[#37B2B8] mt-0.5">{m.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

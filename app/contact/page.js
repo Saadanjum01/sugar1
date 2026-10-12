@@ -135,7 +135,7 @@ export default function ContactPage() {
             </div>
             <div className="rounded-2xl overflow-hidden h-44 mt-8">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/office-exterior.jpg" alt="First Colony Vision office exterior" className="w-full h-full object-cover" />
+              <img src="/images/office-maui-jim.jpg" alt="Inside the First Colony Vision office" className="w-full h-full object-cover" />
             </div>
           </div>
 

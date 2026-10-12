@@ -410,8 +410,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 sm:h-[460px]">
             <div className="rounded-[18px] overflow-hidden relative h-56 sm:h-auto sm:row-span-2 group">
               <img
-                src="/images/family.jpg"
-                alt="A smiling family of five outdoors"
+                src="/images/office-exam-room.jpg"
+                alt="An exam room at First Colony Vision"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
@@ -421,24 +421,24 @@ export default function HomePage() {
             </div>
             <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
               <img
-                src="/images/couple-glasses.jpg"
-                alt="A smiling couple wearing their glasses"
+                src="/images/team-group.jpg"
+                alt="The First Colony Vision team"
+                className="w-full h-full object-cover object-[50%_12%] transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
+              <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
+                Meet your eye care team
+              </span>
+            </div>
+            <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
+              <img
+                src="/images/office-frames-wall.jpg"
+                alt="The frames wall at First Colony Vision"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
               <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
                 Quality eyewear for everyone
-              </span>
-            </div>
-            <div className="rounded-[18px] overflow-hidden relative h-44 sm:h-auto group">
-              <img
-                src="/images/frames-tomford.jpg"
-                alt="Frames display"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(9,63,66,.5)]" />
-              <span className="absolute left-[18px] bottom-[15px] z-10 text-white font-display font-semibold text-[15px]" style={{ letterSpacing: '-0.015em' }}>
-                Newest advanced lens technology
               </span>
             </div>
           </div>
