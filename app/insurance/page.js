@@ -56,11 +56,11 @@ export default function InsurancePage() {
 
       {/* Logo grid - matches mockup style */}
       <section className="py-14 sm:py-20 lg:py-[100px] px-5 sm:px-8 lg:px-16">
-        <div className="max-w-[1180px] mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
+        <div className="max-w-[1180px] mx-auto flex flex-wrap justify-center gap-4 mb-10">
           {insurers.map((ins) => (
             <div
               key={ins.name}
-              className={`rounded-2xl p-5 h-24 flex items-center justify-center ${ins.darkLogo ? 'bg-[#093F42]' : 'bg-[#F7F8F7]'}`}
+              className={`w-[calc(50%-8px)] sm:w-[calc((100%-32px)/3)] lg:w-[calc((100%-64px)/5)] rounded-2xl p-5 h-24 flex items-center justify-center ${ins.darkLogo ? 'bg-[#093F42]' : 'bg-[#F7F8F7]'}`}
               style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
             >
               {ins.logo ? (
