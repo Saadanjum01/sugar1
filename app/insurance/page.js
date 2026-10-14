@@ -93,6 +93,27 @@ export default function InsurancePage() {
             Call 281-916-2020
           </a>
         </div>
+
+        {/* VSP Individual Vision Plan ad (paid per click-through) */}
+        <div className="max-w-[1180px] mx-auto mt-10 flex justify-center">
+          <a
+            href="https://www.saveonvision.com/l/FIRSTCOLONYE/"
+            target="_blank"
+            rel="noopener sponsored"
+            className="block w-full max-w-[382px] rounded-xl overflow-hidden"
+            style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://cdn.vsp.com/dam/jcr:d48a0bcf-6af2-47f3-b3cc-77a149d03554/143229-26-VG-563x308-C.jpg"
+              alt="Cover the whole family with a VSP Individual Vision Plan. See plans."
+              width={563}
+              height={308}
+              loading="lazy"
+              className="w-full h-auto"
+            />
+          </a>
+        </div>
       </section>
 
       {/* Payment options */}
