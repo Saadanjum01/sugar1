@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { Instagram, Facebook } from 'lucide-react'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -46,15 +45,6 @@ export default function Header() {
             <a href="tel:281-916-2020" className="hover:text-[#37B2B8] transition-colors">281-916-2020</a>
             <span className="hidden sm:inline opacity-40">&bull;</span>
             <span className="hidden sm:inline">16126 Southwest Fwy, Sugar Land</span>
-            <span className="hidden sm:inline opacity-40">&bull;</span>
-            <span className="flex items-center gap-3">
-              <a href="https://www.instagram.com/explore/locations/107911770993435/first-colony-vision-formerly-todays-vision-sugar-land/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#37B2B8] transition-colors">
-                <Instagram size={14} />
-              </a>
-              <a href="https://www.facebook.com/TVSugarLand/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#37B2B8] transition-colors">
-                <Facebook size={14} />
-              </a>
-            </span>
           </div>
         </div>
       )}
