@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Instagram, Facebook, Twitter } from 'lucide-react'
+import { Phone, Instagram, Facebook } from 'lucide-react'
 import Wordmark from '@/components/Wordmark'
 
 export default function Footer() {
@@ -54,9 +54,6 @@ export default function Footer() {
               </a>
               <a href="https://www.facebook.com/TVSugarLand/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
               </a>
             </div>
           </div>
