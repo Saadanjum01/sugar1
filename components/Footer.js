@@ -49,10 +49,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-sm mb-4 tracking-widest text-white">FOLLOW</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/explore/locations/107911770993435/first-colony-vision-formerly-todays-vision-sugar-land/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/TVSugarLand/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
               <a href="#" className="text-white/70 hover:text-[#37B2B8] transition-colors" aria-label="Twitter">
