@@ -40,7 +40,7 @@ export default function Page() {
       ctaBody="Give your child the gift of clear vision. Contact First Colony Vision today to schedule a child eye exam."
       bookLabel="Book a Child Eye Exam"
       relatedServices={[
-        { title: 'Myopia Control', slug: 'myopia-control' },
+        { title: 'Myopia Management', slug: 'myopia-management' },
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Sports Vision', slug: 'sports-vision' },
         { title: 'Contact Lens Exam', slug: 'contact-lens-exam' }

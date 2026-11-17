@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import CountdownBanner from '@/components/CountdownBanner'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -36,6 +37,9 @@ export default function Header() {
           : 'bg-white border-b border-[#E7EBEA] shadow-sm'
       }`}
     >
+      {/* Use It or Lose It campaign bar (h-9); layout.js offsets it with the matching spacer */}
+      <CountdownBanner variant="bar" />
+
       {/* Utility bar - only visible when header is solid */}
       {!transparent && (
         <div className="bg-[#0D5D62] text-white">
@@ -74,16 +78,17 @@ export default function Header() {
             <Link href="/" className="hover:opacity-75 transition-opacity">Home</Link>
             <Link href="/#services" className="hover:opacity-75 transition-opacity">Services</Link>
             <Link href="/#first-visit" className="hover:opacity-75 transition-opacity">First Visit</Link>
+            <Link href="/frames" className="hover:opacity-75 transition-opacity">Frames</Link>
             <Link href="/doctor" className="hover:opacity-75 transition-opacity">Our Team</Link>
             <Link href="/insurance" className="hover:opacity-75 transition-opacity">Insurance</Link>
             <Link href="/referrals" className="hover:opacity-75 transition-opacity">Referrals</Link>
             <Link href="/#faq" className="hover:opacity-75 transition-opacity">FAQ</Link>
-            <Link href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d" className="hover:opacity-75 transition-opacity">Visit Us</Link>
+            <Link href="/book" className="hover:opacity-75 transition-opacity">Visit Us</Link>
           </div>
 
           {/* Book button */}
           <a
-            href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+            href="/book"
             className={`hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 ${
               transparent
                 ? 'bg-white text-[#093F42] hover:bg-white/90'
@@ -123,13 +128,14 @@ export default function Header() {
             <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Home</Link>
             <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Services</Link>
             <Link href="/#first-visit" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">First Visit</Link>
+            <Link href="/frames" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Frames</Link>
             <Link href="/doctor" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Our Team</Link>
             <Link href="/insurance" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Insurance</Link>
             <Link href="/referrals" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Referrals</Link>
             <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">FAQ</Link>
-            <Link href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
+            <Link href="/book" onClick={() => setMobileMenuOpen(false)} className="block text-base font-medium text-[#093F42] hover:text-[#37B2B8] transition-colors">Visit Us</Link>
             <a
-              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+              href="/book"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center px-8 py-3 bg-[#0D5D62] text-white text-sm font-semibold mt-4 rounded-xl hover:bg-[#093F42] transition-colors"
             >

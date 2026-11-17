@@ -13,7 +13,7 @@ const services = [
   { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Consistent monitoring that catches retinopathy and related changes before they have a chance to affect your sight.',     slug: 'diabetic-eye-exam' },
   { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Something in your eye, sudden pain, or a vision change that worries you? Call first so we can triage quickly.',             slug: 'emergency-medical-exam' },
   { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'We trace which visual factors may be behind your headaches and work through practical ways to reduce them.',            slug: 'migraine-management' },
-  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Evidence-based treatments that slow how fast your child\'s prescription changes, best started as early as possible.',  slug: 'myopia-control' },
+  { Icon: IconTarget,   title: 'Myopia Management',      blurb: 'Evidence-based treatments that slow how fast your child\'s prescription changes, best started as early as possible.',  slug: 'myopia-management' },
   { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Calm, age-appropriate exams for young patients. We make sure kids leave without dreading the next one.',              slug: 'child-eye-exam' },
   { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Building the reaction time and depth perception that give athletes a measurable advantage in their sport.',             slug: 'sports-vision' },
 ]
@@ -91,7 +91,7 @@ export default function ServicesPage() {
                 Give us a call and we&apos;ll help point you in the right direction. No pressure, no jargon.
               </p>
               <a
-                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+                href="/book"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 Book an Appointment

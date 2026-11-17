@@ -11,6 +11,7 @@ import {
 } from '@/components/BrandIcons'
 import HeroSlideshow from '@/components/HeroSlideshow'
 import NewsletterForm from '@/components/NewsletterForm'
+import CountdownBanner from '@/components/CountdownBanner'
 
 /* ── Data ─────────────────────────────────────────────── */
 
@@ -20,7 +21,7 @@ const services = [
   { Icon: IconDrop,     title: 'Diabetic Eye Exam',      blurb: 'Regular monitoring so diabetic retinopathy gets caught early.',                        slug: 'diabetic-eye-exam' },
   { Icon: IconPulse,    title: 'Emergency Eye Exam',     blurb: 'Quick help with injuries, something stuck in your eye, or a sudden change in vision.',       slug: 'emergency-medical-exam' },
   { Icon: IconMigraine, title: 'Migraine Management',    blurb: 'Working out which visual triggers are behind your headaches, and what actually helps.',                slug: 'migraine-management' },
-  { Icon: IconTarget,   title: 'Myopia Control',         blurb: 'Slowing down nearsightedness in children and young adults.',                   slug: 'myopia-control' },
+  { Icon: IconTarget,   title: 'Myopia Management',      blurb: 'Slowing down nearsightedness in children and young adults.',                   slug: 'myopia-management' },
   { Icon: IconFamily,   title: 'Child Eye Exam',         blurb: 'Short, friendly exams that keep kids comfortable the whole way through.',                 slug: 'child-eye-exam' },
   { Icon: IconBolt,     title: 'Sports Vision',          blurb: 'Training the visual skills athletes lean on, like tracking and reaction time.',                   slug: 'sports-vision' },
 ]
@@ -172,7 +173,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
-                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+                href="/book"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#093F42] rounded-xl text-[14.5px] font-semibold hover:opacity-90 transition-opacity"
               >
                 <IconCal size={16} />
@@ -207,7 +208,7 @@ export default function HomePage() {
                 Locally owned and operated
               </p>
               <p className="text-[13px] text-[#6E7C77] leading-snug">
-                Our team has over 30 years of experience
+                Our team has over 35 years of experience
               </p>
             </div>
           </div>
@@ -251,8 +252,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Use It or Lose It countdown ── */}
+      <CountdownBanner variant="section" />
+
       {/* ── Services ── */}
-      <section id="services" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-[#E2F3F0]">
+      <section id="services" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[166px] bg-[#E2F3F0]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconSpark}>What we offer</Kicker>
@@ -287,7 +291,7 @@ export default function HomePage() {
       {/* ── First Visit ── */}
       <section
         id="first-visit"
-        className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]"
+        className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[166px]"
         style={{ background: '#0D5D62' }}
       >
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
@@ -341,7 +345,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Doctor ── */}
-      <section id="team" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-[#F4E1D8]">
+      <section id="team" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[166px] bg-[#F4E1D8]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
 
           {/* Avatar / photo */}
@@ -351,7 +355,7 @@ export default function HomePage() {
           >
             <img
               src="/images/doctor-portrait.jpg"
-              alt="Dr. Shiroz Virani, O.D."
+              alt="Dr. Shiroz (Rose) Virani, O.D."
               className="w-full h-full object-cover"
             />
           </div>
@@ -360,22 +364,23 @@ export default function HomePage() {
           <div>
             <Kicker Icon={IconEye}>Meet your doctor</Kicker>
             <h2 className="font-display text-[28px] sm:text-[40px] text-[#16201E] mb-1.5" style={{ letterSpacing: '-0.03em' }}>
-              Shiroz Virani, O.D.
+              Shiroz (Rose) Virani, O.D.
             </h2>
             <p className="text-[14.5px] font-semibold text-[#37B2B8] mb-6">
-              Optometrist and founder, First Colony Vision
+              Therapeutic Optometrist &amp; Optometric Glaucoma Specialist
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-4 max-w-[540px]">
-              Dr. Virani opened First Colony Vision so she could practice the way she thinks eye care should work. Ask first, listen properly, then examine.
+              Dr. Shiroz &ldquo;Rose&rdquo; Virani brings more than 35 years of experience caring for patients&apos; eyes. She earned her Doctor of Optometry degree from the University of Houston College of Optometry in 1988.
             </p>
             <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-6 max-w-[540px]">
-              She and her team take their time with every exam and explain what they are seeing as they go. You should walk out understanding your own eyes, not just holding a prescription.
+              Her expertise includes comprehensive eye exams, specialty contact lens fittings, glaucoma and myopia management, and diabetic eye care. She takes time to help every patient understand how the health of their eyes reflects their overall wellness.{' '}
+              <a href="/doctor" className="font-semibold text-[#0D5D62] underline underline-offset-2 hover:text-[#093F42]">Read her full bio</a>
             </p>
             <div className="flex flex-col gap-3 mb-8">
               {[
-                'Doctor of Optometry',
-                'Kids and family vision care',
-                'Specialty and hard to fit contact lenses',
+                'Doctor of Optometry, University of Houston (1988)',
+                'Therapeutic Optometrist & Optometric Glaucoma Specialist',
+                'More than 35 years of experience',
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3 text-[14.5px] font-medium text-[#16201E]">
                   <IconCheck size={18} className="text-[#37B2B8] shrink-0" />
@@ -384,7 +389,7 @@ export default function HomePage() {
               ))}
             </div>
             <a
-              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+              href="/book"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
             >
               Book with Dr. Virani
@@ -446,7 +451,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Insurance ── */}
-      <section id="insurance" className="py-16 sm:py-24 lg:py-[100px] bg-[#FBF7F1] scroll-mt-[130px]">
+      <section id="insurance" className="py-16 sm:py-24 lg:py-[100px] bg-[#FBF7F1] scroll-mt-[166px]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconShield}>Coverage</Kicker>
@@ -517,7 +522,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px] bg-white">
+      <section id="faq" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[166px] bg-white">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div className="max-w-[640px] mx-auto text-center mb-14">
             <Kicker Icon={IconList}>Common questions</Kicker>
@@ -542,7 +547,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Location ── */}
-      <section id="location" className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0] scroll-mt-[130px]">
+      <section id="location" className="py-16 sm:py-24 lg:py-[100px] bg-[#E2F3F0] scroll-mt-[166px]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
             <Kicker Icon={IconPin}>Come see us</Kicker>
@@ -587,7 +592,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section id="book" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[130px]">
+      <section id="book" className="py-16 sm:py-24 lg:py-[100px] scroll-mt-[166px]">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
           <div
             className="relative rounded-[24px] overflow-hidden text-center px-6 py-14 sm:px-12 sm:py-20"
@@ -610,7 +615,7 @@ export default function HomePage() {
                 Requesting an appointment online takes about a minute. We will confirm by phone or email and check your insurance before you arrive.
               </p>
               <a
-                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+                href="/book"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 <IconCal size={16} />

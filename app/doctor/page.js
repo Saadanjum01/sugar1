@@ -1,7 +1,6 @@
 import { IconEye, IconCheck, IconHeart, IconFamily } from '@/components/BrandIcons'
 
 const TEAM = [
-  { name: 'Jonathan Machemehl', role: 'Practice Manager', photo: '/images/team-jonathan.jpg' },
   { name: 'Natalie Gonzales',   role: 'Ophthalmic Tech',  photo: '/images/team-natalie.jpg' },
   { name: 'Catarina Tum',       role: 'Optician',         photo: '/images/team-catarina.jpg' },
 ]
@@ -40,7 +39,7 @@ export default function DoctorPage() {
           >
             <img
               src="/images/doctor-portrait.jpg"
-              alt="Dr. Shiroz Virani, O.D."
+              alt="Dr. Shiroz (Rose) Virani, O.D."
               className="w-full h-full object-cover object-top"
             />
           </div>
@@ -48,23 +47,27 @@ export default function DoctorPage() {
           {/* Bio */}
           <div>
             <h2 className="font-display text-[28px] sm:text-[40px] text-[#16201E] mb-1.5" style={{ letterSpacing: '-0.03em' }}>
-              Shiroz Virani, O.D.
+              Shiroz (Rose) Virani, O.D.
             </h2>
             <p className="text-[14.5px] font-semibold text-[#37B2B8] mb-7">
-              Optometrist and founder, First Colony Vision
+              Therapeutic Optometrist &amp; Optometric Glaucoma Specialist at First Colony Vision
             </p>
-            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
-              Dr. Virani opened First Colony Vision so she could practice the way she thinks eye care should work. Ask first, listen properly, then examine.
-            </p>
-            <p className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
-              She and her team take their time with every exam and explain what they are seeing as they go. You should walk out understanding your own eyes, not just holding a prescription.
-            </p>
+            {[
+              'Dr. Shiroz "Rose" Virani brings more than 35 years of experience caring for patients\' eyes. Born in Kampala, Uganda, she came to the United States as a refugee in 1972 and earned her Doctor of Optometry degree from the University of Houston College of Optometry in 1988. That journey shaped her deep compassion for patients from every walk of life.',
+              "At First Colony Vision, Dr. Virani's expertise includes comprehensive eye exams, specialty contact lens fittings, glaucoma and myopia management, cataract care, surgical pre and post-operative care, diagnosis and treatment of eye diseases, injuries including eye infections, and diabetic eye care. She takes time to help every patient understand how the health of their eyes reflects their overall wellness.",
+              'A proud Sugar Land resident, she balances her office time with community services, serving on the boards of Child Advocates of Fort Bend and the Houston Galveston Institute. She also volunteers at The Ismaili Center Houston.',
+              'Family is at the heart of her life. She is a mom to a son and a daughter, and a proud grandmother who treasures daily FaceTime calls with her grandson. An avid traveler, she loves exploring new cultures, checking off bucket-list destinations on every continent. She loves sharing her adventures with her patients.',
+            ].map((para) => (
+              <p key={para.slice(0, 24)} className="text-[16px] text-[#6E7C77] leading-relaxed mb-5 max-w-[540px]">
+                {para}
+              </p>
+            ))}
             <div className="flex flex-col gap-3 mb-8">
               {[
-                'Doctor of Optometry',
-                'Kids and family vision care',
-                'Specialty and hard to fit contact lenses',
-                'Sports vision and myopia control',
+                'Doctor of Optometry, University of Houston College of Optometry (1988)',
+                'More than 35 years of experience',
+                'Therapeutic Optometrist',
+                'Optometric Glaucoma Specialist',
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3 text-[14.5px] font-medium text-[#16201E]">
                   <IconCheck size={18} className="text-[#37B2B8] shrink-0" />
@@ -73,7 +76,7 @@ export default function DoctorPage() {
               ))}
             </div>
             <a
-              href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+              href="/book"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5D62] text-white rounded-xl text-[14.5px] font-semibold hover:bg-[#093F42] transition-colors"
             >
               Book with Dr. Virani
@@ -141,7 +144,38 @@ export default function DoctorPage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          {/* Jonathan profile */}
+          <div
+            className="bg-[#FBF7F1] rounded-[20px] p-6 sm:p-10 grid grid-cols-1 md:grid-cols-[0.6fr_1.4fr] gap-8 sm:gap-10 items-center mb-10 sm:mb-12"
+          >
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ aspectRatio: '4/5', boxShadow: '0 16px 32px -22px rgba(13,93,98,.28)' }}
+            >
+              <img
+                src="/images/team-jonathan.jpg"
+                alt="Jonathan Machemehl, Practice Manager"
+                className="w-full h-full object-cover object-[50%_20%]"
+              />
+            </div>
+            <div>
+              <h3 className="font-display text-[24px] sm:text-[30px] text-[#16201E] mb-1" style={{ letterSpacing: '-0.03em' }}>
+                Meet Jonathan Machemehl
+              </h3>
+              <p className="text-[14px] font-semibold text-[#37B2B8] mb-5">Practice Manager</p>
+              {[
+                'With over 18 years of experience in the optical industry, Jonathan brings a wealth of knowledge and a genuine passion for patient care to First Colony Vision. Jonathan attended Southern Methodist University (SMU) and is dedicated to helping patients find not only the perfect frames to complement their features, but also the ideal lenses to ensure optimal vision and eye health.',
+                "He has a proven track record of success in the optical field providing a smooth and hassle-free experience for you when it comes to your vision care. Jonathan's deep understanding of insurance regulations helps FCV provide exceptional value and maximize your benefits. Beyond the technical aspects, Jonathan possesses a keen eye for style and is committed to helping each patient discover eyewear that enhances their individual look and lifestyle.",
+                'When he is not working at the office, you will find Jonathan spending time with his French bulldog, Kashmere.',
+              ].map((para) => (
+                <p key={para.slice(0, 24)} className="text-[15px] text-[#6E7C77] leading-relaxed mb-4 last:mb-0 max-w-[600px]">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-[780px] mx-auto">
             {TEAM.map((m) => (
               <div
                 key={m.name}
@@ -188,7 +222,7 @@ export default function DoctorPage() {
                 Book an appointment online. We confirm by phone and verify your insurance before you arrive.
               </p>
               <a
-                href="https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d"
+                href="/book"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#0D5D62] rounded-xl text-[14.5px] font-semibold hover:bg-white/90 transition-opacity"
               >
                 Book an Appointment

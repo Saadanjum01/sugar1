@@ -39,7 +39,7 @@ export default function Page() {
         { title: 'Contact Lens Exam', slug: 'contact-lens-exam' },
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Child Eye Exam', slug: 'child-eye-exam' },
-        { title: 'Myopia Control', slug: 'myopia-control' }
+        { title: 'Myopia Management', slug: 'myopia-management' }
       ]}
     />
   )

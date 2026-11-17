@@ -42,7 +42,7 @@ export default function Page() {
         { title: 'Comprehensive Eye Exam', slug: 'comprehensive-eye-exam' },
         { title: 'Sports Vision', slug: 'sports-vision' },
         { title: 'Child Eye Exam', slug: 'child-eye-exam' },
-        { title: 'Myopia Control', slug: 'myopia-control' }
+        { title: 'Myopia Management', slug: 'myopia-management' }
       ]}
     />
   )

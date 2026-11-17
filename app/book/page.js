@@ -2,6 +2,7 @@ import {
   IconCal, IconPin, IconClock, IconPhone, IconCheck,
   IconId, IconCardPay, IconGlasses, IconList, IconEye, IconFamily,
 } from '@/components/BrandIcons'
+import CountdownBanner from '@/components/CountdownBanner'
 
 const SCHEDULER_URL = 'https://scheduler.eyefinity.com/index.html?puid=58f353344da3420ebddabf54fff56e3d'
 
@@ -34,6 +35,7 @@ export default function BookPage() {
           <p className="text-[#6E7C77] text-[16.5px] leading-relaxed max-w-xl">
             Pick a time that works for you below. Most visits take about an hour, and the time is genuinely yours.
           </p>
+          <CountdownBanner variant="compact" className="mt-6" />
         </div>
       </div>
 
@@ -132,7 +134,7 @@ export default function BookPage() {
           </div>
 
           {/* ── Right column: Eyefinity scheduler ── */}
-          <div id="appointment-form" className="scroll-mt-[140px]">
+          <div id="appointment-form" className="scroll-mt-[176px]">
             <div
               className="bg-white rounded-2xl p-3 sm:p-4"
               style={{ boxShadow: '0 1px 2px rgba(16,40,42,.05),0 16px 32px -22px rgba(13,93,98,.2)' }}
