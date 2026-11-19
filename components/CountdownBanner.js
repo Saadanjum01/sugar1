@@ -8,11 +8,11 @@ import { useEffect, useState } from 'react'
 export const DEADLINE = '2026-12-31T23:59:59-06:00'
 
 const END = Date.parse(DEADLINE)
-const YEAR = DEADLINE.slice(0, 4)
+export const YEAR = DEADLINE.slice(0, 4)
 
 // ms remaining, or null until mounted, so the server render and the first
 // client render match (both show "--").
-function useRemaining() {
+export function useRemaining() {
   const [ms, setMs] = useState(null)
   useEffect(() => {
     const tick = () => {
@@ -27,7 +27,7 @@ function useRemaining() {
   return ms
 }
 
-function split(ms) {
+export function split(ms) {
   if (ms === null) return { d: '--', h: '--', m: '--', s: '--', label: 'Time remaining until benefits reset' }
   const t = Math.floor(ms / 1000)
   const d = Math.floor(t / 86400)
@@ -41,14 +41,14 @@ function split(ms) {
 const Dot = () => <span className="w-1.5 h-1.5 rounded-full bg-[#E2895B] shrink-0" aria-hidden="true" />
 
 // Variants:
-//   bar     - slim h-9 (36px) link bar at the top of the fixed Header
-//   spacer  - h-9 block at the top of <main>, offsets the bar; disappears with it
+//   bar     - slim h-10 (40px) link bar at the top of the fixed Header
+//   spacer  - h-10 block at the top of <main>, offsets the bar; disappears with it
 //   compact - inline pill (book page)
 //   section - homepage section with day/hour/minute/second tiles
 export default function CountdownBanner({ variant = 'bar', className = '' }) {
   const ms = useRemaining()
   if (ms === 0) return null
-  if (variant === 'spacer') return <div aria-hidden="true" className="h-9" />
+  if (variant === 'spacer') return <div aria-hidden="true" className="h-10" />
 
   const { d, h, m, s, label } = split(ms)
   const inline = (
@@ -59,14 +59,14 @@ export default function CountdownBanner({ variant = 'bar', className = '' }) {
 
   if (variant === 'bar') {
     return (
-      <Link href="/book" className={`block h-9 bg-[#093F42] text-white hover:bg-[#062931] transition-colors ${className}`}>
-        <span className="h-full mx-auto px-4 flex items-center justify-center gap-2 text-[12px] md:text-[13px] font-semibold whitespace-nowrap overflow-hidden">
+      <Link href="/book" className={`block h-10 bg-[#093F42] text-white hover:bg-[#062931] transition-colors ${className}`}>
+        <span className="h-full mx-auto px-4 flex items-center justify-center gap-1.5 md:gap-2.5 text-[13px] md:text-[15px] font-semibold whitespace-nowrap overflow-hidden">
           <Dot />
           <span>
             Use It or Lose It<span className="md:hidden">:</span>
             <span className="hidden md:inline font-medium"> &middot; Your {YEAR} vision benefits expire in</span>
           </span>
-          <span className="text-[#37B2B8]">{inline}</span>
+          <span className="text-[#5FD3D9] font-bold text-[14px] md:text-[17px]">{inline}</span>
           <span className="opacity-40" aria-hidden="true">&middot;</span>
           <span className="underline underline-offset-2 decoration-white/40">
             Book<span className="hidden md:inline"> now</span> &rarr;
@@ -80,12 +80,12 @@ export default function CountdownBanner({ variant = 'bar', className = '' }) {
     return (
       <Link
         href="/book#appointment-form"
-        className={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl bg-white border border-[#E7EBEA] px-4 py-2.5 text-[13.5px] text-[#093F42] hover:border-[#37B2B8] transition-colors ${className}`}
+        className={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl bg-white border border-[#E7EBEA] px-5 py-3 text-[15px] text-[#093F42] hover:border-[#37B2B8] transition-colors ${className}`}
       >
         <Dot />
         <span className="font-semibold">Use It or Lose It:</span>
         <span className="text-[#6E7C77]">your {YEAR} benefits reset in</span>
-        <span className="font-bold text-[#0D5D62]">{inline}</span>
+        <span className="font-bold text-[17px] text-[#0D5D62]">{inline}</span>
       </Link>
     )
   }
@@ -126,10 +126,10 @@ export default function CountdownBanner({ variant = 'bar', className = '' }) {
           <div role="timer" aria-label={label} className="grid grid-cols-4 gap-2 sm:gap-3">
             {tiles.map(([value, unit]) => (
               <div key={unit} className="bg-white/10 border border-white/15 rounded-2xl py-4 sm:py-6 text-center" aria-hidden="true">
-                <div className="font-display font-semibold text-[30px] sm:text-[44px] leading-none text-white tabular-nums" style={{ letterSpacing: '-0.02em' }}>
+                <div className="font-display font-semibold text-[34px] sm:text-[54px] leading-none text-white tabular-nums" style={{ letterSpacing: '-0.02em' }}>
                   {value}
                 </div>
-                <div className="mt-2 text-[10px] sm:text-[12px] font-semibold uppercase tracking-wider sm:tracking-widest text-white/70">
+                <div className="mt-2 text-[10.5px] sm:text-[13px] font-semibold uppercase tracking-wider sm:tracking-widest text-white/70">
                   {unit}
                 </div>
               </div>

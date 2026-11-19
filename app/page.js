@@ -12,6 +12,7 @@ import {
 import HeroSlideshow from '@/components/HeroSlideshow'
 import NewsletterForm from '@/components/NewsletterForm'
 import CountdownBanner from '@/components/CountdownBanner'
+import OfferPopup from '@/components/OfferPopup'
 
 /* ── Data ─────────────────────────────────────────────── */
 
@@ -253,6 +254,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Use It or Lose It countdown ── */}
+      <OfferPopup />
       <CountdownBanner variant="section" />
 
       {/* ── Services ── */}

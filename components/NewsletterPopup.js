@@ -18,6 +18,7 @@ export default function NewsletterPopup() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const [ready, setReady] = useState(false) // delay elapsed; open once no offer popup is showing
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -26,7 +27,7 @@ export default function NewsletterPopup() {
     const welcomeStillActive = Date.now() <= WELCOME_EXPIRES_AT.getTime()
 
     if (!welcomeStillActive || localStorage.getItem(WELCOME_STORAGE_KEY)) {
-      const timer = setTimeout(() => setOpen(true), DELAY_MS)
+      const timer = setTimeout(() => setReady(true), DELAY_MS)
       return () => clearTimeout(timer)
     }
 
@@ -35,14 +36,24 @@ export default function NewsletterPopup() {
     const poll = setInterval(() => {
       if (localStorage.getItem(WELCOME_STORAGE_KEY)) {
         clearInterval(poll)
-        setTimeout(() => setOpen(true), DELAY_MS)
+        setTimeout(() => setReady(true), DELAY_MS)
       }
     }, WELCOME_CHECK_INTERVAL_MS)
     return () => clearInterval(poll)
   }, [])
 
+  // Homepage offer popup (OfferPopup) may be open; hold this one until it closes.
+  useEffect(() => {
+    if (!ready || open) return
+    const id = setInterval(() => {
+      if (!document.querySelector('[data-offer-popup]')) { clearInterval(id); setOpen(true) }
+    }, WELCOME_CHECK_INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [ready, open])
+
   function dismiss() {
     setOpen(false)
+    setReady(false)
     localStorage.setItem(STORAGE_KEY, '1')
   }
 
